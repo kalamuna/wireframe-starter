@@ -2,8 +2,9 @@ name: THEMENAME
 type: theme
 description: 'A wireframe starter theme by Kalamuna. Change THEMENAME and files to use your own theme name.'
 core: 8.x
-base theme: classy
+base theme: stable
 libraries:
+  - core/normalize
   - themename/theme-styles
 regions:
   header: Header
