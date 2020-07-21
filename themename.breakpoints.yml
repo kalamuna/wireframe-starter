@@ -1,0 +1,20 @@
+themename.screen-s:
+  label: screen-s
+  mediaQuery: '(min-width: 0px) and (max-width: 639px)'
+  weight: 1
+themename.screen-m:
+  label: screen-m
+  mediaQuery: '(min-width: 640px) and (max-width: 1023px)'
+  weight: 2
+themename.screen-l:
+  label: screen-l
+  mediaQuery: '(min-width: 1024px) and (max-width: 1439px)'
+  weight: 3
+themename.screen-xl:
+  label: screen-xl
+  mediaQuery: '(min-width: 1440px) and (max-width: 1599px)'
+  weight: 4
+themename.screen-xxl:
+  label: screen-xxl
+  mediaQuery: '(min-width: 1600px)'
+  weight: 5
