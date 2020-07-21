@@ -12,9 +12,9 @@ themename.screen-l:
   weight: 3
 themename.screen-xl:
   label: screen-xl
-  mediaQuery: '(min-width: 1440px) and (max-width: 1599px)'
+  mediaQuery: '(min-width: 1440px) and (max-width: 1919px)'
   weight: 4
 themename.screen-xxl:
   label: screen-xxl
-  mediaQuery: '(min-width: 1600px)'
+  mediaQuery: '(min-width: 1920px)'
   weight: 5
