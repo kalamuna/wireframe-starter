@@ -9,7 +9,7 @@
     "watch": "npm run -s build && onchange \"src/scss\" -- npm run -s build"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
+    "autoprefixer": "^9.8.5",
     "node-sass": "^4.14.1",
     "onchange": "^7.0.2",
     "postcss-cli": "^7.1.1"
