@@ -1,0 +1,44 @@
+
+// The colors used in the design pallete, defined by shade and luminocity.
+$colors: (
+  white:        #ffffff,
+  black:        #000000,
+  grey-90:      #E6E6E6,
+  grey-80:      #CCCCCC,
+  grey-70:      #B3B3B3,
+  grey-60:      #999999,
+  grey-50:      #808080,
+  grey-40:      #666666,
+  grey-30:      #4D4D4D,
+  grey-20:      #333333,
+  grey-10:      #1A1A1A,
+  blue-40:      #0066cc,
+  red-40:       #cc0000,
+);
+
+
+// Map colors to different common usages.
+$color-usage: (
+  text:              map-get($colors, grey-20),
+  heading:           map-get($colors, grey-30),
+  background-body:   map-get($colors, white),
+  background-light:  map-get($colors, grey-90),
+  link:              map-get($colors, blue-40),
+  link-active:       map-get($colors, red-40),
+);
+
+
+// Function to return the color value for a usage or color name.
+@function color($color) {
+
+  // If a usage has been passed in, return the associated color.
+  @if map-get($color-usage, $color) {
+    @return map-get($color-usage, $color);
+  }
+  // If it is not a usage, see if it is a color name.
+  @if map-get($colors, $color) {
+    @return map-get($colors, $color);
+  }
+  // If there is no usage or color name, display an error on build.
+  @error "Unknown color or color usage: #{$color}";
+}

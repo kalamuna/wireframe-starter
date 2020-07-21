@@ -3,10 +3,12 @@
 @import "mixins/container";
 @import "mixins/responsive";
 
+@import "base/color";
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: #fff;
+  background: color(background-body);
 }
