@@ -8,5 +8,6 @@ libraries:
   - themename/theme-styles
 regions:
   header: Header
+  hero: Hero
   content: Content
   footer: Footer
