@@ -5,10 +5,5 @@
 
 @import "base/color";
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: color(background-body);
-}
+@import "templates/html";
+@import "templates/page";

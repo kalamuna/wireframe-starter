@@ -1,0 +1,15 @@
+#main-header,
+.block--local-tasks-block,
+.block--system-main-block {
+  @include container;
+}
+
+
+main > header {
+  background: color(background-light);
+
+  .block--system-breadcrumb-block,
+  .block--page-title-block {
+    @include container;
+  }
+}

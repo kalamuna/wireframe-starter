@@ -78,7 +78,8 @@
   ]
 %}
 
-<article{{ attributes.addClass(classes) }}>
+{# Remove role so it is not flagged as duplicate by accessibility tools. #}
+<article{{ attributes.addClass(classes).removeAttribute('role') }}>
 
   {{ title_prefix }}
   {% if label and not page %}
