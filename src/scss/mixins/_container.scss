@@ -1,7 +1,7 @@
 // Mixin to make an element into a centered container.
 
 // Set default width and padding that can be overwritten in the base scss files.
-$container-width: 1440px !default;
+$container-width: 80rem !default; // 1280px
 $container-padding: 2rem !default;
 
 // Style an element as a centered container, with the padding outside of the defined width.

@@ -1,30 +1,25 @@
 
-// The colors used in the design pallete, defined by shade and luminocity.
+// The colors used in the design pallete.
 $colors: (
   white:        #ffffff,
   black:        #000000,
-  grey-90:      #E6E6E6,
-  grey-80:      #CCCCCC,
-  grey-70:      #B3B3B3,
-  grey-60:      #999999,
-  grey-50:      #808080,
-  grey-40:      #666666,
-  grey-30:      #4D4D4D,
-  grey-20:      #333333,
-  grey-10:      #1A1A1A,
-  blue-40:      #0066cc,
-  red-40:       #cc0000,
+  off-white:    #f2f2f2,
+  light-grey:   #d3d3d3,
+  mid-grey:     #adadad,
+  charcoal:     #323232,
+  blue:         #0066cc,
+  red:          #cc0000,
 );
 
 
 // Map colors to different common usages.
 $color-usage: (
-  text:              map-get($colors, grey-20),
-  heading:           map-get($colors, grey-30),
+  text:              map-get($colors, charcoal),
+  heading:           map-get($colors, charcoal),
   background-body:   map-get($colors, white),
-  background-light:  map-get($colors, grey-90),
-  link:              map-get($colors, blue-40),
-  link-active:       map-get($colors, red-40),
+  background-light:  map-get($colors, off-white),
+  link:              map-get($colors, blue),
+  link-active:       map-get($colors, red),
 );
 
 
