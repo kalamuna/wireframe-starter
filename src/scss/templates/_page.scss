@@ -1,15 +1,61 @@
-#main-header,
+
 .block--local-tasks-block,
-.block--system-main-block {
+.block--system-main-block,
+.block--system-breadcrumb-block,
+.block--page-title-block {
   @include container;
 }
 
+#site-header {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 2fr;
+}
+.block--system-branding-block {
+  grid-column: 1;
+  grid-row: 2 / 3;
+  margin: 2rem;
+}
+
+#block-useraccountmenu {
+  grid-column: 2 ;
+  grid-row: 2;
+  text-align: right;
+  margin: 2rem;
+}
+
+
+#block-mainnavigation {
+  grid-column: 1 / span 2;
+  grid-row: 4;
+  background: color(menu-background);
+  ul {
+    padding: 0 2rem;
+    display: flex;
+    li {
+      padding: 1em 0;
+      & + li {
+        margin-left: 2em;
+      }
+    }
+  }
+  a {
+    color: color(text);
+    font-weight: bold;
+    font-size: 1.125rem;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 
 main > header {
   background: color(background-light);
+  padding: 2rem 0;
+}
 
-  .block--system-breadcrumb-block,
-  .block--page-title-block {
-    @include container;
-  }
+#site-footer {
+  background: color(background-light);
+  padding: 2rem 0;
 }

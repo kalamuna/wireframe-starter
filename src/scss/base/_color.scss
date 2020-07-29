@@ -18,6 +18,7 @@ $color-usage: (
   heading:           map-get($colors, charcoal),
   background-body:   map-get($colors, white),
   background-light:  map-get($colors, off-white),
+  menu-background:   map-get($colors, light-grey),
   link:              map-get($colors, blue),
   link-active:       map-get($colors, red),
 );
