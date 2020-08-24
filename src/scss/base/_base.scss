@@ -26,3 +26,26 @@ $responsive-breakpoints: (
 // Set the width and padding of centered containers using the container mixin.
 $container-width: 80rem; // 1280px
 $container-padding: 2rem;
+
+// The colors used in the design pallete.
+$colors: (
+  white:        #ffffff,
+  black:        #000000,
+  off-white:    #f2f2f2,
+  light-grey:   #d3d3d3,
+  mid-grey:     #adadad,
+  charcoal:     #323232,
+  blue:         #0066cc,
+  red:          #cc0000,
+);
+
+// Map colors to different common usages.
+$color-usage: (
+  text:              map-get($colors, charcoal),
+  heading:           map-get($colors, charcoal),
+  background-body:   map-get($colors, white),
+  background-light:  map-get($colors, off-white),
+  menu-background:   map-get($colors, light-grey),
+  link:              map-get($colors, blue),
+  link-active:       map-get($colors, red),
+);

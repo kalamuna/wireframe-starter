@@ -1,32 +1,29 @@
+/**
+ *  Color mixin for getting color by name or use.
+ *
+ *  Usage: Refine the $colors and $color-usage maps in your scss files.
+ *
+ */
 
-// The colors used in the design pallete.
+// Define a map of the color palette.
 $colors: (
   white:        #ffffff,
   black:        #000000,
-  off-white:    #f2f2f2,
-  light-grey:   #d3d3d3,
-  mid-grey:     #adadad,
-  charcoal:     #323232,
   blue:         #0066cc,
   red:          #cc0000,
-);
+) !default;
 
-
-// Map colors to different common usages.
+// Define a map that associates common usages with a color.
 $color-usage: (
-  text:              map-get($colors, charcoal),
-  heading:           map-get($colors, charcoal),
+  text:              map-get($colors, black),
+  heading:           map-get($colors, black),
   background-body:   map-get($colors, white),
-  background-light:  map-get($colors, off-white),
-  menu-background:   map-get($colors, light-grey),
   link:              map-get($colors, blue),
   link-active:       map-get($colors, red),
-);
+) !default;
 
-
-// Function to return the color value for a usage or color name.
+// Function to return the color value for either a usage or color name.
 @function color($color) {
-
   // If a usage has been passed in, return the associated color.
   @if map-get($color-usage, $color) {
     @return map-get($color-usage, $color);

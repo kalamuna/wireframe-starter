@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 @import "mixins/breakpoint";
+@import "mixins/color";
 @import "mixins/container";
 
 @import "base/base";
-@import "base/color";
 @import "base/menus";
 
 @import "templates/html";
