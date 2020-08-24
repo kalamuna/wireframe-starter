@@ -10,9 +10,9 @@ libraries:
 regions:
   alert: Alert banner
   header_branding: Header branding
-  header_search: Desktop search
-  header_menu: Desktop main menu
-  header_utility: Desktop utility menu
+  header_search: Header search
+  header_menu: Header main menu
+  header_utility: Header utility menu
   hero: Hero
   content: Content
   footer: Footer
