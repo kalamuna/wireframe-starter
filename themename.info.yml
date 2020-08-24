@@ -8,7 +8,11 @@ libraries:
   - core/normalize
   - themename/theme-styles
 regions:
-  header: Header
+  alert: Alert banner
+  header_branding: Header branding
+  header_search: Desktop search
+  header_menu: Desktop main menu
+  header_utility: Desktop utility menu
   hero: Hero
   content: Content
   footer: Footer

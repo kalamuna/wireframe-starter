@@ -7,27 +7,32 @@
 }
 
 #site-header {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 2fr;
-}
-.block--system-branding-block {
-  grid-column: 1;
-  grid-row: 2 / 3;
-  margin: 2rem;
+  @include container;
+  // Layout of the header elements on desktop.
+  @include breakpoint(large) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    #region--header-branding {
+      grid-row: 1 / span 2;
+      grid-column: 1;
+    }
+    #region--header-utility {
+      grid-column: 2;
+      grid-row: 1;
+      text-align: right;
+    }
+    #region--header-search {
+      grid-column: 2;
+      text-align: right;
+    }
+    #region--header-menu {
+      grid-column: 1 / span 2;
+      grid-row: 3;
+    }
+  }
 }
 
-#block-useraccountmenu {
-  grid-column: 2 ;
-  grid-row: 2;
-  text-align: right;
-  margin: 2rem;
-}
-
-
-#block-mainnavigation {
-  grid-column: 1 / span 2;
-  grid-row: 4;
+#region--header-menu nav {
   background: color(menu-background);
   ul {
     padding: 0 2rem;
