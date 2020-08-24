@@ -1,0 +1,20 @@
+/**
+ * A simple breakpoint mixin for writing responsive media queries.
+ *
+ * Note: This mixin does not include common features like 'only' and 'down',
+ *       since there is no way to reliably ensure that there is no overlap of
+ *       styles when the window width exactly matches a breakpoint size.
+ */
+
+$responsive-breakpoints: (
+  medium:   40rem, //  640px
+  large:    60rem, //  960px
+  xlarge:   80rem, // 1280px
+  xxlarge: 100rem, // 1600px
+) !default;
+
+@mixin breakpoint($size) {
+  @media screen and (min-width: map-get($responsive-breakpoints, $size)) {
+    @content;
+  }
+}

@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
+@import "mixins/breakpoint";
 @import "mixins/container";
-@import "mixins/responsive";
 
+@import "base/base";
 @import "base/color";
 @import "base/menus";
 
