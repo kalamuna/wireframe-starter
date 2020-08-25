@@ -11,6 +11,12 @@
     }
   }
 
+  // Addd extra space below the logo on mobile.
+  margin-bottom: $container-padding;
+  @include breakpoint(large) {
+    margin-bottom: 0;
+  }
+
   // Visually hide the site name.
   &__site-name {
     @extend %visually-hidden;

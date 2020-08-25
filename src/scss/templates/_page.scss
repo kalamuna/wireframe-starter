@@ -32,6 +32,10 @@
   // The menu and search toggle buttons for mobile.
   position: relative;
   .site-header__toggle {
+    // Make the icons blocks to prevent inline line spacing issues;
+    svg {
+      display: block;
+    }
     position: absolute;
     top: 0;
     right: #{$container-padding};
