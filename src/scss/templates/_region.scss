@@ -1,0 +1,26 @@
+
+// Hide the utility menu on mobile, since a copy will be shown in the main menu region.
+#region--header-utility {
+  display: none;
+  @include breakpoint(large) {
+    display: block;
+  }
+}
+
+#region--header-search {
+  form * {
+    display: inline;
+  }
+}
+
+// The hero area.
+#region--hero {
+  background: color(background-light);
+  padding: #{$container-padding} 0;
+}
+
+// The site footer.
+#site-footer {
+  background: color(background-light);
+  padding: #{$container-padding} 0;
+}

@@ -1,0 +1,45 @@
+
+#region--header-menu {
+
+  nav {
+    // Have a background color for the main menu, and extend it to the edge of the container.
+    background: color(menu-background);
+    margin: 0 -#{$container-padding};
+
+    // Fill in the areas to the left and the right of the menu bar with the background color.
+    position: relative;
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      width: calc(50vw - #{$container-width} / 2 - #{$container-padding});
+      height: 100%;
+      background: color(menu-background);
+      top: 0;
+    }
+    &::before { right: 100%; }
+    &::after { left: 100%; }
+
+    ul {
+      li {
+        // Use the container padding, so the text of the first item is aligned with other elements.
+        padding: 1em #{$container-padding};
+        border-bottom: 1px solid color(background-body);
+        @include breakpoint(large) {
+          border-bottom: none;
+        }
+      }
+      @include breakpoint(large) {
+        display: flex;
+      }
+    }
+    a {
+      color: color(text);
+      font-weight: bold;
+      font-size: 1.125rem;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
