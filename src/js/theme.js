@@ -10,9 +10,13 @@
         var currentlyExpanded = $(this).attr('aria-expanded');
         // Toggle all site header buttons to not expanded.
         $('.site-header__toggle').attr('aria-expanded', 'false');
-        // If this button started as not expanded, we want to expand it.
+        // If this button started as not expanded, we want to expand it and show the mobile drawer.
         if (currentlyExpanded == 'false') {
           $(this).attr('aria-expanded', 'true');
+          $('body').addClass('mobile-drawer-open');
+        } else {
+          // If we are closing the currently opened item, hide the mobile drawer.
+          $('body').removeClass('mobile-drawer-open');
         }
       });
       // Since javascript is working, toggle the mobile nav closed on page load.

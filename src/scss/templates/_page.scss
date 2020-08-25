@@ -74,3 +74,21 @@
     right: $container-padding + 4rem;
   }
 }
+
+// Show a mobile drawer that covers the whole screen when a menu or search is expanded.
+body.mobile-drawer-open {
+  height: 100vh;
+  overflow: hidden;
+  #site-header {
+    background: color(background-body);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+  }
+  #toolbar-administration {
+    display: none;
+  }
+}
