@@ -23,6 +23,17 @@
       });
 
       //
+      // Add the utility menu to the main menu region for display on mobile.
+      //
+      $('#region--header-utility nav').clone().addClass('mobile-only').appendTo('#region--header-menu');
+      // Make sure the copy of the nav and heading don't have duplicate ids.
+      $('#region--header-menu .mobile-only').each(function() {
+        $(this).attr('id', $(this).attr('id') + '-mobile');
+        $(this).attr('aria-labelledby', $(this).attr('aria-labelledby') + '-mobile');
+        $('h2', this).attr('id', $('h2', this).attr('id') + '-mobile');
+      });
+
+      //
       // Hide the drupal admin toolbar drawer when resizing to mobile, and show it when resizing to desktop.
       //
       $(window).once('window-resize-toolbar').resize(Drupal.debounce(function () {
