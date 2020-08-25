@@ -1,16 +1,21 @@
 
-.block--local-tasks-block,
-.block--system-main-block,
-.block--system-breadcrumb-block,
-.block--page-title-block {
-  @include container;
-}
 
 #site-header {
   @include container;
+  margin-top: $container-padding;
+
+  // Layout of the header on mobile.
+  display: flex;
+  flex-direction: column;
+  // Move the utility menu below the main menu on mobile.
+  #region--header-utility {
+    order: 4;
+  }
+
   // Layout of the header elements on desktop.
   @include breakpoint(large) {
     display: grid;
+    grid-gap: $container-padding;
     grid-template-columns: 1fr 2fr;
     #region--header-branding {
       grid-row: 1 / span 2;
@@ -33,15 +38,35 @@
 }
 
 #region--header-menu nav {
+
+  // Have a background color for the main menu, and extend it to the edge of the container.
   background: color(menu-background);
+  margin: 0 -#{$container-padding};
+
+  // Fill in the areas to the left and the right of the menu bar with the background color.
+  position: relative;
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    width: calc(50vw - #{$container-width} / 2 - #{$container-padding});
+    height: 100%;
+    background: color(menu-background);
+    top: 0;
+  }
+  &::before { right: 100%; }
+  &::after { left: 100%; }
+
   ul {
-    padding: 0 2rem;
-    display: flex;
     li {
-      padding: 1em 0;
-      & + li {
-        margin-left: 2em;
+      // Use the container padding, so the text of the first item is aligned with other elements.
+      padding: 1em #{$container-padding};
+      border-bottom: 1px solid color(background-body);
+      @include breakpoint(large) {
+        border-bottom: none;
       }
+    }
+    @include breakpoint(large) {
+      display: flex;
     }
   }
   a {
@@ -55,12 +80,23 @@
   }
 }
 
-main > header {
-  background: color(background-light);
-  padding: 2rem 0;
+
+#region--header-search {
+  form * {
+    display: inline;
+  }
 }
 
+
+
+// The hero area.
+main > header {
+  background: color(background-light);
+  padding: #{$container-padding} 0;
+}
+
+// The site footer.
 #site-footer {
   background: color(background-light);
-  padding: 2rem 0;
+  padding: #{$container-padding} 0;
 }

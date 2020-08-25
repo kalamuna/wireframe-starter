@@ -25,7 +25,7 @@ $responsive-breakpoints: (
 
 // Set the width and padding of centered containers using the container mixin.
 $container-width: 80rem; // 1280px
-$container-padding: 2rem;
+$container-padding: 1.5rem;
 
 // The colors used in the design pallete.
 $colors: (
@@ -49,3 +49,14 @@ $color-usage: (
   link:              map-get($colors, blue),
   link-active:       map-get($colors, red),
 );
+
+
+// A copy of the visually-hidden class style from the stable theme.
+%visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
