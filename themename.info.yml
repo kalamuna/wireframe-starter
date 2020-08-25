@@ -3,7 +3,8 @@ type: theme
 description: 'A wireframe starter theme by Kalamuna. Change THEMENAME and files to use your own theme name.'
 core: 8.x
 base theme: stable
-logo: assets/placeholder.svg
+features:
+  - none
 libraries:
   - core/normalize
   - themename/theme-styles

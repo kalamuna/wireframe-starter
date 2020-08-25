@@ -1,0 +1,19 @@
+
+.block--system-branding-block {
+  // Visually hide the site name.
+  &__site-name {
+    @extend %visually-hidden;
+  }
+  // Display the site slogan to the right of the logo on desktop.
+  @include breakpoint(large) {
+    display: flex;
+    align-items: center;
+  }
+  &__slogan {
+    display: none;
+    @include breakpoint(large) {
+      display: block;
+      margin-left: 1rem;
+    }
+  }
+}
