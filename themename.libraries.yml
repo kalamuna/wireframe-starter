@@ -3,3 +3,10 @@ theme-styles:
   css:
     theme:
       dist/css/styles.css: {}
+  js:
+    src/js/theme.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.debounce

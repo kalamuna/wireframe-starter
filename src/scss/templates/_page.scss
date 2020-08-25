@@ -2,15 +2,8 @@
 
 #site-header {
   @include container;
-  margin-top: $container-padding;
 
-  // Layout of the header on mobile.
-  display: flex;
-  flex-direction: column;
-  // Move the utility menu below the main menu on mobile.
-  #region--header-utility {
-    order: 4;
-  }
+  margin-top: $container-padding;
 
   // Layout of the header elements on desktop.
   @include breakpoint(large) {
@@ -35,10 +28,59 @@
       grid-row: 3;
     }
   }
+
+  // The menu and search toggle buttons for mobile.
+  position: relative;
+  .site-header__toggle {
+    position: absolute;
+    top: 0;
+    right: #{$container-padding};
+    // Don't need mobile toggles on desktop.
+    @include breakpoint(large) {
+      display: none;
+    }
+    // Hide the close icon if it is already closed.
+    .icon-close {
+      display: none;
+    }
+    // Hide the open icon after we open it.
+    &[aria-expanded="true"] {
+      .icon-close {
+        display: block;
+      }
+      .icon-open {
+        display: none;
+      }
+    }
+
+    // We will assume that the button toggles the region that follows it.
+    &[aria-expanded="false"] + div {
+      display: none;
+      @include breakpoint(large) {
+        display: block;
+      }
+    }
+    &[aria-expanded="true"] + div {
+      display: block;
+    }
+  }
+
+  // Dislay the search toggle to the left of the menu toggle.
+  #site-header__search-toggle {
+    right: $container-padding + 4rem;
+  }
 }
 
-#region--header-menu nav {
+// Hide the utility menu on mobile, since a copy will be shown in the main menu region.
+#region--header-utility {
+  display: none;
+  @include breakpoint(large) {
+    display: block;
+  }
+}
 
+
+#region--header-menu {
   // Have a background color for the main menu, and extend it to the edge of the container.
   background: color(menu-background);
   margin: 0 -#{$container-padding};

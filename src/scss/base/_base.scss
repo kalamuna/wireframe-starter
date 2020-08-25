@@ -14,6 +14,11 @@ a, a:visited {
   }
 }
 
+// Assume svgs are blocks to prevent inline line spacing issues;
+svg {
+  display: block;
+}
+
 // Set the breakpoints that will be used by the breakpoint mixin.
 //  Note: if these values change, you should also edit the breakpoints.yml file.
 $responsive-breakpoints: (

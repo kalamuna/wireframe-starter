@@ -1,5 +1,16 @@
 
 .block--system-branding-block {
+
+  // Make the logo smaller on mobile and bigger on desktop.
+  svg {
+    width: 3rem;
+    height: 3rem;
+    @include breakpoint(large) {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
   // Visually hide the site name.
   &__site-name {
     @extend %visually-hidden;
