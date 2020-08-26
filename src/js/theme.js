@@ -24,6 +24,7 @@
       // Close the mobile header panes if the window is resized.
       $(window).once('window-resize-mobile').resize(function () {
         $('.site-header__toggle').attr('aria-expanded', 'false');
+        $('body').removeClass('mobile-drawer-open');
       });
 
       //
