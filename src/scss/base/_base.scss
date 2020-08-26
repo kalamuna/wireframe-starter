@@ -1,18 +1,4 @@
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: color(background-body);
-}
-
-a, a:visited {
-  color: color(link);
-  &:active, &:hover {
-    color: color(link-active);
-  }
-}
 
 // Set the breakpoints that will be used by the breakpoint mixin.
 //  Note: if these values change, you should also edit the breakpoints.yml file.
@@ -59,4 +45,44 @@ $color-usage: (
   width: 1px;
   height: 1px;
   word-wrap: normal;
+}
+
+// Use border box sizing by default.
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// For some reason normalize.css sets search inputs back to content box.
+input[type="search"] {
+  box-sizing: border-box;
+}
+
+// Set the default body text and background colors.
+body {
+  background: color(background-body);
+  color: color(text);
+}
+
+// Set the default link colors.
+a, a:visited {
+  color: color(link);
+  &:active, &:hover {
+    color: color(link-active);
+  }
+}
+
+// Keep extra space from appearing below inline images.
+img, svg {
+  vertical-align: text-bottom;
+}
+
+// Make svgs the same color as the text around them by default.
+svg {
+  fill: currentColor;
+}
+
+// Move button svgs up a bit so they are better vertically aligned.
+button svg {
+  position: relative;
+  top: -.05em;
 }

@@ -2,6 +2,10 @@
 #region--header-menu {
 
   nav {
+    // Add space between menus in the mobile drawer.
+    & + nav {
+      margin-top: $container-padding;
+    }
     // Have a background color for the main menu, and extend it to the edge of the container.
     background: color(menu-background);
     margin: 0 -#{$container-padding};

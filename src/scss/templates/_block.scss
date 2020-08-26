@@ -30,7 +30,7 @@
     display: none;
     @include breakpoint(large) {
       display: block;
-      margin-left: 1rem;
+      margin-left: $container-padding;
     }
   }
 }

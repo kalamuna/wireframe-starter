@@ -3,7 +3,7 @@
 #site-header {
   @include container;
 
-  margin-top: $container-padding;
+  padding-top: $container-padding;
 
   // Layout of the header elements on desktop.
   @include breakpoint(large) {
@@ -33,12 +33,15 @@
   position: relative;
   .site-header__toggle {
     // Make the icons blocks to prevent inline line spacing issues;
-    svg {
-      display: block;
-    }
     position: absolute;
-    top: 0;
+    top: #{$container-padding};
     right: #{$container-padding};
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+    border: 0;
+    border-radius: .5rem;
+    padding: 0;
     // Don't need mobile toggles on desktop.
     @include breakpoint(large) {
       display: none;
@@ -50,7 +53,7 @@
     // Hide the open icon after we open it.
     &[aria-expanded="true"] {
       .icon-close {
-        display: block;
+        display: inline;
       }
       .icon-open {
         display: none;
