@@ -24,6 +24,7 @@
 
 #region--header-search {
   form {
+    margin-bottom: #{$container-padding};
     display: flex;
     justify-content: flex-end;
     > *:first-child {
@@ -43,7 +44,8 @@
         font-size: 1rem;
       }
     }
-    button {
+    // Style the submit button (and the original input that is swapped out by js).
+    button, input[type="submit"] {
       background-color: color(background-light);
       border: 0;
       border-radius: 0 .25em .25em 0;
