@@ -56,8 +56,21 @@
       text-decoration: none;
     }
 
+    // Make subitems a normal font weight.
     ul ul a {
       font-weight: normal;
+    }
+
+    // Add a active menu indicator line on left for mobile and dropdowns.
+    a.is-active {
+      box-shadow: inset 0.25em 0  color(main-menu-text);
+    }
+
+    // On desktop parents, the active menu indicator line is on bottom.
+    @include breakpoint(large) {
+      > ul > li > a.is-active {
+        box-shadow: inset 0 -0.25em color(main-menu-text);
+      }
     }
 
     // Hide sub-items to start.
