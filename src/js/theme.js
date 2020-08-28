@@ -25,6 +25,14 @@
         $('body').removeClass('mobile-drawer-open');
       });
 
+      // Add a toggle button to open and close the submenus on mobile.
+      $('#region--header-menu nav ul ul').once('header-menu-toggle').each(function() {
+        var id = Math.random().toString(36).substring(2, 15);
+        $(this).before('<button class="header-menu-toggle" aria-expanded="false"><span class="visually-hidden">Toggle submenu</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-open" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
+        $(this).prev('button').click(function () {
+          $(this).attr('aria-expanded', $(this).attr('aria-expanded') == 'false' ? 'true' : 'false');
+        });
+      });
 
       // Add the utility menu to the main menu region for display on mobile.
       $('#region--header-utility nav').clone().appendTo('#region--header-menu').each(function() {

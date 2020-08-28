@@ -41,19 +41,30 @@
       }
     }
 
-    // Apply the hover state to the list item, so the parent stays highlighted while hover over dropdowns.
-    li:hover {
-      background: color(main-menu-hover);
-    }
-
     // Common menu link styles.
     a {
       display: block;
       height: 100%;
-      padding: 1em #{$container-padding};
       color: color(main-menu-text);
       font-weight: bold;
       text-decoration: none;
+      &:hover, &:focus {
+        outline: 0;
+        background: color(main-menu-hover);
+      }
+      padding: $container-padding;
+      // Leave room for the submenu toggle on mobile.
+      padding-right: calc(#{$container-padding} * 2 + 2em);
+      @include breakpoint(large) {
+        padding: 1em #{$container-padding};
+      }
+    }
+
+    // On desktop, keep the parent item hover color when over dropdowns.
+    li:hover, li:focus-within > a {
+      @include breakpoint(large) {
+        background: color(main-menu-hover);
+      }
     }
 
     // Make subitems a normal font weight.
@@ -76,13 +87,17 @@
     // Hide sub-items to start.
     ul ul {
       display: none;
+      background: rgba(255,255,255,.5);
+      @include breakpoint(large) {
+        background: color(main-menu-background);
+      }
     }
 
     // On desktop, show dropdowns on hover.
     @include breakpoint(large) {
       > ul {
         display: flex;
-        > li:hover {
+        > li:hover, li:focus-within {
           position: relative;
           ul {
             display: block;
@@ -102,6 +117,49 @@
       }
     }
 
+    // The mobile submenu toggle button.
+    li {
+      position: relative;
+      button.header-menu-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $container-padding / 2 $container-padding;
+        border: 0;
+        background: transparent;
+        svg {
+          background: rgba(255, 255, 255, .5);
+          border-radius: .5em;
+          border: 1.5px solid transparent;
+          box-sizing: content-box;
+          padding: $container-padding / 2;
+        }
+        &:hover {
+          svg {
+            background: color(main-menu-hover);
+          }
+        }
+        &:focus {
+          outline: 0;
+          svg {
+            border-color: color(main-menu-text);
+          }
+        }
+        &[aria-expanded="true"] {
+          svg {
+            transform: rotate(180deg);
+          }
+          & + ul {
+            display: block;
+          }
+        }
+        @include breakpoint(large) {
+          display: none;
+        }
+      }
+    }
+
+
     // Style the any additional menus that are added to the mobile drawer.
     &:not(:first-child) {
       @include breakpoint(large) {
@@ -110,7 +168,7 @@
       ul {
         background: color(mobile-menu-background);
       }
-      li:hover {
+      li:hover > a {
         background: color(mobile-menu-hover);
       }
       a {
