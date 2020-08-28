@@ -1,58 +1,108 @@
 
 #region--header-menu {
-
   nav {
+
+    // Extend the menu to the edge of screen on mobile, and line up the text on desktop.
+    margin: 0 -#{$container-padding};
+
     // Add space between menus in the mobile drawer.
     & + nav {
-      margin-top: $container-padding;
-    }
-    // Have a background color for the main menu, and extend it to the edge of the container.
-    background: color(menu-background);
-    margin: 0 -#{$container-padding};
-    ul {
-      li {
-        // Use the container padding, so the text of the first item is aligned with other elements.
-        padding: 1em #{$container-padding};
-        border-bottom: 1px solid color(background-body);
-        @include breakpoint(large) {
-          border-bottom: none;
-        }
-      }
-      @include breakpoint(large) {
-        display: flex;
-      }
-    }
-    a {
-      color: color(text);
-      font-weight: bold;
-      font-size: 1.125rem;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
+      margin-top: $container-padding * 2;
     }
 
+    // Have a background color for the main menu.
+    ul {
+      background: color(main-menu-background);
+    }
+
+    // Fill in the areas to the left and the right of the main menu bar with the background color.
     @include breakpoint(large) {
-      // Fill in the areas to the left and the right of the menu bar with the background color.
       position: relative;
       &::before, &::after {
         content: "";
         position: absolute;
         width: calc(50vw - #{$container-width} / 2 - #{$container-padding});
         height: 100%;
-        background: color(menu-background);
+        background: color(main-menu-background);
         top: 0;
       }
       &::before { right: 100%; }
       &::after { left: 100%; }
     }
-  }
 
-  // The utility menu that is cloned using js into the main menu region for mobile.
-  nav.mobile-only {
-    background: color(background-light);
-    @include breakpoint(large) {
+    // Add lines between all menu items on mobile, and in the dropdowns on desktop;
+    li {
+      border-top: 1px solid color(background-body);
+      @include breakpoint(large) {
+        border-top: 0;
+        li {
+          border-top: 1px solid color(background-body);
+        }
+      }
+    }
+
+    // Apply the hover state to the list item, so the parent stays highlighted while hover over dropdowns.
+    li:hover {
+      background: color(main-menu-hover);
+    }
+
+    // Common menu link styles.
+    a {
+      display: block;
+      height: 100%;
+      padding: 1em #{$container-padding};
+      color: color(main-menu-text);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    ul ul a {
+      font-weight: normal;
+    }
+
+    // Hide sub-items to start.
+    ul ul {
       display: none;
+    }
+
+    // On desktop, show dropdowns on hover.
+    @include breakpoint(large) {
+      > ul {
+        display: flex;
+        > li:hover {
+          position: relative;
+          ul {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 20em;
+          }
+          // Keep the dropdown for the last item from extending past the edge.
+          &:last-child {
+            ul {
+              right: 0;
+              left: auto;
+            }
+          }
+        }
+      }
+    }
+
+    // Style the any additional menus that are added to the mobile drawer.
+    &:not(:first-child) {
+      @include breakpoint(large) {
+        display: none;
+      }
+      ul {
+        background: color(mobile-menu-background);
+      }
+      li:hover {
+        background: color(mobile-menu-hover);
+      }
+      a {
+        color: color(mobile-menu-text);
+      }
     }
   }
 }

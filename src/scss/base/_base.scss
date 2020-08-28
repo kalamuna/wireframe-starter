@@ -27,13 +27,18 @@ $colors: (
 
 // Map colors to different common usages.
 $color-usage: (
-  text:              map-get($colors, charcoal),
-  heading:           map-get($colors, charcoal),
-  background-body:   map-get($colors, white),
-  background-light:  map-get($colors, off-white),
-  menu-background:   map-get($colors, light-grey),
-  link:              map-get($colors, blue),
-  link-active:       map-get($colors, red),
+  text:                   map-get($colors, charcoal),
+  heading:                map-get($colors, charcoal),
+  background-body:        map-get($colors, white),
+  background-light:       map-get($colors, off-white),
+  main-menu-text:         map-get($colors, charcoal),
+  main-menu-background:   map-get($colors, light-grey),
+  main-menu-hover:        map-get($colors, mid-grey),
+  mobile-menu-text:       map-get($colors, charcoal),
+  mobile-menu-background: map-get($colors, off-white),
+  mobile-menu-hover:      map-get($colors, light-grey),
+  link:                   map-get($colors, blue),
+  link-active:            map-get($colors, red),
 );
 
 
