@@ -97,14 +97,18 @@
     @include breakpoint(large) {
       > ul {
         display: flex;
-        > li:hover, li:focus-within {
+        > li:hover, > li:focus-within {
           position: relative;
-          ul {
+          > ul {
             display: block;
             position: absolute;
+            z-index: 100;
             top: 100%;
             left: 0;
             width: 20em;
+             ul {
+              display: none;
+            }
           }
           // Keep the dropdown for the last item from extending past the edge.
           &:last-child {
