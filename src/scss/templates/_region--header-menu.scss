@@ -93,10 +93,11 @@
       }
     }
 
-    // On desktop, show dropdowns on hover.
+    // On desktop, show dropdowns on hover or focus.
     @include breakpoint(large) {
       > ul {
         display: flex;
+        flex-wrap: wrap;
         > li:hover, > li:focus-within {
           position: relative;
           > ul {
@@ -105,13 +106,14 @@
             z-index: 100;
             top: 100%;
             left: 0;
+            left: var(--shift-left);
             width: 20em;
              ul {
               display: none;
             }
           }
-          // Keep the dropdown for the last item from extending past the edge.
-          &:last-child {
+          // Class set by js to keep dropdowns from extending past the edge of the window.
+          &.align-right {
             ul {
               right: 0;
               left: auto;
