@@ -25,6 +25,9 @@
 #region--header-search {
   form {
     margin-bottom: #{$container-padding};
+    @include breakpoint(large) {
+      margin-bottom: 0;
+    }
     display: flex;
     justify-content: flex-end;
     > *:first-child {
