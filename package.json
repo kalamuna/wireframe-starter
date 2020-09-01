@@ -6,7 +6,8 @@
     "scss": "node-sass src/scss/styles.scss -o dist/css --source-map-root ${PWD##*web/}/ --source-map-embed true",
     "autoprefixer": "postcss -u autoprefixer --replace dist/css/*",
     "build": "npm run -s scss && npm run -s autoprefixer",
-    "watch": "npm run -s build && onchange \"src/scss\" -- npm run -s build"
+    "watch": "npm run -s build && onchange \"src/scss\" -- npm run -s build",
+    "test": "npm run -s build"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.5",
