@@ -5,6 +5,10 @@
   @include breakpoint(large) {
     display: block;
   }
+  // Add space if there are two menus in this region.
+  nav + nav {
+    margin-top: 1em;
+  }
   nav ul {
     display: flex;
     justify-content: flex-end;

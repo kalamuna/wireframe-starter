@@ -9,6 +9,7 @@
   @include breakpoint(large) {
     display: grid;
     grid-gap: $container-padding;
+    align-items: center;
     grid-template-columns: 1fr 2fr;
     #region--header-branding {
       grid-row: 1 / span 2;
