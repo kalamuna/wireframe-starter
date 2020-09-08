@@ -35,8 +35,12 @@
       border-top: 1px solid color(background-body);
       @include breakpoint(large) {
         border-top: 0;
-        li {
-          border-top: 1px solid color(background-body);
+        li + li {
+          border-top: 1px solid color(off-white);
+        }
+        // Add a line around the dropdown in case of menu overlap.
+        ul {
+          box-shadow: 0px 0px 1px 1px color(off-white);
         }
       }
     }
@@ -92,7 +96,7 @@
             display: block;
             position: absolute;
             z-index: 100;
-            top: 100%;
+            top: calc(100% + 1px);
             left: 0;
             left: var(--shift-left);
             width: 20em;

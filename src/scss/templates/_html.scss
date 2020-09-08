@@ -1,5 +1,9 @@
 
+// The skip to content link that appears on focus.
 #skip-to-content {
   @include container;
-  padding: 1em;
+  a {
+    display: inline-block;
+    margin-top: 1em;
+  }
 }
