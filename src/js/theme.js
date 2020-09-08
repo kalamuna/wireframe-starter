@@ -76,6 +76,15 @@
           $('#toolbar-item-administration:not(.is-active)').click();
         }
       }, 50));
+
+      // Don't include admin toolbar links or inputs in the tab index.
+      $('a, input', '#toolbar-administration').attr('tabindex', '-1');
+      // The collapse button is added after page load, so we need to remove it from the index when focused.
+      $('#toolbar-administration').on('focus', 'button:not([tabindex="-1"])', function() {
+        $(this).attr('tabindex', '-1');
+        $('#site-header a').first().focus();
+      });
+
     }
   };
 })(jQuery, Drupal);
