@@ -76,6 +76,16 @@ a, a:visited {
   }
 }
 
+// Remove link underline on click to show activation.
+a:active {
+  text-decoration: none;
+}
+
+// Add a little extra space around links when a focus outline is visible.
+a {
+  outline-offset: .2em;
+}
+
 // Keep extra space from appearing below inline images.
 img, svg {
   vertical-align: text-bottom;

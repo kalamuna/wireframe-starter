@@ -49,7 +49,7 @@
       font-weight: bold;
       text-decoration: none;
       &:hover, &:focus {
-        outline: 0;
+        outline-offset: -1px;
         background: color(main-menu-hover);
       }
       padding: $container-padding;

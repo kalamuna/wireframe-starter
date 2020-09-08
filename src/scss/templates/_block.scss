@@ -11,6 +11,10 @@
     }
   }
 
+  a {
+    outline-offset: .5rem;
+  }
+
   // Addd extra space below the logo on mobile.
   margin-bottom: $container-padding;
   @include breakpoint(large) {
