@@ -170,7 +170,7 @@
 
     // On desktop, only show the menu toggles next to the menu item when focus is within the menu.
     @include breakpoint(large) {
-      &:focus-within {
+      &:focus-within:not([data-mouse-click="true"]) {
         > ul > li {
           padding-right: 2em;
           a {

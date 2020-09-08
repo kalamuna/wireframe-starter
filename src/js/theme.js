@@ -52,7 +52,16 @@
         $(this).siblings().each(function () {
           $('button', this).attr('aria-expanded', 'false');
         });
-      })
+      });
+
+      // Don't show the submenu toggles if a user clicks on a menu link.
+      $('#region--header-menu nav a').mousedown(function () {
+        $(this).parents('nav').attr('data-mouse-click', 'true');
+      });
+      $('#region--header-menu nav a').mouseleave(function () {
+        $(this).parents('nav').removeAttr('data-mouse-click');
+        $(this).blur();
+      });
 
       // Add the utility menu to the main menu region for display on mobile.
       $('#region--header-utility nav').clone().appendTo('#region--header-menu').each(function() {
