@@ -47,6 +47,13 @@
         });
       });
 
+      // When you tab to a menu item, hide the dropdowns for the other menu items.
+      $('#region--header-menu nav > ul > li').focusin(function () {
+        $(this).siblings().each(function () {
+          $('button', this).attr('aria-expanded', 'false');
+        });
+      })
+
       // Add the utility menu to the main menu region for display on mobile.
       $('#region--header-utility nav').clone().appendTo('#region--header-menu').each(function() {
         $(this).attr('id', $(this).attr('id') + '-mobile');

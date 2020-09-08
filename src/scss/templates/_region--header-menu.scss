@@ -65,7 +65,7 @@
     }
 
     // On desktop, keep the parent item hover color when over dropdowns.
-    li:hover, li:focus-within > a {
+    li:hover, li:focus-within {
       @include breakpoint(large) {
         background: color(main-menu-hover);
       }
@@ -85,15 +85,14 @@
       }
     }
 
-    // On desktop, show dropdowns on hover or focus.
+    // On desktop, show the menu items side-by-side and wrap if there isn't enough room.
     @include breakpoint(large) {
       > ul {
         display: flex;
         flex-wrap: wrap;
-        > li:hover, > li:focus-within {
+        > li {
           position: relative;
-          > ul {
-            display: block;
+          ul {
             position: absolute;
             z-index: 100;
             top: calc(100% + 1px);
@@ -103,6 +102,11 @@
              ul {
               display: none;
             }
+            display: none;
+          }
+          // Show dropdowns on hover, or when expanded with the keyboard.
+          &:hover > ul {
+            display: block;
           }
           // Class set by js to keep dropdowns from extending past the edge of the window.
           &.align-right {
@@ -153,6 +157,35 @@
         }
         @include breakpoint(large) {
           display: none;
+        }
+      }
+    }
+
+    // Don't leave dropdowns open on desktop if there is no hover and no focus within them.
+    @include breakpoint(large) {
+      li:not(:focus-within):not(:hover) button.header-menu-toggle + ul {
+        display: none;
+      }
+    }
+
+    // On desktop, only show the menu toggles next to the menu item when focus is within the menu.
+    @include breakpoint(large) {
+      &:focus-within {
+        > ul > li {
+          padding-right: 2em;
+          a {
+            padding: 1em .5em 1em 1em;
+          }
+        }
+        button.header-menu-toggle {
+          display: block;
+          padding: 0;
+          svg {
+            padding: 1em .5em;
+            background: none;
+            border-width: 1px;
+            border-radius: 0;
+          }
         }
       }
     }
