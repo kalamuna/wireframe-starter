@@ -10,10 +10,6 @@ nav {
     list-style: none;
     li {
       margin: 0;
-      //padding: 1em 0;
-      & + li {
-        //margin-left: 2em;
-      }
     }
   }
 }

@@ -68,7 +68,83 @@
 // The hero area.
 #region--hero {
   background: color(background-light);
-  padding: #{$container-padding} 0;
+  @include breakpoint(large) {
+    padding: #{$container-padding} 0;
+  }
+
+  h1 {
+    background: color(white);
+    padding: .5em 1em;
+    display: inline-block;
+  }
+
+  .block--system-breadcrumb-block {
+
+
+    nav {
+      background: color(main-menu-background);
+      @include breakpoint(large) {
+        background: transparent;
+      }
+
+      ul, ol {
+
+        li:not(:last-child) {
+          display: none;
+          @include breakpoint(large) {
+            display: block;
+          }
+        }
+        li:last-child {
+          a::before {
+            content: "< ";
+            @include breakpoint(large) {
+              content: "";
+            }
+          }
+        }
+
+        a {
+          display: inline-block;
+          font-weight: bold;
+          outline-offset: 0;
+          padding: 1em;
+          text-decoration: none;
+          color: color(main-menu-text);
+          &:hover {
+            background: color(main-menu-hover);
+            @include breakpoint(large) {
+              background: transparent;
+              text-decoration: underline;
+            }
+          }
+          @include breakpoint(large) {
+            padding: .5em 1em;
+            color: color(link);
+          }
+        }
+
+        @include breakpoint(large) {
+          display: flex;
+          li {
+            background: color(white);
+            margin: 0;
+            & + li {
+              display: flex;
+              &::before {
+                content: ">";
+                padding: .5em 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .block--local-tasks-block {
+
+  }
 }
 
 // The site footer.

@@ -39,9 +39,14 @@
   }
 }
 
+.block--system-breadcrumb-block {
+  @include breakpoint(large) {
+    @include container;
+  }
+}
+
 
 .block--system-main-block,
-.block--system-breadcrumb-block,
 .block--page-title-block {
   @include container;
 }
