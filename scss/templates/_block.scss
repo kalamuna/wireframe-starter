@@ -39,18 +39,11 @@
   }
 }
 
-
-.block--local-tasks-block,
-.block--system-main-block,
-.block--system-breadcrumb-block,
-.block--page-title-block {
-  @include container;
-}
-
 //
 // Style the breadcrumbs side-by-side on desktop and as a back link on mobile.
 //
 .block--system-breadcrumb-block {
+  @include container;
   nav {
     ul, ol {
       // Underline the links on hover.
@@ -87,6 +80,30 @@
           text-align: center;
         }
       }
+    }
+  }
+}
+
+//
+// The page title in the hero region.
+//
+.block--page-title-block {
+  @include container;
+}
+
+//
+// Content edit tabs for logged in users.
+//
+.block--local-tasks-block {
+  @include container;
+  ul {
+    display: flex;
+    margin: 2em 0;
+    li + li {
+      margin-left: 2em;
+    }
+    a.is-active {
+      color: color(text);
     }
   }
 }

@@ -1,0 +1,12 @@
+
+//
+// The full-page view of a node.
+//
+.node--view-mode-full {
+
+  // Enclose the main page content in a container and leave margin on the bottom.
+  > .node__content {
+    @include container;
+    margin-bottom: #{ $container-padding * 2 };
+  }
+}
