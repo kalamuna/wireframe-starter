@@ -65,14 +65,38 @@
   }
 }
 
+//
 // The hero area.
+//
 #region--hero {
   background: color(background-light);
   padding: #{$container-padding} 0;
 }
 
+//
 // The site footer.
+//
 #site-footer {
   background: color(background-light);
-  padding: #{$container-padding} 0;
+  padding: #{$container-padding * 2} 0;
+  // Footer is one column on mobile, two on tablet, and four on desktop.
+  .region__content {
+    @include container;
+    display: grid;
+    grid-gap: $container-padding;
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include breakpoint(large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    // Don't include a top margin on block or menu titles.
+    > * > *:first-child {
+        margin-top: 0;
+    }
+    // Add some space between menu items.
+    nav li {
+      margin: .5em 0;
+    }
+  }
 }

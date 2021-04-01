@@ -20,7 +20,9 @@
 {% if content %}
   <div{{ attributes.addClass(classes).setAttribute('id', 'region--' ~ region|clean_class) }}>
     {% block content %}
-      {{ content }}
+      <div class="region__content">
+        {{ content }}
+      </div>
     {% endblock %}
   </div>
 {% endif %}
