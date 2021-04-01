@@ -39,28 +39,10 @@
   }
 }
 
-.block--system-breadcrumb-block {
-  @include breakpoint(large) {
-    @include container;
-  }
-}
 
-
+.block--local-tasks-block,
 .block--system-main-block,
+.block--system-breadcrumb-block,
 .block--page-title-block {
   @include container;
-}
-
-.block--local-tasks-block {
-  @include container;
-  ul {
-    display: flex;
-    margin: 2em 0;
-    li + li {
-      margin-left: 2em;
-    }
-    a.is-active {
-      color: color(text);
-    }
-  }
 }

@@ -4,7 +4,7 @@ theme-styles:
     theme:
       dist/css/styles.css: {}
   js:
-    src/js/theme.js: {}
+    js/theme.js: {}
   dependencies:
     - core/jquery
     - core/jquery.once
