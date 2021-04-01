@@ -19,6 +19,8 @@
 %}
 {% if content %}
   <div{{ attributes.addClass(classes).setAttribute('id', 'region--' ~ region|clean_class) }}>
-    {{ content }}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
   </div>
 {% endif %}
