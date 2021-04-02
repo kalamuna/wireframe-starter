@@ -4,3 +4,13 @@
  * @file
  * Functions to support theming in the THEMENAME theme.
  */
+
+ /**
+  * Implements hook_preprocess_html().
+  */
+function themename_preprocess_html(&$variables) {
+
+  // Add a body class based on the route, so scss containers can be added to non-node pages.
+  $route_name = \Drupal::request()->attributes->get('_route');
+  $variables['attributes']['class'] = 'route--'. \Drupal\Component\Utility\Html::cleanCssIdentifier($route_name, [ '.' => '-', '_' => '-']);
+}

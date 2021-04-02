@@ -134,3 +134,18 @@
     }
   }
 }
+
+//
+// Add a container around the content on non-node system pages.
+//
+.block--system-main-block {
+  .route--system-403 &,
+  .route--system-404 &,
+  .route--search-view-node-search &,
+  .route--entity-user-canonical &,
+  .route--user-login & {
+    @include container;
+    min-height: 25vh;
+    margin-bottom: #{$container-padding * 2};
+  }
+}
