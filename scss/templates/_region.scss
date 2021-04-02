@@ -1,14 +1,14 @@
 
-// Hide the utility menu on mobile, since a copy will be shown in the main menu region.
+//
+// Search form area in the header.
+//
 #region--header-utility {
+  // Hide the utility menu on mobile, since a copy will be shown in the main menu region.
   display: none;
   @include breakpoint(large) {
     display: block;
   }
-  // Add space if there are two menus in this region.
-  nav + nav {
-    margin-top: 1em;
-  }
+  // Show the menu items side-by-side.
   nav ul {
     display: flex;
     justify-content: flex-end;
@@ -16,6 +16,7 @@
       margin-left: 2em;
     }
   }
+  // Menu link colors and hover.
   a {
     color: color(text);
     text-decoration: none;
@@ -24,8 +25,15 @@
       color: color(link-active);
     }
   }
+  // Add space if there are two menus in this region.
+  nav + nav {
+    margin-top: 1em;
+  }
 }
 
+//
+// Search form area in the header.
+//
 #region--header-search {
   form {
     margin-bottom: #{$container-padding};
@@ -76,7 +84,7 @@
 //
 // The site footer.
 //
-#site-footer {
+#region--footer {
   background: color(background-light);
   padding: #{$container-padding * 2} 0;
   // Footer is one column on mobile, two on tablet, and four on desktop.
@@ -85,7 +93,7 @@
     display: grid;
     grid-gap: $container-padding;
     @include breakpoint(medium) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
     @include breakpoint(large) {
       grid-template-columns: repeat(4, 1fr);
@@ -98,5 +106,16 @@
     nav li {
       margin: .5em 0;
     }
+  }
+}
+
+//
+// The site footer.
+//
+#region--copyright {
+  background: color(light-grey);
+  padding: .5em 0;
+  .region__content {
+    @include container;
   }
 }
