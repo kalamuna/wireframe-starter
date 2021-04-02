@@ -14,15 +14,25 @@
  */
 #}
 {% block content %}
-  <a href="{{ path('<front>') }}" rel="home" title="Home">
-    <svg style="max-width: 5rem; max-height: 5rem;" aria-hidden="true">
-      <use xlink:href="#symbol-placeholder"></use>
-    </svg>
-    <div class="block--system-branding-block__site-name">{{ site_name }}</div>
-  </a>
-  {% if site_slogan %}
-    <div class="block--system-branding-block__slogan">
-      {{ site_slogan }}
+  {% if site_logo %}
+    <a href="{{ path('<front>') }}" rel="home" title="Home" class="block--system-branding-block__logo">
+      <svg style="max-width: 5rem; max-height: 5rem;" aria-hidden="true">
+        <use xlink:href="#symbol-logo"></use>
+      </svg>
+    </a>
+  {% endif %}
+  {% if site_name or site_slogan %}
+    <div>
+      {% if site_name %}
+        <h2 class="block--system-branding-block__title">
+          <a href="{{ path('<front>') }}" rel="home" title="Home">{{ site_name }}</a>
+        </h2>
+      {% endif %}
+      {% if site_slogan %}
+        <div class="block--system-branding-block__slogan">
+          {{ site_slogan }}
+        </div>
+      {% endif %}
     </div>
   {% endif %}
 {% endblock %}

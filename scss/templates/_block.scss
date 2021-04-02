@@ -1,40 +1,67 @@
 
 .block--system-branding-block {
 
-  // Make the logo smaller on mobile and bigger on desktop.
-  svg {
-    width: 3rem;
-    height: 3rem;
-    @include breakpoint(large) {
-      width: 5rem;
-      height: 5rem;
-    }
-  }
-
-  a {
-    outline-offset: .5rem;
-  }
-
-  // Addd extra space below the logo on mobile.
+  // Add extra space below the branding on mobile.
   margin-bottom: $container-padding;
   @include breakpoint(large) {
     margin-bottom: 0;
   }
 
-  // Visually hide the site name.
-  &__site-name {
-    @extend %visually-hidden;
+  // Display the site name slogan to the right of the logo on desktop.
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    // Make the logo smaller on mobile and bigger on desktop.
+    svg {
+      width: 3rem;
+      height: 3rem;
+      @include breakpoint(large) {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+
+    // Use a line below the logo as a hover state.
+    position: relative;
+    &:hover {
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(100% + .2rem);
+        left: 0;
+        right: 0;
+        border-bottom: .2rem solid color(link-active);
+      }
+    }
+
+    // Add space between the logo and the site name and slogan.
+    margin-right: 1em;
+    @include breakpoint(large) {
+      margin-right: $container-padding;
+    }
   }
-  // Display the site slogan to the right of the logo on desktop.
-  @include breakpoint(large) {
-    display: flex;
-    align-items: center;
+
+  // The site title.
+  &__title {
+    margin: 0 0 .2em;
+    font-size: 1.25em;
+    @include breakpoint(large) {
+      font-size: 1.5em;
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
+
+  // Only display site slogan at non-mobile sizes.
   &__slogan {
     display: none;
     @include breakpoint(large) {
       display: block;
-      margin-left: $container-padding;
     }
   }
 }
