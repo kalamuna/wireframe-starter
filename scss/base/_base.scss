@@ -91,13 +91,33 @@ img, svg {
   vertical-align: text-bottom;
 }
 
-// Make svgs the same color as the text around them by default.
+// Make svgs the same size and color as the text around them by default.
 svg {
-  fill: currentColor;
+  &, & path {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+  height: 1em;
+  width: 1em;
+  vertical-align: baseline;
+}
+
+// Make sure there is space between the text and extlink icons.
+svg.ext, svg.mailto {
+  @extend svg;
+  margin-left: .25em;
 }
 
 // Move button svgs up a bit so they are better vertically aligned.
 button svg {
   position: relative;
   top: -.05em;
+}
+
+// Turn off all css animations if the user prefers reduced motion.
+@media (prefers-reduced-motion) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
