@@ -7,6 +7,9 @@
     margin-bottom: 0;
   }
 
+  // Ensure proper height even if logo is not included.
+  min-height: 3rem;
+
   // Display the site name slogan to the right of the logo on desktop.
   display: flex;
   align-items: center;

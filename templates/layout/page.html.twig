@@ -40,18 +40,18 @@
   {{ page.header_branding }}
   {{ page.header_utility }}
   {% if page.header_search %}
-    <button id="site-header__search-toggle" class="site-header__toggle" aria-haspopup="true" aria-controls="region--header-menu" aria-expanded="true" title="Toggle search">
-      <span class="visually-hidden">Toggle Search</span>
+    <button role="search" id="site-header__search-toggle" class="site-header__toggle" aria-haspopup="true" aria-controls="region--header-menu" aria-expanded="true" title="Toggle search">
       <svg class="icon-open" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-search" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
       <svg class="icon-close" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-close" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
+      Search
     </button>
   {% endif %}
   {{ page.header_search }}
   {% if page.header_menu or page.header_utility %}
-    <button id="site-header__menu-toggle" class="site-header__toggle" aria-haspopup="true" aria-controls="region--header-menu" aria-expanded="true" title="Toggle menu">
-      <span class="visually-hidden">Toggle Menu</span>
+    <button role="navigation" id="site-header__menu-toggle" class="site-header__toggle" aria-haspopup="true" aria-controls="region--header-menu" aria-expanded="true" title="Toggle menu">
       <svg class="icon-open" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-menu" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
       <svg class="icon-close" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-close" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
+      Menu
     </button>
   {% endif %}
   {{ page.header_menu }}

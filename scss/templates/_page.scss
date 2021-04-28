@@ -39,7 +39,12 @@
     right: #{$container-padding};
     height: 3rem;
     width: 3rem;
-    font-size: 1.5rem;
+    // Small text below a larger icon.
+    font-size: .8rem;
+    svg {
+      font-size: 1.25rem;
+    }
+    line-height: .9;
     border: 0;
     border-radius: .5rem;
     padding: 0;
