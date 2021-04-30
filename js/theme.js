@@ -28,9 +28,9 @@
       // If the width of a dropdown is greater than the space available on screen, align it to the right of the parent.
       $('#region--header-menu nav > ul > li').bind("mouseenter",  function(event) {
         if ($('ul', this).width() > $(window).width() - $(this).offset().left) {
-          $(this).addClass('align-right');
+          $(this).addClass('dropdown-align-right');
         } else {
-          $(this).removeClass('align-right');
+          $(this).removeClass('dropdown-align-right');
         }
       });
       // Also check the dropdown width on keyboard focus.

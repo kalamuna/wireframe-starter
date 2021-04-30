@@ -109,7 +109,7 @@
             display: block;
           }
           // Class set by js to keep dropdowns from extending past the edge of the window.
-          &.align-right {
+          &.dropdown-align-right {
             ul {
               right: 0;
               left: auto;
