@@ -126,7 +126,7 @@
 //
 .block--local-tasks-block {
   @include container;
-  ul {
+  ul:not(.contextual-links) {
     display: flex;
     margin: 2em 0;
     li + li {

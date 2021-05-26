@@ -9,7 +9,7 @@
     display: block;
   }
   // Show the menu items side-by-side.
-  nav ul {
+  nav ul:not(.contextual-links) {
     display: flex;
     justify-content: flex-end;
     li + li {
