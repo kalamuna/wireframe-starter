@@ -38,23 +38,22 @@
         $(this).parent().trigger('mouseenter');
       })
 
-      // Add a toggle button to open and close the submenus on mobile.
+      // Add a toggle button to open and close any submenus on mobile and with keyboard navigation.
       $('#region--header-menu nav > ul > li > ul').once('header-menu-toggle').each(function() {
         var id = Math.random().toString(36).substring(2, 15);
         $(this).before('<button class="header-menu-toggle" aria-expanded="false"><span class="visually-hidden">Toggle submenu</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-open" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
         $(this).prev('button').click(function () {
           $(this).attr('aria-expanded', $(this).attr('aria-expanded') == 'false' ? 'true' : 'false');
+          // If we are opening a submenu, close any others that are open.
+          if ($(this).attr('aria-expanded') == 'true') {
+            $(this).parent().siblings().each(function () {
+              $('button', this).attr('aria-expanded', 'false');
+            });
+          }
         });
       });
 
-      // When you tab to a menu item, hide the dropdowns for the other menu items.
-      $('#region--header-menu nav > ul > li').focusin(function () {
-        $(this).siblings().each(function () {
-          $('button', this).attr('aria-expanded', 'false');
-        });
-      });
-
-      // Don't show the submenu toggles if a user clicks on a menu link.
+      // Don't show the submenu toggles on desktop if a user clicks on a menu link.
       $('#region--header-menu nav a').mousedown(function () {
         $(this).parents('nav').attr('data-mouse-click', 'true');
       });
