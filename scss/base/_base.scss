@@ -52,16 +52,6 @@ $color-usage: (
 );
 
 
-// A copy of the visually-hidden class style from the stable theme.
-%visually-hidden {
-  position: absolute !important;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  width: 1px;
-  height: 1px;
-  word-wrap: normal;
-}
-
 // Use border box sizing by default.
 *, *::before, *::after {
   box-sizing: border-box;

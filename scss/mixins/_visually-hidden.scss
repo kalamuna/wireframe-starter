@@ -1,0 +1,16 @@
+
+// A copy of the visually-hidden class styles from the drupal stable theme.
+@mixin visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+  margin: 0; // Added for hidden headings.
+}
+
+// Add margin 0 to the drupal .visually-hidden class styles for hidden headings.
+.visually-hidden {
+  margin: 0;
+}
