@@ -1,0 +1,16 @@
+//
+// Content edit tabs for logged in users.
+//
+.block--local-tasks-block {
+  @include container;
+  ul:not(.contextual-links) {
+    display: flex;
+    margin: 2em 0;
+    li + li {
+      margin-left: 2em;
+    }
+    a.is-active {
+      color: color(text);
+    }
+  }
+}

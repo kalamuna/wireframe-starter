@@ -1,0 +1,11 @@
+
+//
+// The copyright bar at the bottom of the footer.
+//
+#region--copyright {
+  background: color(light-grey);
+  padding: .5em 0;
+  .region__content {
+    @include container;
+  }
+}

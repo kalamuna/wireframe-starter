@@ -1,0 +1,45 @@
+
+//
+// Style the breadcrumbs side-by-side on desktop and as a back link on mobile.
+//
+.block--system-breadcrumb-block {
+  @include container;
+  nav {
+    ul, ol {
+      // Underline the links on hover.
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      // Display all the items (and their arrows) side-by-side.
+      &, li, a {
+        display: flex;
+      }
+      // On mobile, only the immediate parent of the current page is shown.
+      li:not(:last-child) {
+        display: none;
+        @include breakpoint(large) {
+          display: flex;
+        }
+      }
+      // On mobile, a back arrow is shown to the left of the parent title.
+      li:last-child a::before {
+        content: "<";
+        width: 1em;
+        @include breakpoint(large) {
+          content: none;
+        }
+      }
+      // On desktop, a forward arrow is used as a seperator.
+      li:not(:first-child)::before {
+        @include breakpoint(large) {
+          content: ">";
+          width: 2rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

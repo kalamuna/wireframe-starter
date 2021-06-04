@@ -1,0 +1,31 @@
+//
+// Search form area in the header.
+//
+#region--header-utility {
+  // Hide the utility menu on mobile, since a copy will be shown in the main menu region.
+  display: none;
+  @include breakpoint(large) {
+    display: block;
+  }
+  // Show the menu items side-by-side.
+  nav ul:not(.contextual-links) {
+    display: flex;
+    justify-content: flex-end;
+    li + li {
+      margin-left: 2em;
+    }
+  }
+  // Menu link colors and hover.
+  a {
+    color: color(text);
+    text-decoration: none;
+    font-weight: bold;
+    &:hover {
+      color: color(link-active);
+    }
+  }
+  // Add space if there are two menus in this region.
+  nav + nav {
+    margin-top: 1em;
+  }
+}
