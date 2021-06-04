@@ -1,4 +1,10 @@
 
+// Needed if we are filling in the left and right of the bar so it doesn't trigger horizontal scrollbars.
+body {
+  overflow-x: hidden;
+}
+
+
 #region--header-menu {
   nav {
 
