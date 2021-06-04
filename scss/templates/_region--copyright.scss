@@ -7,5 +7,15 @@
   padding: .5em 0;
   .region__content {
     @include container;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // Show the menu items side-by-side.
+  nav ul:not(.contextual-links) {
+    display: flex;
+    li + li {
+      margin-left: 2em;
+    }
   }
 }
