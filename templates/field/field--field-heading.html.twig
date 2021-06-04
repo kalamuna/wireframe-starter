@@ -1,0 +1,9 @@
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+  ]
+%}
+
+<h2 {{ attributes.addClass(classes) }}>{{ items }}</h2>

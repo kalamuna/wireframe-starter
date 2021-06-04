@@ -8,16 +8,18 @@
   .field--type-text-long,
   .field--type-text-with-summary {
     @include container;
-    margin: $section-spacing auto;
     > * {
       max-width: $text-column-width;
     }
   }
 
+  .field--name-field-heading {
+    @include container;
+  }
+
   // Introduction text is slightly bigger.
   .field--name-field-introduction p {
     font-size: 1.25rem;
-    max-width: 100%;
     line-height: 1.5;
   }
 
