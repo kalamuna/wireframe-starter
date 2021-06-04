@@ -1,0 +1,9 @@
+
+.paragraph {
+
+  &--hidden-heading {
+    h2 {
+      @include visually-hidden;
+    }
+  }
+}
