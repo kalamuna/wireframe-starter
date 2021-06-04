@@ -13,6 +13,9 @@ $responsive-breakpoints: (
 $container-width: 80rem; // 1280px
 $container-padding: 1.5rem;
 
+// The size of the margins above and below non-full-bleed sections.
+$section-spacing: 3rem;
+
 // The colors used in the design pallete.
 $colors: (
   white:        #ffffff,
@@ -22,6 +25,7 @@ $colors: (
   mid-grey:     #adadad,
   charcoal:     #323232,
   blue:         #0066cc,
+  orange:       #e0ac00,
   red:          #cc0000,
 );
 
@@ -39,6 +43,9 @@ $color-usage: (
   mobile-menu-hover:      map-get($colors, light-grey),
   link:                   map-get($colors, blue),
   link-active:            map-get($colors, red),
+  message-status:         map-get($colors, blue),
+  message-warning:        map-get($colors, orange),
+  message-error:          map-get($colors, red),
 );
 
 
