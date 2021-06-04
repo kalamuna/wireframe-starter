@@ -4,9 +4,25 @@
 //
 .node--view-mode-full {
 
-  // Enclose the main page content in a container and leave margin on the bottom.
-  > .node__content {
+  // Text blocks should have a maximum width and section margins.
+  .field--type-text-long,
+  .field--type-text-with-summary {
     @include container;
-    margin-bottom: #{ $container-padding * 2 };
+    margin: $section-spacing auto;
+    > * {
+      max-width: $text-column-width;
+    }
+  }
+
+  // Introduction text is slightly bigger.
+  .field--name-field-introduction p {
+    font-size: 1.25rem;
+    max-width: 100%;
+    line-height: 1.5;
+  }
+
+  // If the body is the last field, add some extra room before the footer.
+  .field--name-body:last-child {
+    margin-bottom: $section-spacing * 2;
   }
 }

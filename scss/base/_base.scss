@@ -13,7 +13,10 @@ $responsive-breakpoints: (
 $container-width: 80rem; // 1280px
 $container-padding: 1.5rem;
 
-// The size of the margins above and below non-full-bleed sections.
+// A smaller width for text blocks to make them legible.
+$text-column-width: 48rem; // 768px
+
+// The size of the margins above and below non-full-bleed sections. Usually matches the top margin of an h2.
 $section-spacing: 3rem;
 
 // The colors used in the design pallete.
