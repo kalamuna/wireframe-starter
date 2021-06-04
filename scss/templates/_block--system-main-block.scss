@@ -5,7 +5,7 @@
 .block--system-main-block {
 
   // Make sure pages are long enough for the footer to reach the bottom of the screen.
-  min-height: 50vh;
+  min-height: 25vh;
 
   //Add a container around the content on non-node system pages.
   .route--system-403 &,
