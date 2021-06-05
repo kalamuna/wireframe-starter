@@ -90,7 +90,9 @@
   {{ title_suffix }}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
   </div>
 
 </article>

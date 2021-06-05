@@ -1,0 +1,10 @@
+
+{% extends "node.html.twig" %}
+
+{% block content %}
+  <aside>
+    {# Requires twig_tweak and menu_block to be enabled. #}
+    {{ drupal_block('menu_block:basic-pages', {id: 'menu-children', label: "Pages in this section", label_display: 'visible', level: 1, depth: 1, follow: true, follow_parent: 'child'}) }}
+  </aside>
+  {{ content }}
+{% endblock %}

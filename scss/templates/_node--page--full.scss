@@ -1,0 +1,31 @@
+
+.node--type-page.node--view-mode-full {
+  .node__content {
+    @include container;
+    // The subpage navigation in the sidebar.
+    nav {
+      li a {
+        display: block;
+        background-color: color(background-light);
+        padding: 1em 1.5em;
+        margin-bottom: 1px;
+      }
+    }
+    // Display a sidebar next to the content column.
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-column-gap: $container-padding;
+      // Subpage nav is first on mobile, but in the second column on desktop.
+      aside {
+        order: 2;
+        #block-menu-children {
+          margin-top: $section-spacing;
+          h2 {
+            @include visually-hidden;
+          }
+        }
+      }
+    }
+  }
+}
