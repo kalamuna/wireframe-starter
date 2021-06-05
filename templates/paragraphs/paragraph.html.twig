@@ -46,10 +46,15 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+{# Use a section element for paragraphs that are sections of a page. #}
+{%
+  set element = paragraph.bundle() ends with '_section' ? 'section' : div
+%}
+
 {% block paragraph %}
-  <div{{ attributes.addClass(classes) }}>
+  <{{ element}} {{ attributes.addClass(classes) }}>
     {% block content %}
       {{ content }}
     {% endblock %}
-  </div>
+  </{{ element}}>
 {% endblock paragraph %}
