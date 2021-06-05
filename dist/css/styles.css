@@ -640,6 +640,23 @@ body {
 .status-message--error {
   border-color: #cc0000;
 }
+.node--view-mode-full .node__content > .field--type-text-long, .node--view-mode-full .node__content > .field--type-text-with-summary {
+  max-width: calc(80rem + (1.5rem * 2));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.node--view-mode-full .node__content > .field--type-text-long > *, .node--view-mode-full .node__content > .field--type-text-with-summary > * {
+  max-width: 48rem;
+}
+.node--view-mode-full .node__content .field--name-field-introduction p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.node--view-mode-full .node__content > .field--name-body:last-child {
+  margin-bottom: 6rem;
+}
 .node--type-page.node--view-mode-full .node__content {
   max-width: calc(80rem + (1.5rem * 2));
   margin-left: auto;
