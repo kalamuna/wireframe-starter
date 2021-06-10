@@ -57,11 +57,12 @@
   {{ page.header_menu }}
 </header>
 
+<header id="hero">
+  {{ page.hero }}
+</header>
+
 {# Skip to content link that targets this is in html.html.twig. #}
-<main id="main-content">
-  <header id="hero">
-    {{ page.hero }}
-  </header>
+<main id="main-content" aria-labelledby="page-title">
   {{ page.content }}
 </main>
 
