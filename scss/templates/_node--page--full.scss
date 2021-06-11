@@ -11,16 +11,20 @@
         margin-bottom: 1px;
       }
     }
+    aside {
+      margin: $section-spacing 0;
+    }
     // Display a sidebar next to the content column.
     @include breakpoint(large) {
       display: grid;
       grid-template-columns: 2fr 1fr;
       grid-column-gap: $container-padding;
+      margin-bottom: $section-spacing;
+
       // Subpage nav is first on mobile, but in the second column on desktop.
       aside {
         order: 2;
         #block-menu-children {
-          margin-top: $section-spacing;
           h2 {
             @include visually-hidden;
           }
