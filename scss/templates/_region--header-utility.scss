@@ -1,12 +1,7 @@
 //
-// Search form area in the header.
+// Utility menu(s) in the desktop header.
 //
 #region--header-utility {
-  // Hide the utility menu on mobile, since a copy will be shown in the main menu region.
-  display: none;
-  @include breakpoint(large) {
-    display: block;
-  }
   // Show the menu items side-by-side.
   nav ul:not(.contextual-links) {
     display: flex;

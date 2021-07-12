@@ -1,12 +1,7 @@
 //
-// Search form area in the header.
+// Search form area in the desktop header.
 //
 #region--header-search {
-  // Only show desktop search form in large windows.
-  display: none;
-  @include breakpoint(large) {
-    display: block;
-  }
 
   form {
     margin-bottom: #{$container-padding};

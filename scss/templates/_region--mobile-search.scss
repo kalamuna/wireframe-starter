@@ -1,9 +1,8 @@
+//
+// Search form in the mobile header.
+//
 
 #region--mobile-search {
-  @include breakpoint(large) {
-    display: none !important;
-  }
-
   form {
     margin-bottom: #{$container-padding};
     display: flex;
@@ -26,7 +25,6 @@
       border-radius: 0 .25em .25em 0;
       padding: .5em .75em;
       font-size: 1.4rem;
-      line-height: 1em;
     }
   }
 }

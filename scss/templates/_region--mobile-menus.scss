@@ -1,11 +1,8 @@
+//
+// Menu drawer in the mobile header.
+//
 
 #region--mobile-menus {
-
-  // Mobile menus are not displayed on desktop.
-  @include breakpoint(large) {
-    display: none !important;
-  }
-
   nav {
     // Extend the menus to the edge of the mobile screen.
     margin: 0 -#{$container-padding};

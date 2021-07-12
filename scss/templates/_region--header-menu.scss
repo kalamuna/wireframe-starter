@@ -1,3 +1,6 @@
+//
+// Main menu bar in the desktop header.
+//
 
 // Needed if we are filling in the left and right of the bar so it doesn't trigger horizontal scrollbars.
 body {
@@ -5,13 +8,6 @@ body {
 }
 
 #region--header-menu {
-
-  // Only show desktop menu in large windows.
-  display: none;
-  @include breakpoint(large) {
-    display: block;
-  }
-
   nav {
     // Line up the menu text with other text elements.
     margin: 0 -#{$container-padding};
