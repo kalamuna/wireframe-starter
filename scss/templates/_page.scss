@@ -65,17 +65,6 @@
         display: none;
       }
     }
-
-    // We will assume that the button toggles the region that follows it.
-    &[aria-expanded="false"] + div {
-      display: none;
-      @include breakpoint(large) {
-        display: block;
-      }
-    }
-    &[aria-expanded="true"] + div {
-      display: block;
-    }
   }
 
   // Dislay the search toggle to the left of the menu toggle.

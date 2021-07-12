@@ -3,30 +3,42 @@
     attach: function (context, settings) {
 
       //
-      // Activate the mobile drawer on menu and search toggles.
+      // Bind a click function to any buttons that control the expansion of another element.
+      //
+      $('button[aria-controls][aria-expanded]').once('aria-expanded-toggle').each(function() {
+        // Get the element that the buttons controls.
+        var element = '#' + $(this).attr('aria-controls');
+        // Toggle the expanded state and element visibility on click.
+        $(this).on('click', function(event) {
+          if ($(this).attr('aria-expanded') == 'false') {
+            $(this).attr('aria-expanded', 'true');
+            $(element).show();
+          } else {
+            $(this).attr('aria-expanded', 'false');
+            $(element).hide();
+          }
+        });
+        // If aria-expanded is set to false to start, hide the element.
+        if ($(this).attr('aria-expanded') == 'false') {
+          $(element).hide();
+        }
+      });
+
+      //
+      // Display the mobile menus and search in a drawer when they are open.
       //
       $('.site-header__toggle').once('site-header-toggle').on('click', function(event) {
-        // Check if this button is currently marked as expanded.
-        var currentlyExpanded = $(this).attr('aria-expanded');
-        // Toggle all site header buttons to not expanded.
-        $('.site-header__toggle').attr('aria-expanded', 'false');
-        // If this button started as not expanded, we want to expand it and show the mobile drawer.
-        if (currentlyExpanded == 'false') {
-          $(this).attr('aria-expanded', 'true');
+        // On toggle, open the mobile drawers if any element is expanded.
+        if ($('.site-header__toggle[aria-expanded="true"]').length ) {
           $('body').addClass('mobile-drawer-open');
         } else {
-          // If we are closing the currently opened item, hide the mobile drawer.
           $('body').removeClass('mobile-drawer-open');
         }
       });
-      // Since javascript is working, toggle the mobile nav closed on page load.
-      $('.site-header__toggle').attr('aria-expanded', 'false');
       // Close the mobile header panes if the window is resized.
       $(window).once('window-resize-mobile').resize(function () {
-        $('.site-header__toggle').attr('aria-expanded', 'false');
-        $('body').removeClass('mobile-drawer-open');
+        $('.site-header__toggle[aria-expanded="true"]').click();
       });
-
 
       //
       // If the width of a menu dropdown is greater than the space available on a desktop screen, align it to the right of the parent.
