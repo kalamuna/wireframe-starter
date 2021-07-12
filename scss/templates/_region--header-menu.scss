@@ -115,9 +115,9 @@ body {
             }
             display: none;
           }
-          // Show dropdowns on hover, or when expanded with the keyboard.
+          // Show dropdowns on hover, over-riding the aria-controls button state.
           &:hover > ul {
-            display: block;
+            display: block !important;
           }
           // Class set by js to keep dropdowns from extending past the edge of the window.
           &.dropdown-align-right {

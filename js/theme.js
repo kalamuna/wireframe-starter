@@ -3,7 +3,17 @@
     attach: function (context, settings) {
 
       //
-      // Bind a click function to any buttons that control the expansion of another element.
+      // Add a toggle buttons to open and close any submenus on mobile and with keyboard navigation.
+      //
+      $('#region--header-menu nav > ul > li > ul, #region--mobile-menus nav > ul > li > ul').once('header-menu-toggle').each(function() {
+        var id = Math.random().toString(36).substring(2, 15);
+        $(this).attr('id', 'menu-item-' + id)
+        $(this).before('<button class="header-menu-toggle" aria-controls="menu-item-' + id + '" aria-expanded="false"><span class="visually-hidden">Toggle submenu</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-open" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
+      });
+
+
+      //
+      // Bind a click function to menu toggles, and any other button that controls the visibility of another element.
       //
       $('button[aria-controls][aria-expanded]').once('aria-expanded-toggle').each(function() {
         // Get the element that the buttons controls.
@@ -24,6 +34,7 @@
         }
       });
 
+
       //
       // Display the mobile menus and search in a drawer when they are open.
       //
@@ -39,6 +50,7 @@
       $(window).once('window-resize-mobile').resize(function () {
         $('.site-header__toggle[aria-expanded="true"]').click();
       });
+
 
       //
       // If the width of a menu dropdown is greater than the space available on a desktop screen, align it to the right of the parent.
@@ -57,22 +69,8 @@
 
 
       //
-      // Add a toggle buttons to open and close any submenus on mobile and with keyboard navigation.
-      //
-      $('#region--header-menu nav > ul > li > ul, #region--mobile-menus nav > ul > li > ul').once('header-menu-toggle').each(function() {
-        var id = Math.random().toString(36).substring(2, 15);
-        $(this).before('<button class="header-menu-toggle" aria-expanded="false"><span class="visually-hidden">Toggle submenu</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-open" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
-        $(this).prev('button').click(function () {
-          $(this).attr('aria-expanded', $(this).attr('aria-expanded') == 'false' ? 'true' : 'false');
-          // If we are opening a submenu, close any others that are open.
-          if ($(this).attr('aria-expanded') == 'true') {
-            $(this).parent().siblings().each(function () {
-              $('button', this).attr('aria-expanded', 'false');
-            });
-          }
-        });
-      });
       // Don't show the submenu toggles on desktop if a user clicks on a menu link.
+      //
       $('#region--header-menu nav a').mousedown(function () {
         $(this).parents('nav').attr('data-mouse-click', 'true');
       });
