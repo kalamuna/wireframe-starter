@@ -18,6 +18,8 @@
   ]
 %}
 {% if content %}
+  {# Provide a place to add toggle buttons to mobile regions. #}
+  {% block before %}{% endblock %}
   <div{{ attributes.addClass(classes).setAttribute('id', 'region--' ~ region|clean_class) }}>
     {% block content %}
       <div class="region__content">

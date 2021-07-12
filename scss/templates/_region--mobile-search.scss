@@ -1,25 +1,15 @@
-//
-// Search form area in the header.
-//
-#region--header-search {
-  // Only show desktop search form in large windows.
-  display: none;
+
+#region--mobile-search {
   @include breakpoint(large) {
-    display: block;
+    display: none !important;
   }
 
   form {
     margin-bottom: #{$container-padding};
-    @include breakpoint(large) {
-      margin-bottom: 0;
-    }
     display: flex;
     justify-content: flex-end;
     > *:first-child {
       flex: 1 0 auto;
-      @include breakpoint(large) {
-        flex-grow: 0;
-      }
     }
     input[type="search"] {
       background-color: color(background-light);
@@ -28,9 +18,6 @@
       padding: .5em 1em;
       border-radius: .25em 0 0 .25em;
       font-size: 1.4rem;
-      @include breakpoint(large) {
-        font-size: 1rem;
-      }
     }
     // Style the submit button (and the original input that is swapped out by js).
     button, input[type="submit"] {
@@ -40,9 +27,6 @@
       padding: .5em .75em;
       font-size: 1.4rem;
       line-height: 1em;
-      @include breakpoint(large) {
-        font-size: 1rem;
-      }
     }
   }
 }

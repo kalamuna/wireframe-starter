@@ -1,0 +1,113 @@
+
+#region--mobile-menus {
+
+  // Mobile menus are not displayed on desktop.
+  @include breakpoint(large) {
+    display: none !important;
+  }
+
+  nav {
+    // Extend the menus to the edge of the mobile screen.
+    margin: 0 -#{$container-padding};
+
+    // Add lines between all menu items on mobile.
+    li {
+      border-top: 1px solid color(background-body);
+    }
+
+    // Common menu link styles.
+    a {
+      display: block;
+      height: 100%;
+      color: color(main-menu-text);
+      font-weight: bold;
+      text-decoration: none;
+      &:hover, &:focus {
+        outline-offset: -1px;
+        background: color(main-menu-hover);
+      }
+      padding: $container-padding;
+      // Leave room for the submenu toggle on mobile.
+      padding-right: calc(#{$container-padding} * 2 + 2em);
+      @include breakpoint(large) {
+        padding: 1em #{$container-padding};
+      }
+    }
+
+    // Have a background color for the main menu, and make the children slightly lighter.
+    ul {
+      background: color(main-menu-background);
+      ul {
+        background: rgba(255,255,255,.5);
+      }
+    }
+
+    // Hide sub-items to start and give them a normal font weight.
+    ul ul {
+      display: none;
+      a {
+        font-weight: normal;
+      }
+    }
+
+    // Add space between menus in the mobile drawer.
+    & + nav {
+      margin-top: $container-padding * 2;
+    }
+
+    // The mobile submenu toggle button.
+    li {
+      position: relative;
+      button.header-menu-toggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $container-padding / 2 $container-padding;
+        border: 0;
+        background: transparent;
+        svg {
+          background: rgba(255, 255, 255, .5);
+          border-radius: .5em;
+          border: 1.5px solid transparent;
+          box-sizing: content-box;
+          padding: $container-padding / 2;
+        }
+        &:hover {
+          svg {
+            background: color(main-menu-hover);
+          }
+        }
+        &:focus {
+          outline: 0;
+          svg {
+            border-color: color(main-menu-text);
+          }
+        }
+        &[aria-expanded="true"] {
+          svg {
+            transform: rotate(180deg);
+          }
+          & + ul {
+            display: block;
+          }
+        }
+      }
+    }
+
+    // Style the any additional menus that are added to the mobile drawer.
+    &:not(:first-child) {
+      @include breakpoint(large) {
+        display: none;
+      }
+      ul {
+        background: color(mobile-menu-background);
+      }
+      li:hover > a {
+        background: color(mobile-menu-hover);
+      }
+      a {
+        color: color(mobile-menu-text);
+      }
+    }
+  }
+}

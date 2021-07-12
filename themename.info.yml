@@ -12,8 +12,10 @@ regions:
   alert: Alert banner
   header_branding: Header branding
   header_search: Header search
-  header_menu: Header main menu
-  header_utility: Header utility menu
+  header_menu: Desktop main menu
+  header_utility: Desktop utility menu
+  mobile_search: Mobile search
+  mobile_menus: Mobile menus
   hero: Hero
   content: Content
   footer: Footer

@@ -6,8 +6,13 @@ body {
 
 
 #region--header-menu {
-  nav {
+  // Only show desktop menu in large windows.
+  display: none;
+  @include breakpoint(large) {
+    display: block;
+  }
 
+  nav {
     // Extend the menu to the edge of screen on mobile, and line up the text on desktop.
     margin: 0 -#{$container-padding};
 

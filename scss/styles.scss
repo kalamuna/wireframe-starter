@@ -12,9 +12,11 @@
 @import "templates/html";
 @import "templates/page";
 
-@import "templates/region--header-menu";
-@import "templates/region--header-search";
 @import "templates/region--header-utility";
+@import "templates/region--header-search";
+@import "templates/region--header-menu";
+@import "templates/region--mobile-search";
+@import "templates/region--mobile-menus";
 @import "templates/region--hero";
 @import "templates/region--footer";
 @import "templates/region--copyright";
