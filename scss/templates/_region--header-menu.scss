@@ -4,8 +4,8 @@ body {
   overflow-x: hidden;
 }
 
-
 #region--header-menu {
+
   // Only show desktop menu in large windows.
   display: none;
   @include breakpoint(large) {
@@ -13,13 +13,8 @@ body {
   }
 
   nav {
-    // Extend the menu to the edge of screen on mobile, and line up the text on desktop.
+    // Line up the menu text with other text elements.
     margin: 0 -#{$container-padding};
-
-    // Add space between menus in the mobile drawer.
-    & + nav {
-      margin-top: $container-padding * 2;
-    }
 
     // Have a background color for the main menu.
     ul {
@@ -41,18 +36,14 @@ body {
       &::after { left: 100%; }
     }
 
-    // Add lines between all menu items on mobile, and in the dropdowns on desktop;
+    // Add lines between items in the dropdowns;
     li {
-      border-top: 1px solid color(background-body);
-      @include breakpoint(large) {
-        border-top: 0;
-        li + li {
-          border-top: 1px solid color(off-white);
-        }
-        // Add a line around the dropdown in case of menu overlap.
-        ul {
-          box-shadow: 0px 0px 1px 1px color(off-white);
-        }
+      li + li {
+        border-top: 1px solid color(off-white);
+      }
+      // Add a line around the dropdown in case of menu overlap.
+      ul {
+        box-shadow: 0px 0px 1px 1px color(off-white);
       }
     }
 
@@ -67,19 +58,12 @@ body {
         outline-offset: -1px;
         background: color(main-menu-hover);
       }
-      padding: $container-padding;
-      // Leave room for the submenu toggle on mobile.
-      padding-right: calc(#{$container-padding} * 2 + 2em);
-      @include breakpoint(large) {
-        padding: 1em #{$container-padding};
-      }
+      padding: 1em #{$container-padding};
     }
 
-    // On desktop, keep the parent item hover color when over dropdowns.
+    // Keep the parent item hover color when over dropdowns.
     li:hover, li:focus-within {
-      @include breakpoint(large) {
-        background: color(main-menu-hover);
-      }
+      background: color(main-menu-hover);
     }
 
     // Make subitems a normal font weight.
@@ -87,50 +71,44 @@ body {
       font-weight: normal;
     }
 
-    // Hide sub-items to start. Give dropdowns the menu background on desktop;
+    // Give dropdowns the menu background on desktop;
     ul ul {
-      display: none;
-      background: rgba(255,255,255,.5);
-      @include breakpoint(large) {
-        background: color(main-menu-background);
-      }
+      background: color(main-menu-background);
     }
 
-    // On desktop, show the menu items side-by-side and wrap if there isn't enough room.
-    @include breakpoint(large) {
-      > ul {
-        display: flex;
-        flex-wrap: wrap;
-        > li {
-          position: relative;
-          ul {
-            position: absolute;
-            z-index: 100;
-            top: calc(100% + 1px);
-            left: 0;
-            left: var(--shift-left);
-            width: 20em;
-             ul {
-              display: none;
-            }
+    // Show the menu items side-by-side and wrap if there isn't enough room.
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      > li {
+        position: relative;
+        ul {
+          position: absolute;
+          z-index: 100;
+          top: calc(100% + 1px);
+          left: 0;
+          left: var(--shift-left);
+          width: 20em;
+           ul {
             display: none;
           }
-          // Show dropdowns on hover, over-riding the aria-controls button state.
-          &:hover > ul {
-            display: block !important;
-          }
-          // Class set by js to keep dropdowns from extending past the edge of the window.
-          &.dropdown-align-right {
-            ul {
-              right: 0;
-              left: auto;
-            }
+          display: none;
+        }
+        // Show dropdowns on hover, over-riding the aria-controls button state.
+        &:hover > ul {
+          display: block !important;
+        }
+        // Class set by js to keep dropdowns from extending past the edge of the window.
+        &.dropdown-align-right {
+          ul {
+            right: 0;
+            left: auto;
           }
         }
       }
     }
 
-    // The mobile submenu toggle button.
+    // Style the mobile submenu toggle buttons.
     li {
       position: relative;
       button.header-menu-toggle {
@@ -166,55 +144,33 @@ body {
             display: block;
           }
         }
-        @include breakpoint(large) {
-          display: none;
-        }
+        // Don't display toggle to start.
+        display: none;
       }
     }
 
     // Don't leave dropdowns open on desktop if there is no hover and no focus within them.
-    @include breakpoint(large) {
-      li:not(:focus-within):not(:hover) button.header-menu-toggle + ul {
-        display: none;
-      }
+    li:not(:focus-within):not(:hover) button.header-menu-toggle + ul {
+      display: none;
     }
 
-    // On desktop, only show the menu toggles next to the menu item when focus is within the menu.
-    @include breakpoint(large) {
-      &:focus-within:not([data-mouse-click="true"]) {
-        > ul > li {
-          padding-right: 2em;
-          a {
-            padding: 1em .5em 1em .5em;
-          }
-        }
-        button.header-menu-toggle {
-          display: block;
-          padding: 0;
-          svg {
-            padding: 1em .5em;
-            background: none;
-            border-width: 1px;
-            border-radius: 0;
-          }
+    // Only show the menu toggles next to the menu item when focus is within the menu.
+    &:focus-within:not([data-mouse-click="true"]) {
+      > ul > li {
+        padding-right: 2em;
+        a {
+          padding: 1em .5em 1em .5em;
         }
       }
-    }
-
-
-    // Style the any additional menus that are added to the mobile drawer.
-    &:not(:first-child) {
-      @include breakpoint(large) {
-        display: none;
-      }
-      ul {
-        background: color(mobile-menu-background);
-      }
-      li:hover > a {
-        background: color(mobile-menu-hover);
-      }
-      a {
-        color: color(mobile-menu-text);
+      button.header-menu-toggle {
+        display: block;
+        padding: 0;
+        svg {
+          padding: 1em .5em;
+          background: none;
+          border-width: 1px;
+          border-radius: 0;
+        }
       }
     }
   }
