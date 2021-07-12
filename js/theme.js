@@ -83,16 +83,6 @@
 
 
       //
-      // Add the utility menu to the main menu region for display on mobile.
-      //
-      $('#region--header-utility nav').clone().appendTo('#region--header-menu').each(function() {
-        $(this).attr('id', $(this).attr('id') + '-mobile');
-        $(this).attr('aria-labelledby', $(this).attr('aria-labelledby') + '-mobile');
-        $('h2', this).attr('id', $('h2', this).attr('id') + '-mobile');
-      });
-
-
-      //
       // If the search form input label is hidden, show it as a placeholder.
       //
       $('#region--header-search label.visually-hidden').each(function() {
