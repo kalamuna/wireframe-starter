@@ -13,7 +13,7 @@
 
 
       //
-      // Bind a click function to menu toggles, and any other button that controls the visibility of another element.
+      // General click actions for any buttons that control the visibility of another element like menus or accordions.
       //
       $('button[aria-controls][aria-expanded]').once('aria-expanded-toggle').each(function() {
         // Get the element that the buttons controls.
@@ -36,9 +36,13 @@
 
 
       //
-      // Display the mobile menus and search in a drawer when they are open.
+      // Listener for header toggles to show/hide the mobile drawer and close when needed.
       //
-      $('.site-header__toggle').once('site-header-toggle').on('click', function(event) {
+      $('.site-header__toggle').once('site-header-toggle').show().on('click', function(event) {
+        // If op the mobile search or menus, make sure the other is closed.
+        if ($(this).attr('aria-expanded') == 'true') {
+          $(this).siblings('[aria-expanded="true"]').click();
+        }
         // On toggle, open the mobile drawers if any element is expanded.
         if ($('.site-header__toggle[aria-expanded="true"]').length ) {
           $('body').addClass('mobile-drawer-open');
