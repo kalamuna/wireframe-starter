@@ -89,23 +89,6 @@
 
 
       //
-      // If the search form input label is hidden, show it as a placeholder.
-      //
-      $('#region--header-search label.visually-hidden').each(function() {
-        $(this).next('input').attr('placeholder', $(this).html());
-      });
-
-
-      //
-      // Replace the search submit input with a button containing a magnifying glass icon.
-      //
-      $('#region--header-search input[type="submit"]').each(function() {
-        $(this).after('<button type="submit"><span class="visually-hidden">' + $(this).attr('value') + '</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-search" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
-        $(this).remove();
-      });
-
-
-      //
       // Hide the drupal admin toolbar drawer when resizing to mobile, and show it when resizing to desktop.
       //
       $(window).once('window-resize-toolbar').resize(Drupal.debounce(function () {
