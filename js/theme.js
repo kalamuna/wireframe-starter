@@ -38,7 +38,7 @@
       //
       // Listener for header toggles to show/hide the mobile drawer and close when needed.
       //
-      $('.site-header__toggle').once('site-header-toggle').show().on('click', function(event) {
+      $('.site-header__toggle').once('site-header-toggle').on('click', function(event) {
         // If op the mobile search or menus, make sure the other is closed.
         if ($(this).attr('aria-expanded') == 'true') {
           $(this).siblings('[aria-expanded="true"]').click();
@@ -49,8 +49,12 @@
         } else {
           $('body').removeClass('mobile-drawer-open');
         }
-      });
+      }).attr('style', ''); // Remove the display: none added in the mobile regions when the click function has been successfully loaded.
+
+
+      //
       // Close the mobile header panes if the window is resized.
+      //
       $(window).once('window-resize-mobile').resize(function () {
         $('.site-header__toggle[aria-expanded="true"]').click();
       });
