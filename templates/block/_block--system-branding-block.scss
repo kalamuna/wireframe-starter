@@ -1,12 +1,6 @@
 
 .block--system-branding-block {
 
-  // Add extra space below the branding on mobile.
-  margin-bottom: $container-padding;
-  @include breakpoint(large) {
-    margin-bottom: 0;
-  }
-
   // Ensure proper height even if logo is not included.
   min-height: 3rem;
 

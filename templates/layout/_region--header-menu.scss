@@ -2,35 +2,14 @@
 // Main menu bar in the desktop header.
 //
 
-// Needed if we are filling in the left and right of the bar so it doesn't trigger horizontal scrollbars.
-body {
-  overflow-x: hidden;
-}
-
 #region--header-menu {
+
+  // Have a background color for the main menu bar.
+  background: color(main-menu-background);
+
   nav {
     // Line up the menu text with other text elements.
     margin: 0 -#{$container-padding};
-
-    // Have a background color for the main menu.
-    ul {
-      background: color(main-menu-background);
-    }
-
-    // Fill in the areas to the left and the right of the main menu bar with the background color.
-    @include breakpoint(large) {
-      position: relative;
-      &::before, &::after {
-        content: "";
-        position: absolute;
-        width: calc(50vw - #{$container-width} / 2 - #{$container-padding});
-        height: 100%;
-        background: color(main-menu-background);
-        top: 0;
-      }
-      &::before { right: 100%; }
-      &::after { left: 100%; }
-    }
 
     // Add lines between items in the dropdowns;
     li {

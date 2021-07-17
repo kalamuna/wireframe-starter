@@ -1,85 +1,98 @@
 
 
 #site-header {
-  @include container;
-  padding-top: $container-padding;
-  display: grid;
+  &__container {
+    @include container;
+    margin: $container-padding auto;
+    display: grid;
 
-  // Mobile header has the branding block and two buttons side-by-side.
-  grid-template-columns: 3fr auto auto;
-  grid-column-gap: 1rem;
+    // Mobile header has the branding block and two buttons side-by-side.
+    grid-template-columns: 3fr auto auto;
+    grid-column-gap: 1rem;
 
-  // Since the site-header is 100vh with the mobile drawer open, make sure elements stay at the top.
-  grid-auto-rows: min-content;
+    // Layout of the header elements on desktop.
+    @include breakpoint(large) {
+      grid-gap: $container-padding;
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+    }
 
-  #region--header-branding {
-    grid-row: 1;
-    grid-column: 1;
+    // Position of the header branding on mobile and desktop.
+    #region--header-branding {
+      grid-row: 1;
+      grid-column: 1;
+      @include breakpoint(large) {
+        grid-row: 1 / span 2;
+        grid-column: 1;
+      }
+    }
+
+    // Visibility and position of the utility menu on mobile and desktop.
+    #region--header-utility {
+      display: none;
+      @include breakpoint(large) {
+        display: block;
+        grid-column: 2;
+        grid-row: 1;
+        text-align: right;
+      }
+    }
+
+    // Visibility and position of the search form on desktop.
+    #region--header-search {
+      display: none;
+      @include breakpoint(large) {
+        display: block;
+        grid-column: 2;
+        text-align: right;
+      }
+    }
+
+    // Visibility and position of the search toggle on mobile.
+    #site-header__search-toggle {
+      grid-row: 1;
+      grid-column: 2;
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+
+    // Visibility and position of the search form on mobile.
+    #region--mobile-search {
+      grid-row: 2;
+      grid-column: 1 / span 3;
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+
+    // Visibility and position of the menu toggle on mobile.
+    #site-header__menu-toggle {
+      grid-row: 1;
+      grid-column: 3;
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
+
+    // Visibility and position of the menu drawer on mobile.
+    #region--mobile-menus {
+      grid-row: 3;
+      grid-column: 1 / span 3;
+      @include breakpoint(large) {
+        display: none;
+      }
+    }
   }
-  #region--header-utility {
-    display: none;
-  }
-  #region--header-search {
-    display: none;
-  }
+
+  // Visibility and container for the main menu bar on desktop.
   #region--header-menu {
     display: none;
-  }
-  #site-header__search-toggle {
-    grid-row: 1;
-    grid-column: 2;
-  }
-  #site-header__menu-toggle {
-    grid-row: 1;
-    grid-column: 3;
-  }
-  #region--mobile-search {
-    grid-row: 2;
-    grid-column: 1 / span 3;
-  }
-  #region--mobile-menus {
-    grid-row: 3;
-    grid-column: 1 / span 3;
-  }
-
-  // Layout of the header elements on desktop.
-  @include breakpoint(large) {
-
-    grid-gap: $container-padding;
-    align-items: center;
-
-    grid-template-columns: 1fr 1fr;
-    #region--header-branding {
-      grid-row: 1 / span 2;
-      grid-column: 1;
-    }
-    #region--header-utility {
+    @include breakpoint(large) {
       display: block;
-      grid-column: 2;
-      grid-row: 1;
-      text-align: right;
-    }
-    #region--header-search {
-      display: block;
-      grid-column: 2;
-      text-align: right;
-    }
-    #region--header-menu {
-      display: block;
-      grid-column: 1 / span 2;
-      grid-row: 3;
-    }
-    #site-header__search-toggle {
-      display: none;
-    }
-    #site-header__menu-toggle {
-      display: none;
-    }
-    #region--mobile-search {
-      display: none;
-    }
-    #region--mobile-menus {
-      display: none;
+      .region__content {
+        @include container;
+      }
     }
   }
 
@@ -96,10 +109,6 @@
     border: 0;
     border-radius: .5rem;
     padding: 0;
-    // Don't need mobile toggles on desktop.
-    @include breakpoint(large) {
-      display: none;
-    }
     // Hide the close icon if it is already closed.
     .icon-close {
       display: none;

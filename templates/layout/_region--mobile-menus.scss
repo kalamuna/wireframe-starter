@@ -5,7 +5,7 @@
 #region--mobile-menus {
   nav {
     // Extend the menus to the edge of the mobile screen.
-    margin: 0 -#{$container-padding};
+    margin: $container-padding -#{$container-padding};
 
     // Add lines between all menu items on mobile.
     li {
@@ -45,11 +45,6 @@
       a {
         font-weight: normal;
       }
-    }
-
-    // Add space between menus in the mobile drawer.
-    & + nav {
-      margin-top: $container-padding * 2;
     }
 
     // The mobile submenu toggle button.
