@@ -86,7 +86,7 @@
     // Style the mobile submenu toggle buttons.
     li {
       position: relative;
-      button.header-menu-toggle {
+      button.menu-item-toggle {
         position: absolute;
         top: 0;
         right: 0;
@@ -125,7 +125,7 @@
     }
 
     // Don't leave dropdowns open on desktop if there is no hover and no focus within them.
-    li:not(:focus-within):not(:hover) button.header-menu-toggle + ul {
+    li:not(:focus-within):not(:hover) button.menu-item-toggle + ul {
       display: none;
     }
 
@@ -137,7 +137,7 @@
           padding: 1em .5em 1em .5em;
         }
       }
-      button.header-menu-toggle {
+      button.menu-item-toggle {
         display: block;
         padding: 0;
         svg {
