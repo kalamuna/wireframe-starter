@@ -39,6 +39,10 @@
     @include breakpoint(large) {
       padding-right: 5.5rem;
     }
+    // Don't need to leave space when the screen is wider than the container.
+    @include breakpoint (xxlarge) {
+      padding-right: $container-padding;
+    }
   }
 
   // Set the text size for both the block title and contents.
