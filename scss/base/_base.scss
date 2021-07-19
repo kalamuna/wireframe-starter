@@ -30,6 +30,8 @@ $colors: (
   blue:         #0066cc,
   orange:       #e0ac00,
   red:          #cc0000,
+  light-red:    #ffdddd,
+  dark-red:     #990000,
 );
 
 // Map colors to different common usages.
@@ -49,6 +51,8 @@ $color-usage: (
   message-status:         map-get($colors, blue),
   message-warning:        map-get($colors, orange),
   message-error:          map-get($colors, red),
+  alert-text:             map-get($colors, dark-red),
+  alert-background:       map-get($colors, light-red),
 );
 
 

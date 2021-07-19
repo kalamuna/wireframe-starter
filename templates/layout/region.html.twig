@@ -22,9 +22,11 @@
   {% block before %}{% endblock %}
   <div{{ attributes.addClass(classes).setAttribute('id', 'region--' ~ region|clean_class) }}>
     {% block content %}
-      <div class="region__content">
+      <div class="region__content" id="{{ 'region--' ~ region|clean_class ~ '__content' }}">
         {{ content }}
       </div>
     {% endblock %}
   </div>
+  {# Provide a place to add toggle button for the alert bannner. #}
+  {% block after %}{% endblock %}
 {% endif %}

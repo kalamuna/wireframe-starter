@@ -1,95 +1,152 @@
 
 
 #site-header {
-  &__container {
-    @include container;
-    margin: $container-padding auto;
-    display: grid;
+  display: grid;
 
-    // Mobile header has the branding block and two buttons side-by-side.
-    grid-template-columns: 3fr auto auto;
-    grid-column-gap: 1rem;
+  // Layout of the mobile header, including emergency alerts and skip link.
+  grid-template-columns: 3fr auto auto auto;
+  grid-template-areas:
+    "alert  alert  alert  alert" // The emergency alert banner.
+    "skip   stog   mtog   atog"  // The skip to content link, and toggle buttons.
+    "brand  stog   mtog   atog"  // The logo/name, and toggle buttons.
+    "srch   srch   srch   srch"  // The mobile search form.
+    "menu   menu   menu   menu"  // The mobile menus.
+    ;
 
-    // Layout of the header elements on desktop.
-    @include breakpoint(large) {
-      grid-gap: $container-padding;
-      align-items: center;
-      grid-template-columns: 1fr 1fr;
+  // Since the site-header is 100vh with the mobile drawer open, make sure elements stay at the top.
+  grid-auto-rows: min-content;
+
+  // Layout of the header elements on desktop.
+  @include breakpoint(large) {
+
+    // Vertically align items like the logo since adjacent content can vary in height;
+    align-items: center;
+
+    // Set up the areas that the header elements will be placed into.
+    grid-template-columns: auto 1fr 1fr auto;
+    grid-template-areas:
+      "alert  alert  alert  alert" // The emergency alert banner.
+      "lpad   skip   skip   rpad"  // The skip link (and container padding).
+      "lpad   brand  util   rpad"  // The branding and utility menu (and container padding).
+      "lpad   brand  srch   rpad"  // The branding and search form (and container padding).
+      "menu   menu   menu   menu"  // The main menu.
+      ;
+
+    // Use before/after pseudo elements as grid columns to push the non-full-bleed rows to container width.
+    &::before, &::after {
+      content: "";
+      grid-area: lpad;
+      width: calc((100vw - #{$container-width} - #{$container-padding} * 2) / 2);
+      margin-right: $container-padding;
     }
-
-    // Position of the header branding on mobile and desktop.
-    #region--header-branding {
-      grid-row: 1;
-      grid-column: 1;
-      @include breakpoint(large) {
-        grid-row: 1 / span 2;
-        grid-column: 1;
-      }
-    }
-
-    // Visibility and position of the utility menu on mobile and desktop.
-    #region--header-utility {
-      display: none;
-      @include breakpoint(large) {
-        display: block;
-        grid-column: 2;
-        grid-row: 1;
-        text-align: right;
-      }
-    }
-
-    // Visibility and position of the search form on desktop.
-    #region--header-search {
-      display: none;
-      @include breakpoint(large) {
-        display: block;
-        grid-column: 2;
-        text-align: right;
-      }
-    }
-
-    // Visibility and position of the search toggle on mobile.
-    #site-header__search-toggle {
-      grid-row: 1;
-      grid-column: 2;
-      @include breakpoint(large) {
-        display: none;
-      }
-    }
-
-    // Visibility and position of the search form on mobile.
-    #region--mobile-search {
-      grid-row: 2;
-      grid-column: 1 / span 3;
-      @include breakpoint(large) {
-        display: none;
-      }
-    }
-
-    // Visibility and position of the menu toggle on mobile.
-    #site-header__menu-toggle {
-      grid-row: 1;
-      grid-column: 3;
-      @include breakpoint(large) {
-        display: none;
-      }
-    }
-
-    // Visibility and position of the menu drawer on mobile.
-    #region--mobile-menus {
-      grid-row: 3;
-      grid-column: 1 / span 3;
-      @include breakpoint(large) {
-        display: none;
-      }
+    &::after {
+      grid-area: rpad;
     }
   }
+
+  // The alert banner toggle, both on mobile and desktop.
+  #site-header__alert-toggle {
+    grid-area: atog;
+    color: color(alert-text);
+    background: color(alert-background);
+    // On desktop, display the button towards the edge of the screen.
+    @include breakpoint(large) {
+      grid-area: rpad;
+      align-self: start;
+      justify-self: end;
+    }
+  }
+
+  // The emergency alert banner.
+  #region--alert {
+    grid-area: alert;
+    padding: 0 $container-padding #{$container-padding / 2} $container-padding;
+    @include breakpoint(large) {
+      padding: .25rem 0;
+    }
+  }
+
+  // The skip to content link that appears on focus.
+  #skip-to-content {
+    grid-area: skip;
+    a {
+      display: inline-block;
+      margin: $container-padding 0 0 $container-padding;
+    }
+  }
+
+  // Position of the header branding on mobile and desktop.
+  #region--header-branding {
+    grid-area: brand;
+    padding: $container-padding;
+    @include breakpoint(large) {
+      padding: $container-padding $container-padding $container-padding 0;
+    }
+  }
+
+  // Visibility and position of the utility menu on mobile and desktop.
+  #region--header-utility {
+    display: none;
+    @include breakpoint(large) {
+      display: block;
+      grid-area: util;
+      text-align: right;
+      padding: $container-padding 0;
+    }
+  }
+
+  // Visibility and position of the search form on desktop.
+  #region--header-search {
+    display: none;
+    @include breakpoint(large) {
+      display: block;
+      grid-area: srch;
+      text-align: right;
+      padding: 0 0 $container-padding 0 ;
+    }
+  }
+
+  // Visibility and position of the search toggle on mobile.
+  #site-header__search-toggle {
+    grid-area: stog;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  // Visibility and position of the search form on mobile.
+  #region--mobile-search {
+    grid-area: srch;
+    padding: 0 $container-padding #{$container-padding * 2} $container-padding;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  // Visibility and position of the menu toggle on mobile.
+  #site-header__menu-toggle {
+    grid-area: mtog;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  // Visibility and position of the menu drawer on mobile.
+  #region--mobile-menus {
+    grid-area: menu;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
 
   // Visibility and container for the main menu bar on desktop.
   #region--header-menu {
     display: none;
     @include breakpoint(large) {
       display: block;
+      grid-area: menu;
+      // Since the menu bar is full-bleed, it needs a container within it.
       .region__content {
         @include container;
       }
@@ -100,6 +157,7 @@
   .site-header__toggle {
     height: 3rem;
     width: 3rem;
+    margin: $container-padding 1em $container-padding 0;
     // Small text below a larger icon.
     font-size: .8rem;
     svg {
@@ -109,18 +167,35 @@
     border: 0;
     border-radius: .5rem;
     padding: 0;
-    // Hide the close icon if it is already closed.
-    .icon-close {
+    // Hide the close icon (and any close text) if it is already closed.
+    .icon-close, .text-close {
       display: none;
     }
-    // Hide the open icon after we open it.
+    // Hide the open icon (and any open text) after we open it.
     &[aria-expanded="true"] {
-      .icon-close {
+      .icon-close, .text-close {
         display: inline;
       }
-      .icon-open {
+      .icon-open, .text-open {
         display: none;
       }
+    }
+
+  }
+
+  // The emergency alert toggle extends upwards to touch the alert banner.
+  #site-header__alert-toggle {
+    border-radius: 0 0 .5rem .5rem;
+    padding-top: 1.5rem;
+    height: 4.5rem;
+    margin-top: 0;
+    // The emergency alert toggle is visible on desktop.
+    @include breakpoint(large) {
+      margin: 0 $container-padding 0 #{$container-padding * 1.5};
+      padding: .5rem .25rem;
+      height: 4rem;
+      width: 3.5rem;
+      line-height: 1.1;
     }
   }
 }

@@ -1,0 +1,49 @@
+//
+// The emergency alert region on desktop and mobile, currently assuming the alert is a standard custom block.
+//
+
+#region--alert {
+  color: color(alert-text);
+  background: color(alert-background);
+  padding: $container-padding;
+  h2, p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1em 0;
+  }
+  .field--name-body {
+    a {
+      font-size: .9rem;
+      display: inline-block;
+      color: color(alert-text);
+      border: 2px solid color(alert-text);
+      border-radius: 1em;
+      padding: .25em 1em;
+      text-decoration: none;
+      margin: 0 $container-padding 0 0;
+      &:hover, &:focus {
+        color: color(alert-background);
+        background-color: color(alert-text);
+        border-color: color(alert-background);
+      }
+    }
+  }
+  @include breakpoint(large) {
+    .region__content {
+      @include container;
+      .block {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        column-gap: $container-padding;
+        .field--name-body {
+          display: flex;
+          align-items: center;
+          a {
+            margin: 0 0 0 $container-padding;
+          }
+        }
+      }
+    }
+  }
+}

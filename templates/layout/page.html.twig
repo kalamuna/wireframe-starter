@@ -37,13 +37,14 @@
 #}
 
 <header id="site-header">
-  <div id="site-header__container">
-    {{ page.header_branding }}
-    {{ page.header_utility }}
-    {{ page.header_search }}
-    {{ page.mobile_search }}
-    {{ page.mobile_menus }}
-  </div>
+  {# Emergency alerts are above the skip-to-content link so they are not missed. #}
+  {{ page.alert }}
+  <nav id="skip-to-content"><a  href="#main-content" class="visually-hidden focusable">{{ 'Skip to main content'|t }}</a></nav>
+  {{ page.header_branding }}
+  {{ page.header_utility }}
+  {{ page.header_search }}
+  {{ page.mobile_search }}
+  {{ page.mobile_menus }}
   {{ page.header_menu }}
 </header>
 

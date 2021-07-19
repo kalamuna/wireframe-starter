@@ -4,8 +4,8 @@
 
 #region--mobile-menus {
   nav {
-    // Extend the menus to the edge of the mobile screen.
-    margin: $container-padding -#{$container-padding};
+    // Add extra space below the menus so they don't get cut off on ios.
+    margin-bottom: #{$container-padding * 2};
 
     // Add lines between all menu items on mobile.
     li {
@@ -26,9 +26,6 @@
       padding: $container-padding;
       // Leave room for the submenu toggle on mobile.
       padding-right: calc(#{$container-padding} * 2 + 2em);
-      @include breakpoint(large) {
-        padding: 1em #{$container-padding};
-      }
     }
 
     // Have a background color for the main menu, and make the children slightly lighter.
@@ -88,9 +85,6 @@
 
     // Style the any additional menus that are added to the mobile drawer.
     &:not(:first-child) {
-      @include breakpoint(large) {
-        display: none;
-      }
       ul {
         background: color(mobile-menu-background);
       }

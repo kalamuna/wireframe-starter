@@ -1,7 +1,7 @@
 {% extends "region.html.twig" %}
 
 {% block before %}
-  <button role="navigation" id="site-header__menu-toggle" class="site-header__toggle" aria-controls="region--mobile-menus" aria-expanded="false" style="display: none;">
+  <button role="navigation" id="site-header__menu-toggle" class="site-header__toggle" data-mobile-drawer="true" aria-controls="region--mobile-menus" aria-expanded="false" style="display: none;">
     <svg class="icon-open" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-menu" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
     <svg class="icon-close" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-close" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
     <span class="visually-hidden">Toggle</span> Menu
