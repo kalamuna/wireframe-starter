@@ -5,44 +5,51 @@
 #region--alert {
   color: color(alert-text);
   background: color(alert-background);
-  padding: $container-padding;
+  .region__content {
+    @include container;
+    // Leave space for the collapse button to overlap the alert banner.
+    padding-right: 4rem;
+    @include breakpoint(large) {
+      padding-right: 5rem;
+    }
+  }
+
+  // Set the text size for both the block title and contents.
   h2, p {
     font-size: 1rem;
     line-height: 1.5;
     margin: 1em 0;
   }
-  .field--name-body {
-    a {
-      font-size: .9rem;
-      display: inline-block;
-      color: color(alert-text);
-      border: 2px solid color(alert-text);
-      border-radius: 1em;
-      padding: .25em 1em;
-      text-decoration: none;
-      margin: 0 $container-padding 0 0;
-      &:hover, &:focus {
-        color: color(alert-background);
-        background-color: color(alert-text);
-        border-color: color(alert-background);
-      }
+
+  // Make links in the alert into buttons, so they are obvious and easily clickable on mobile.
+  a {
+    font-size: .9rem;
+    display: inline-block;
+    color: color(alert-text);
+    border: 2px solid color(alert-text);
+    border-radius: 1em;
+    padding: .25em 1em;
+    text-decoration: none;
+    margin: 0 $container-padding 0 0;
+    &:hover, &:focus {
+      color: color(alert-background);
+      background-color: color(alert-text);
+      border-color: color(alert-background);
     }
   }
+
+  // On desktop, view the contents side-by-side.
   @include breakpoint(large) {
-    .region__content {
-      @include container;
-      padding-right: 5rem; // Leave space for the collapse button to overlap the alert banner.
-      .block {
+    .block {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      column-gap: $container-padding;
+      .field--name-body {
         display: flex;
         align-items: center;
-        width: 100%;
-        column-gap: $container-padding;
-        .field--name-body {
-          display: flex;
-          align-items: center;
-          a {
-            margin: 0 0 0 $container-padding;
-          }
+        a {
+          margin: 0 0 0 $container-padding;
         }
       }
     }

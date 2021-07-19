@@ -39,7 +39,7 @@
 <header id="site-header">
   {# Emergency alerts are above the skip-to-content link so they are not missed. #}
   {{ page.alert }}
-  <nav id="skip-to-content"><a  href="#main-content" class="visually-hidden focusable">{{ 'Skip to main content'|t }}</a></nav>
+  <a id="skip-to-content" href="#main-content" class="visually-hidden focusable">{{ 'Skip to main content'|t }}</a>
   {{ page.header_branding }}
   {{ page.header_utility }}
   {{ page.header_search }}

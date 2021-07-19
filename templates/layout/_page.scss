@@ -10,7 +10,7 @@
   grid-template-columns: 3fr auto auto auto;
   grid-template-areas:
     "alert  alert  alert  alert" // The emergency alert banner.
-    "skip   stog   mtog   atog"  // The skip to content link, and toggle buttons.
+    "skip   skip   skip   atog"  // The skip to content link, and toggle buttons.
     "brand  stog   mtog   atog"  // The logo/name, and toggle buttons.
     "srch   srch   srch   srch"  // The mobile search form.
     "menu   menu   menu   menu"  // The mobile menus.
@@ -29,8 +29,8 @@
     grid-template-columns: auto 1fr 1fr auto;
     grid-template-areas:
       "alert  alert  alert  alert" // The emergency alert banner.
-      "lpad   skip   skip   rpad"  // The skip link (and container padding).
-      "lpad   brand  util   rpad"  // The branding and utility menu (and container padding).
+      "lpad   skip   skip   atog"  // The skip link alert toggle.
+      "lpad   brand  util   atog"  // The branding and utility menu (and container padding).
       "lpad   brand  srch   rpad"  // The branding and search form (and container padding).
       "menu   menu   menu   menu"  // The main menu.
       ;
@@ -50,20 +50,20 @@
   // The alert banner toggle, both on mobile and desktop.
   #site-header__alert-toggle {
     grid-area: atog;
-    color: color(alert-text);
-    background: color(alert-background);
-    // On desktop, display the button towards the edge of the screen.
-    @include breakpoint(large) {
-      grid-area: rpad;
-      align-self: start;
-      justify-self: end;
+    align-self: start;
+    justify-self: end;
+    // Move the toggle up into the alert region if it is open.
+    &[aria-expanded="true"] {
+      grid-area: alert;
+      z-index: 10;
     }
   }
 
   // The emergency alert banner.
   #region--alert {
     grid-area: alert;
-    padding: 0 $container-padding #{$container-padding / 2} $container-padding;
+    // Show a bit of the alert banner at the top of the screen, even if the content is hidden.
+    padding-bottom: #{$container-padding / 2};
     @include breakpoint(large) {
       padding: .25rem 0;
     }
@@ -72,9 +72,10 @@
   // The skip to content link that appears on focus.
   #skip-to-content {
     grid-area: skip;
-    a {
-      display: inline-block;
-      margin: $container-padding 0 0 $container-padding;
+    display: inline-block;
+    margin: $container-padding  $container-padding 0 $container-padding;
+    @include breakpoint(large) {
+      margin-left: 0;
     }
   }
 
@@ -171,26 +172,25 @@
     border-radius: .5rem;
     padding: 0;
     // Hide the close icon (and any close text) if it is already closed.
-    .icon-close, .text-close {
+    .icon-close {
       display: none;
     }
     // Hide the open icon (and any open text) after we open it.
     &[aria-expanded="true"] {
-      .icon-close, .text-close {
+      .icon-close {
         display: inline;
       }
-      .icon-open, .text-open {
+      .icon-open {
         display: none;
       }
     }
-
   }
 
   // The emergency alert toggle extends upwards to touch the alert banner.
   #site-header__alert-toggle {
+    color: color(alert-text);
+    background: color(alert-background);
     border-radius: 0 0 .5rem .5rem;
-    padding-top: 1.5rem;
-    height: 4.5rem;
     margin-top: 0;
     // The emergency alert toggle is visible on desktop.
     @include breakpoint(large) {
@@ -203,13 +203,10 @@
     // Move the button up into the alert banner.
     &[aria-expanded="true"] {
       border-radius: .5rem;
-      position: absolute;
-      right: 0;
-      top: -4rem;
       padding-top: 0;
       height: 3rem;
+      margin-top: .5rem;
       @include breakpoint(large) {
-        top: -4rem;
         padding-top: .75rem;
         height: 3.5rem;
       }
