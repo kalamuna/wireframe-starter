@@ -48,7 +48,7 @@
   }
 
   // The alert banner toggle, both on mobile and desktop.
-  #site-header__alert-toggle {
+  #region-toggle--alert {
     grid-area: atog;
     align-self: start;
     justify-self: end;
@@ -111,7 +111,7 @@
   }
 
   // Visibility and position of the search toggle on mobile.
-  #site-header__search-toggle {
+  #region-toggle--mobile-search {
     grid-area: stog;
     @include breakpoint(large) {
       display: none;
@@ -128,7 +128,7 @@
   }
 
   // Visibility and position of the menu toggle on mobile.
-  #site-header__menu-toggle {
+  #region-toggle--mobile-menus {
     grid-area: mtog;
     @include breakpoint(large) {
       display: none;
@@ -153,62 +153,6 @@
       // Since the menu bar is full-bleed, it needs a container within it.
       .region__content {
         @include container;
-      }
-    }
-  }
-
-  // The menu and search toggle buttons for mobile.
-  .site-header__toggle {
-    height: 3rem;
-    width: 3rem;
-    margin: $container-padding 1em $container-padding 0;
-    // Small text below a larger icon.
-    font-size: .8rem;
-    svg {
-      font-size: 1.25rem;
-    }
-    line-height: .9;
-    border: 0;
-    border-radius: .5rem;
-    padding: 0;
-    // Hide the close icon (and any close text) if it is already closed.
-    .icon-close {
-      display: none;
-    }
-    // Hide the open icon (and any open text) after we open it.
-    &[aria-expanded="true"] {
-      .icon-close {
-        display: inline;
-      }
-      .icon-open {
-        display: none;
-      }
-    }
-  }
-
-  // The emergency alert toggle extends upwards to touch the alert banner.
-  #site-header__alert-toggle {
-    color: color(alert-text);
-    background: color(alert-background);
-    border-radius: 0 0 .5rem .5rem;
-    margin-top: 0;
-    // The emergency alert toggle is visible on desktop.
-    @include breakpoint(large) {
-      margin: 0 $container-padding;
-      padding: .5rem .25rem;
-      height: 4rem;
-      width: 3.5rem;
-      line-height: 1.1;
-    }
-    // Move the button up into the alert banner.
-    &[aria-expanded="true"] {
-      border-radius: .5rem;
-      padding-top: 0;
-      height: 3rem;
-      margin-top: .5rem;
-      @include breakpoint(large) {
-        padding-top: .75rem;
-        height: 3.5rem;
       }
     }
   }

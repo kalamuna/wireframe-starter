@@ -38,13 +38,13 @@
       //
       // Listener for header toggles to show/hide the mobile drawer and close when needed.
       //
-      $('.site-header__toggle[data-mobile-drawer="true"]').once('site-header-toggle').on('click', function(event) {
+      $('#site-header .region-toggle[data-mobile-drawer="true"]').once('region-toggle').on('click', function(event) {
         // If op the mobile search or menus, make sure the other is closed.
         if ($(this).attr('aria-expanded') == 'true') {
           $(this).siblings('[data-mobile-drawer="true"][aria-expanded="true"]').click();
         }
         // On toggle, open the mobile drawers if any element is expanded.
-        if ($('.site-header__toggle[data-mobile-drawer="true"][aria-expanded="true"]').length ) {
+        if ($('#site-header .region-toggle[data-mobile-drawer="true"][aria-expanded="true"]').length ) {
           $('body').addClass('mobile-drawer-open');
         } else {
           $('body').removeClass('mobile-drawer-open');
@@ -56,7 +56,7 @@
       // Close the mobile header panes if the window is resized.
       //
       $(window).once('window-resize-mobile').resize(function () {
-        $('.site-header__toggle[data-mobile-drawer="true"][aria-expanded="true"]').click();
+        $('#site-header .region-toggle[data-mobile-drawer="true"][aria-expanded="true"]').click();
       });
 
 
@@ -64,13 +64,13 @@
       // Store the status of the alert toggle in a cookie, and start closed if the user has already dismissed it.
       //
       var alertHash = $('#region--alert').html().split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
-      $('#site-header__alert-toggle').click(function() {
+      $('#region-toggle--alert').click(function() {
         // If we are closing the alert, set a cookie so it stays closed on subsequent pages.
         document.cookie = "alertHash=" + ($(this).attr('aria-expanded') == 'false' ? alertHash : '');
       });
       // If this alert has previously been hidden, start it hidden again.
       if (document.cookie.includes("alertHash=" + alertHash)) {
-        $('#site-header__alert-toggle').click();
+        $('#region-toggle--alert').click();
       }
 
 

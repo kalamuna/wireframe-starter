@@ -1,0 +1,29 @@
+
+// The menu and search toggle buttons for mobile.
+.region-toggle {
+  height: 3rem;
+  width: 3rem;
+  margin: $container-padding 1em $container-padding 0;
+  // Small text below a larger icon.
+  font-size: .8rem;
+  svg {
+    font-size: 1.25rem;
+  }
+  line-height: .9;
+  border: 0;
+  border-radius: .5rem;
+  padding: 0;
+  // Hide the close icon (and any close text) if it is already closed.
+  .icon-close, .text-close {
+    display: none;
+  }
+  // Hide the open icon (and any open text) after we open it.
+  &[aria-expanded="true"] {
+    .icon-close, .text-close {
+      display: inline;
+    }
+    .icon-open, .text-open {
+      display: none;
+    }
+  }
+}

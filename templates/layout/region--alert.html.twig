@@ -1,9 +1,10 @@
 {% extends "region.html.twig" %}
 
 {% block before %}
-  <button id="site-header__alert-toggle" class="site-header__toggle" aria-controls="region--alert__content" aria-expanded="true" style="">
+  <button id="region-toggle--alert" class="region-toggle" aria-controls="region--alert__content" aria-expanded="true" aria-label="Emergency Alert">
     <svg class="icon-open" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-alert" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
     <svg class="icon-close" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-close" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-    <span class="text-open visually-hidden">Emergency</span> Alert
+    <span class="text-open">Alert</span>
+    <span class="text-close">Close</span>
   </button>
 {% endblock %}

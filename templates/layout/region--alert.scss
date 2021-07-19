@@ -2,6 +2,33 @@
 // The emergency alert region on desktop and mobile, currently assuming the alert is a standard custom block.
 //
 
+// The emergency alert toggle extends upwards to touch the alert banner.
+#region-toggle--alert {
+  color: color(alert-text);
+  background: color(alert-background);
+  border-radius: 0 0 .5rem .5rem;
+  margin-top: 0;
+  // The emergency alert toggle is visible on desktop.
+  @include breakpoint(large) {
+    margin: 0 $container-padding;
+    padding: .5rem .25rem;
+    height: 4rem;
+    width: 3.5rem;
+    line-height: 1.1;
+  }
+  // Move the button up into the alert banner.
+  &[aria-expanded="true"] {
+    border-radius: .5rem;
+    padding-top: 0;
+    height: 3rem;
+    margin-top: .5rem;
+    @include breakpoint(large) {
+      padding-top: .75rem;
+      height: 3.5rem;
+    }
+  }
+}
+
 #region--alert {
   color: color(alert-text);
   background: color(alert-background);
