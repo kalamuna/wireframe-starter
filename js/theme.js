@@ -5,10 +5,10 @@
       //
       // Add a toggle buttons to open and close any submenus on mobile and with keyboard navigation.
       //
-      $('#region--header-menu nav > ul > li > ul, #region--mobile-menus nav > ul > li > ul').once('header-menu-toggle').each(function() {
+      $('#region--header-menu nav > ul > li > ul, #region--mobile-menus nav > ul > li > ul').once('mobile-menus-toggle').each(function() {
         var id = Math.random().toString(36).substring(2, 15);
         $(this).attr('id', 'menu-item-' + id)
-        $(this).before('<button class="header-menu-toggle" aria-controls="menu-item-' + id + '" aria-expanded="false"><span class="visually-hidden">Toggle submenu</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-open" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
+        $(this).before('<button class="mobile-menus-toggle" aria-controls="menu-item-' + id + '" aria-expanded="false"><span class="visually-hidden">Toggle submenu</span><svg style="max-width:1em; max-height: 1em;" aria-hidden="true"><use xlink:href="#symbol-open" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></button>');
       });
 
 
