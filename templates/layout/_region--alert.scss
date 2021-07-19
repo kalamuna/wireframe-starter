@@ -10,7 +10,7 @@
     // Leave space for the collapse button to overlap the alert banner.
     padding-right: 4rem;
     @include breakpoint(large) {
-      padding-right: 5rem;
+      padding-right: 5.5rem;
     }
   }
 
@@ -42,12 +42,16 @@
   @include breakpoint(large) {
     .block {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      // Don't wrap within headings or link buttons.
+      h2, a {
+        white-space: nowrap;
+      }
       width: 100%;
       column-gap: $container-padding;
       .field--name-body {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         a {
           margin: 0 0 0 $container-padding;
         }
