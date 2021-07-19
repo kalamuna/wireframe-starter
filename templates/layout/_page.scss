@@ -191,11 +191,17 @@
     margin-top: 0;
     // The emergency alert toggle is visible on desktop.
     @include breakpoint(large) {
-      margin: 0 $container-padding 0 #{$container-padding * 1.5};
+      margin: 0 .5rem 0 $container-padding;
       padding: .5rem .25rem;
       height: 4rem;
       width: 3.5rem;
       line-height: 1.1;
+      // Move the button up into the alert banner.
+      &[aria-expanded="true"] {
+        position: absolute;
+        top: -4rem;
+        right: 0;
+      }
     }
   }
 }
