@@ -11,16 +11,16 @@
 
 @import "templates/layout/page";
 
-@import "templates/layout/region";
-@import "templates/layout/region--alert";
-@import "templates/layout/region--header-utility";
-@import "templates/layout/region--header-search";
-@import "templates/layout/region--header-menu";
-@import "templates/layout/region--mobile-search";
-@import "templates/layout/region--mobile-menus";
-@import "templates/layout/region--hero";
-@import "templates/layout/region--footer";
-@import "templates/layout/region--copyright";
+@import "templates/region/region";
+@import "templates/region/region--alert";
+@import "templates/region/region--header-utility";
+@import "templates/region/region--header-search";
+@import "templates/region/region--header-menu";
+@import "templates/region/region--mobile-search";
+@import "templates/region/region--mobile-menus";
+@import "templates/region/region--hero";
+@import "templates/region/region--footer";
+@import "templates/region/region--copyright";
 
 @import "templates/block/block--system-branding-block";
 @import "templates/block/block--system-breadcrumb-block";
