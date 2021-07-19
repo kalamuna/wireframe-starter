@@ -1,0 +1,12 @@
+
+{% extends "node.html.twig" %}
+
+{% block article %}
+  <a href="{{ url }}">
+    {{ content.field_media_image }}
+    <div class="node__content">
+      <h3{{ title_attributes }}>{{ label }}</h3>
+      {{ content|without('field_media_image') }}
+    </div>
+  </a>
+{% endblock %}

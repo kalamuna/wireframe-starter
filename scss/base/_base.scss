@@ -95,6 +95,12 @@ img, svg {
   vertical-align: text-bottom;
 }
 
+// Keep images from expanding beyond their containers;
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 // Make svgs the same size and color as the text around them by default.
 svg {
   &, & path {

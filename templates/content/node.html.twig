@@ -80,7 +80,7 @@
 
 {# Remove role so it is not flagged as duplicate by accessibility tools. #}
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
-
+{% block article %}
   {{ title_prefix }}
   {% if label and not page %}
     <h3{{ title_attributes }}>
@@ -94,5 +94,5 @@
       {{ content }}
     {% endblock %}
   </div>
-
+{% endblock %}
 </article>

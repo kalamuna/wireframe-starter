@@ -22,8 +22,18 @@ function themename_preprocess_html(&$variables) {
 function themename_preprocess_paragraph(&$variables) {
 
   // If the hide heading option is checked, we are going to add a class.
-  if ($variables['paragraph']->hasField('field_hide_heading') && $variables['paragraph']->get('field_hide_heading')->getString() == "1") {
+  if ($variables['paragraph']->hasField('field_hide_heading') && in_array($variables['paragraph']->get('field_hide_heading')->getString(), ["1", "On"])) {
     $variables['attributes']['class'][] = "paragraph--hidden-heading";
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function themename_preprocess_views_view(&$variables) {
+  // If this view is displaying rendered entities, get the view mode.
+  if (isset($variables['view']->rowPlugin->options['view_mode'])) {
+    $variables['view_mode'] = $variables['view']->rowPlugin->options['view_mode'];
   }
 }
 

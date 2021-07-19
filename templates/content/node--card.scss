@@ -1,0 +1,25 @@
+//
+// Styles for nodes when displayed as cards.
+//
+
+.node--view-mode-card {
+  background: color(off-white);
+  // The link wraps around all the contents.
+  a, a:visited {
+    display: block;
+    color: color(text);
+    text-decoration: none;
+  }
+  a:hover, a:focus {
+    color: color(link);
+    outline: 2px solid color(link);
+  }
+  // The title and non-image fields.
+  .node__content {
+    padding: 1rem;
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+}

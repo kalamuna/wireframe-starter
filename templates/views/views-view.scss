@@ -1,0 +1,16 @@
+//
+// Styles for drupal views.
+//
+
+// Display a view of cards in a grid.
+.view--view-mode-card {
+  display: grid;
+  grid-gap: $container-padding;
+  grid-template-columns: 1fr;
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include breakpoint(large) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

@@ -46,15 +46,23 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+
 {# Use a section element for paragraphs that are sections of a page. #}
 {%
   set element = paragraph.bundle() ends with '_section' ? 'section' : div
 %}
 
+{# If this is a section, use its title to create a target id for jump links. #}
+{%
+  set section_id = (element == 'section' and content.field_heading.0 is not null) ? content.field_heading.0['#context'].value|clean_id : null
+%}
+
 {% block paragraph %}
-  <{{ element}} {{ attributes.addClass(classes) }}>
-    {% block content %}
-      {{ content }}
-    {% endblock %}
+  <{{ element}} {{ attributes.addClass(classes).setAttribute('id', section_id) }}>
+    <div class="paragraph__content">
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+    </div>
   </{{ element}}>
 {% endblock paragraph %}

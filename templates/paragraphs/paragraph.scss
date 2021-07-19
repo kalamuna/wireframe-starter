@@ -1,7 +1,11 @@
 
-.paragraph {
+section.paragraph {
+  .paragraph__content {
+    @include container;
+    margin: $section-spacing auto;
+  }
 
-  &--hidden-heading {
+  .paragraph--hidden-heading {
     h2 {
       @include visually-hidden;
     }
