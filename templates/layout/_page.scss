@@ -3,6 +3,9 @@
 #site-header {
   display: grid;
 
+  // Needed to shift the alert banner toggle.
+  position: relative;
+
   // Layout of the mobile header, including emergency alerts and skip link.
   grid-template-columns: 3fr auto auto auto;
   grid-template-areas:
@@ -191,16 +194,24 @@
     margin-top: 0;
     // The emergency alert toggle is visible on desktop.
     @include breakpoint(large) {
-      margin: 0 .5rem 0 $container-padding;
+      margin: 0 $container-padding;
       padding: .5rem .25rem;
       height: 4rem;
       width: 3.5rem;
       line-height: 1.1;
-      // Move the button up into the alert banner.
-      &[aria-expanded="true"] {
-        position: absolute;
+    }
+    // Move the button up into the alert banner.
+    &[aria-expanded="true"] {
+      border-radius: .5rem;
+      position: absolute;
+      right: 0;
+      top: -4rem;
+      padding-top: 0;
+      height: 3rem;
+      @include breakpoint(large) {
         top: -4rem;
-        right: 0;
+        padding-top: .75rem;
+        height: 3.5rem;
       }
     }
   }
