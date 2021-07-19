@@ -63,16 +63,17 @@
       //
       // Store the status of the alert toggle in a cookie, and start closed if the user has already dismissed it.
       //
-      var alertHash = $('#region--alert').html().split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
-      $('#region-toggle--alert').click(function() {
-        // If we are closing the alert, set a cookie so it stays closed on subsequent pages.
-        document.cookie = "alertHash=" + ($(this).attr('aria-expanded') == 'false' ? alertHash : '');
-      });
-      // If this alert has previously been hidden, start it hidden again.
-      if (document.cookie.includes("alertHash=" + alertHash)) {
-        $('#region-toggle--alert').click();
+      if ($('#region--alert').length) {
+        var alertHash = $('#region--alert').html().split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+        $('#region-toggle--alert').click(function() {
+          // If we are closing the alert, set a cookie so it stays closed on subsequent pages.
+          document.cookie = "alertHash=" + ($(this).attr('aria-expanded') == 'false' ? alertHash : '');
+        });
+        // If this alert has previously been hidden, start it hidden again.
+        if (document.cookie.includes("alertHash=" + alertHash)) {
+          $('#region-toggle--alert').click();
+        }
       }
-
 
       //
       // If the width of a menu dropdown is greater than the space available on a desktop screen, align it to the right of the parent.
