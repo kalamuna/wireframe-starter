@@ -23,4 +23,21 @@
   > .field--name-body:last-child {
     margin-bottom: $section-spacing * 2;
   }
+
+  // Assume that reference fields are for cards, at least for the moment.
+  > .field--type-entity-reference {
+    @include container;
+    margin: $section-spacing auto;
+    .field__items {
+      display: grid;
+      grid-gap: $container-padding;
+      grid-template-columns: 1fr;
+      @include breakpoint(medium) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      @include breakpoint(large) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  }
 }
