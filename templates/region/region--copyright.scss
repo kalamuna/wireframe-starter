@@ -4,6 +4,9 @@
 //
 #region--copyright {
   background: color(light-grey);
+  a, a:visited {
+    color: color(text);
+  }
   padding: .5em 0;
   .region__content {
     @include container;

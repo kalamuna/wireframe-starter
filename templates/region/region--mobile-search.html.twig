@@ -1,9 +1,9 @@
 {% extends "region.html.twig" %}
 
 {% block before %}
-  <button role="search" id="region-toggle--mobile-search" class="region-toggle" data-mobile-drawer="true" aria-controls="region--mobile-search" aria-expanded="false" style="display: none;">
+  <button role="search" id="region-toggle--mobile-search" aria-label="Search" class="region-toggle" data-mobile-drawer="true" aria-controls="region--mobile-search" aria-expanded="false" style="display: none;">
     <svg class="icon-open" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-search" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
     <svg class="icon-close" style="width:1em; height: 1em;" aria-hidden="true"><use xlink:href="#symbol-close" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg>
-    <span class="visually-hidden">Toggle</span> Search
+    Search
   </button>
 {% endblock %}
