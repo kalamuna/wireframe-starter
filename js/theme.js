@@ -53,10 +53,19 @@
 
 
       //
-      // Close the mobile header panes if the window is resized.
+      // Close the mobile header panes if the window is resized (more than just an incidental amount from scroll bar visibility or rendering jitter).
       //
+      var mobileDrawerWidth;
       $(window).once('window-resize-mobile').resize(function () {
-        $('#site-header .region-toggle[data-mobile-drawer="true"][aria-expanded="true"]').click();
+        if ($('body').hasClass('mobile-drawer-open')) {
+          // If the drawer has just been opened, save the original mobile drawer width.
+          if (!mobileDrawerWidth) { mobileDrawerWidth = $(window).width(); }
+          // If the window size has gotten more than a little bigger or smaller, close the mobile drawer.
+          if ($(window).width() > (mobileDrawerWidth + 20) || $(window).width() < (mobileDrawerWidth - 20)) {
+            $('#site-header .region-toggle[data-mobile-drawer="true"][aria-expanded="true"]').click();
+            mobileDrawerWidth = false;
+          }
+        }
       });
 
 
@@ -104,6 +113,15 @@
 
 
       //
+      // Wrap tables in divs to make them overflow on mobile. Move sticky table head along with the table.
+      //
+      $("table").once('table-scroll').wrap("<div class='table-scroll'></div>");
+      $('.table-scroll').once('table-scroll-sticky-header').scroll(function() {
+        $('.sticky-header', this).css('left', (-$(this).scrollLeft() + $(this).position().left) + 'px');
+      });
+
+
+      //
       // Hide the drupal admin toolbar drawer when resizing to mobile, and show it when resizing to desktop.
       //
       $(window).once('window-resize-toolbar').resize(Drupal.debounce(function () {
@@ -125,6 +143,13 @@
         $('#site-header a').first().focus();
       });
 
+
+      //
+      // Add a preview of alt text for editors.
+      //
+      $('.contextual-region img').once('alt-text').each(function() {
+        $(this).after('<div class="alt-preview">Alt text: ' + $(this).attr('alt') + "</div>");
+      });
     }
   };
 })(jQuery, Drupal);
