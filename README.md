@@ -43,3 +43,13 @@ If the designs are too complicated for a single alternate style field, that mean
 ### View class based on display mode
 
 If a view is showing rendered entities, a preprocess function will pass the display mode to the view template so that a class can be added. That will allow views to be themed based on the type of content that it will be displaying (such as cards or teasers), without having to target each view independently.
+
+### SVG symbol definitions
+
+The specifications for any icons being used can be added as a symbol in the `assets/symbols.svg` file. These are appended to the bottom of the document so they can be used anywhere on the site without requiring additional page requests. Default definitions have been included for wireframe placeholders, navigation elements, social media icons, and other common icons used on most sites.
+
+Placing icons as SVG elements is preferable for accessibility, since they load reliably and exist in a way that can be interacted with by screen readers that can't see background images. SVG elements can also be styled using CSS, unlike those included as the src in an image tag.
+
+### SVG default sizes and styles
+
+By default, SVGs are set to 1em wide and 1em tall, and inherit their color from the parent element. This allows svgs to quickly be sized along with surrounding text, and inherits colors from thing such as links that might contain them.
