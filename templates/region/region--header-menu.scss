@@ -14,11 +14,11 @@
     // Add lines between items in the dropdowns;
     li {
       li + li {
-        border-top: 1px solid color(off-white);
+        border-top: 1px solid color(grey-90);
       }
       // Add a line around the dropdown in case of menu overlap.
       ul {
-        box-shadow: 0px 0px 1px 1px color(off-white);
+        box-shadow: 0px 0px 1px 1px color(grey-90);
       }
     }
 
