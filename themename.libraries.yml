@@ -1,5 +1,4 @@
 theme-styles:
-  version: 1.x
   css:
     theme:
       dist/css/styles.css: {}
