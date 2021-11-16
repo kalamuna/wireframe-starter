@@ -32,11 +32,12 @@ function themename_preprocess_paragraph(&$variables) {
   }
 }
 
+
 /**
  * Implements hook_preprocess_views_view().
  */
 function themename_preprocess_views_view(&$variables) {
-  // If this view is displaying rendered entities, get the view mode.
+  // If this view is displaying rendered entities, pass the view mode to the template to add a class.
   if (isset($variables['view']->rowPlugin->options['view_mode'])) {
     $variables['view_mode'] = $variables['view']->rowPlugin->options['view_mode'];
   }

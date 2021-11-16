@@ -24,14 +24,22 @@ The base theme is stable, since the advantages gained by using classy add more o
 
 The following features have been added to this starter theme, in anticipation of being used on a majority of sites.
 
-### Hide heading paragraph field
+### Route class added to body tag
+
+A `route--` class is added to the body element based on the Drupal route. This allows non-node pages to be targeted by css, so you can do things like add containers around the content of 404 pages.
+
+### Hide heading paragraph field/class
 
 If you add a boolean field with the id `field_hide_heading` to a paragraph, a `paragraph--hidden-heading` class will be added when that option is checked that can visually hide the heading field.
 
 This approach is preferable to making a title optional, since people using screen readers often need explicit context that might be otherwise indicated with visual cues, such as sections for "featured items". It also prevents cases where heading levels are missed, and there are jumps from the h1 page title to h3 items.
 
-### Alternate style paragraph field
+### Alternate style paragraph field/class
 
 Similarly, if you add a boolean field with the id `field_alternate_style` to a paragraph, a `paragraph--alternate-style` class will be added to the paragraph. This behavior will very depending on the particular designs, but there is usually at least one component that has an alternate style, such as a flipped layout or alternate background color.
 
 If the designs are too complicated for a single alternate style field, that means that they probably need to be simplified, or there needs to be multiple different paragraph types created for the different options.
+
+### View class based on display mode
+
+If a view is showing rendered entities, a preprocess function will pass the display mode to the view template so that a class can be added. That will allow views to be themed based on the type of content that it will be displaying (such as cards or teasers), without having to target each view independently.
