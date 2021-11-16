@@ -36,27 +36,3 @@ function themename_preprocess_views_view(&$variables) {
     $variables['view_mode'] = $variables['view']->rowPlugin->options['view_mode'];
   }
 }
-
-/**
- * Implements hook_preprocess_form_ID_alter().
- */
-function themename_form_search_block_form_alter(&$form, $form_state, $form_id) {
-
-  // Tweak the label of the search block text input.
-  $form['keys']['#title'] = t('Site search');
-  // Add a placeholder to the search block input, since we are replacing the submit text with an icon.
-  $form['keys']['#attributes']['placeholder'] = 'Search';
-  // Pass the form id to the suggestion function below, so it knows when to point to our custom input template.
-  $form['actions']['submit']['form'] = 'search_block_form';
-}
-
-/**
- * Implements hook_theme_suggestions_HOOK_alter().
- */
-function themename_theme_suggestions_input_alter(array &$suggestions, array $variables) {
-
-  // For the site search block, use a template to render the submit button as a button with an svg icon.
-  if (isset($variables['element']['form']) && $variables['element']['form'] == 'search_block_form') {
-    $suggestions[] = 'input__search_block_form_submit';
-  }
-}
