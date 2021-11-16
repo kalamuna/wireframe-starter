@@ -1,24 +1,24 @@
 # Kalamuna wireframe starter theme
 
-This is a starter theme that uses Kalamuna's standard wireframe styles.
+This is a starter theme that uses Kalamuna's standard wireframe styles, which allows general site building to commence before the final visual designs have been completed.
+
+This theme has also been created with accessibility in mind, with the goal of ensuring that some best practices are followed by default.
 
 ## Using this theme
 
 Copy the contents of this repository in your local web/themes/custom/ directory.
 
-Rename the directory and project files to be the name of your new theme.
+Rename the `themename` directory and project files to be the name of your new theme. Grep the codebase for `themename` and change all instances to the name of your theme.
 
 ## Compiling the source files
 
-This project is using node-sass to compile scss files to css.
+This project is using node-sass to compile scss files to css. Run `npm install` and then `npm run build` or `npm run watch`.
 
-Run `npm install` and then `npm run build`.
+The CSS can also be built using `scssphp` by composer in the website root, in cases where node is not available in the site building step (such as Pantheon's integrated composer).
 
-## Architecture decisions and philosophy
+## Technical decisions and philosophy
 
-We decided to use node-sass to compile the scss files, since almost all of the tasks we used gulp for can now be done without it.
-
-The base theme is stable, since the advantages gained by using classy add more overhead than it helps. Many of the class names classy uses are not in proper BEM formatting. Many of the templates contain excess elements and roles that get flagged as redundant by accessibility tools.
+The base theme is Stable, since the advantages gained by using Classy add more overhead than it helps. Many of the class names Classy uses are not in proper BEM formatting. Many of the templates contain excess elements and roles that get flagged as redundant by accessibility tools.
 
 ## Features
 
