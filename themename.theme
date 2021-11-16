@@ -21,9 +21,14 @@ function themename_preprocess_html(&$variables) {
  */
 function themename_preprocess_paragraph(&$variables) {
 
-  // If the hide heading option is checked, we are going to add a class.
+  // If a paragraph has a boolean field to hide the heading, provide a class for css.
   if ($variables['paragraph']->hasField('field_hide_heading') && in_array($variables['paragraph']->get('field_hide_heading')->getString(), ["1", "On"])) {
     $variables['attributes']['class'][] = "paragraph--hidden-heading";
+  }
+
+  // If a paragraph has a boolean field to show an alternate style, provide a class for css.
+  if ($variables['paragraph']->hasField('field_alternate_style') && in_array($variables['paragraph']->get('field_alternate_style')->getString(), ["1", "On"])) {
+    $variables['attributes']['class'][] = "paragraph--alternate-style";
   }
 }
 
