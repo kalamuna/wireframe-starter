@@ -19,43 +19,6 @@ $text-column-width: 48rem; // 768px
 // The size of the margins above and below non-full-bleed sections. Usually matches the top margin of an h2.
 $section-spacing: 3rem;
 
-// The colors used in the design pallete.
-$colors: (
-  white:        #ffffff,
-  grey-90:      #f2f2f2,
-  grey-80:      #d3d3d3,
-  grey-70:      #adadad,
-  grey-20:      #323232,
-  black:        #000000,
-  blue:         #0066cc,
-  orange:       #e0ac00,
-  red-80:       #ffdddd,
-  red-60:       #cc0000,
-  red-40:       #990000,
-);
-
-// Map colors to different common usages.
-$color-usage: (
-  text:                   map-get($colors, grey-20),
-  heading:                map-get($colors, grey-20),
-  background-body:        map-get($colors, white),
-  background-light:       map-get($colors, grey-90),
-  main-menu-text:         map-get($colors, grey-20),
-  main-menu-background:   map-get($colors, grey-80),
-  main-menu-hover:        map-get($colors, grey-70),
-  mobile-menu-text:       map-get($colors, grey-20),
-  mobile-menu-background: map-get($colors, grey-90),
-  mobile-menu-hover:      map-get($colors, grey-80),
-  link:                   map-get($colors, blue),
-  link-active:            map-get($colors, red-60),
-  message-status:         map-get($colors, blue),
-  message-warning:        map-get($colors, orange),
-  message-error:          map-get($colors, red-60),
-  alert-text:             map-get($colors, red-40),
-  alert-background:       map-get($colors, red-80),
-);
-
-
 // Use border box sizing by default.
 *, *::before, *::after {
   box-sizing: border-box;
@@ -64,20 +27,6 @@ $color-usage: (
 // For some reason normalize.css sets search inputs back to content box.
 input[type="search"] {
   box-sizing: border-box;
-}
-
-// Set the default body text and background colors.
-body {
-  background: color(background-body);
-  color: color(text);
-}
-
-// Set the default link colors.
-a, a:visited {
-  color: color(link);
-  &:active, &:hover {
-    color: color(link-active);
-  }
 }
 
 // Remove link underline on click to show activation.
