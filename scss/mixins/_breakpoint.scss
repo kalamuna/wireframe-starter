@@ -1,6 +1,10 @@
 /**
  * A simple breakpoint mixin for writing responsive media queries.
  *
+ * Setup: Include this mixin file, and then create a $responsive-breakpoints
+ *        map in your scss files to override the default width values below,
+ *        add additional breakpoints, or rename existing breakpoint keys.
+ *
  * Note: This mixin does not include common features like 'only' and 'down',
  *       since there is no way to reliably ensure that there is no overlap of
  *       styles when the window width exactly matches a breakpoint size.
