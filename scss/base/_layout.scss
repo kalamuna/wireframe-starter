@@ -1,0 +1,40 @@
+
+// Set the breakpoints that will be used by the breakpoint mixin.
+//  Note: if these values change, you should also edit the breakpoints.yml file.
+$responsive-breakpoints: (
+  medium:   40rem, //  640px
+  large:    60rem, //  960px
+  xlarge:   80rem, // 1280px
+  xxlarge: 100rem, // 1600px
+);
+
+// Set the width and padding of centered containers using the container mixin.
+$container-width: 80rem; // 1280px
+$container-padding: 1.5rem;
+
+// A smaller width for text blocks to make them legible.
+$text-column-width: 48rem; // 768px
+
+// The size of the margins above and below non-full-bleed sections. Usually matches the top margin of an h2.
+$section-spacing: 3rem;
+
+// Width of the lines used to separate content.
+$separator-width: 0.0625rem; // 1px
+
+// Use border box sizing by default.
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// For some reason normalize.css sets search inputs back to content box.
+input[type="search"] {
+  box-sizing: border-box;
+}
+
+// Style the horizontal rule.
+hr {
+  border: 0;
+  border-top: $separator-width solid color(separator);
+  margin: $section-spacing 0;
+  clear: both;
+}

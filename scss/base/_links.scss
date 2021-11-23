@@ -1,0 +1,10 @@
+
+// Remove link underline on click to show activation.
+a:active {
+  text-decoration: none;
+}
+
+// Add a little extra space around links when a focus outline is visible.
+a {
+  outline-offset: .2em;
+}

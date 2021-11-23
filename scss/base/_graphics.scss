@@ -1,0 +1,49 @@
+
+// Keep extra space from appearing below inline images.
+img, svg {
+  vertical-align: text-bottom;
+}
+
+// Keep images from expanding beyond their containers;
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Make svgs the same size and color as the text around them by default.
+svg {
+  &, & path {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+  height: 1em;
+  width: 1em;
+  vertical-align: baseline;
+}
+
+// Make sure there is space between the text and extlink icons.
+svg.ext, svg.mailto {
+  @extend svg;
+  margin-left: .25em;
+}
+
+// Move button svgs up a bit so they are better vertically aligned.
+button svg {
+  position: relative;
+  top: -.05em;
+}
+
+// For some reason pictures are not displayed as blocks by default.
+picture {
+  display: block;
+}
+
+// For some reason normalize indents figures, including images with captions.
+figure {
+  margin: $container-padding 0;
+}
+
+// Add a little space around figcaptions.
+figcaption {
+  margin: .5em 0;
+}

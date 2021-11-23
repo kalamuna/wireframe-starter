@@ -1,0 +1,8 @@
+
+// Turn off all css animations if the user prefers reduced motion.
+@media (prefers-reduced-motion) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
