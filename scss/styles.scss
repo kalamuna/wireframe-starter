@@ -5,14 +5,15 @@
 @import "mixins/container";
 @import "mixins/visually-hidden";
 
+@import "base/accessibility";
 @import "base/colors";
 @import "base/layout";
-@import "base/links";
-@import "base/graphics";
-@import "base/tables";
 @import "base/text";
-@import "base/menus";
-@import "base/accessibility";
+
+@import "elements/graphics";
+@import "elements/links";
+@import "elements/menus";
+@import "elements/tables";
 
 @import "templates/layout/page";
 
