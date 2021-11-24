@@ -17,6 +17,6 @@ regions:
   mobile_search: Mobile search
   mobile_menus: Mobile menus
   hero: Hero
-  content: Content
+  main: Main Content
   footer: Footer
   copyright: Copyright
