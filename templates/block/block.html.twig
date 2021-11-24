@@ -29,11 +29,13 @@
   set classes = [
     'block',
     'block--' ~ configuration.provider|clean_class,
-    'block--' ~ plugin_id|clean_class,
+    'block--' ~ plugin_id|replace({':': '--'})|clean_class,
   ]
 %}
+
+{# Include additional classes that are added if this template is extended. #}
 {# Remove id attribute because there can be more than one copy of a block on a page. #}
-<div{{ attributes.addClass(classes).removeAttribute('id') }}>
+<div{{ attributes.addClass(classes).addClass(additional_classes).removeAttribute('id') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>
