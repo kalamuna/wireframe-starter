@@ -5,6 +5,7 @@
 .block--system-breadcrumb-block {
   @include container;
   nav {
+    margin: 1em 0;
     ul, ol {
       // Underline the links on hover.
       a {
