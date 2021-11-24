@@ -1,11 +1,52 @@
 
-h2, h3, h4, h5 {
-  margin: 2em 0 1em;
-  line-height: 1.2;
+// Fonts will be added here, after being included in a template.
+$sans-serif: sans-serif;
+$serif: serif;
+
+// Common styles across all the headings.
+$heading-line-height: 1.2;
+$heading-font-weight: 700;
+
+// The font size for the actual page content is usually larger.
+$paragraph-font-size: 1.125rem; // 18px
+$paragraph-line-height: 1.5;
+
+// Common spacing and styles for all headings.
+h1, h2, h3, h4, h5 {
+  margin: 1em 0 .5em;
+  line-height: $heading-line-height;
+  font-weight: $heading-font-weight;
 }
 
+// Sizes of the different heading levels.
+h1 {
+  font-size: 2.625rem; // 42px
+}
+h2 {
+  font-size: 2rem; // 32px
+}
+h3 {
+  font-size: 1.625rem; // 26px
+}
+h4 {
+  font-size: 1.25rem; // 20px
+}
+h5 {
+  font-size: 1em; // 16px
+}
+h6 {
+  font-size: .8rem; // 12.8px
+}
 
+// Assume all paragraphs are page content by default.
 p {
-  font-size: 1.125rem;
-  line-height: 1.5;
+  font-size: $paragraph-font-size;
+  line-height: $paragraph-line-height;
+  font-family: $serif;
+}
+
+// Figcaptions are slightly smaller than the surrounding paragraphs.
+figcaption {
+  line-height: $paragraph-line-height;
+  font-size: 1rem // 16px
 }
