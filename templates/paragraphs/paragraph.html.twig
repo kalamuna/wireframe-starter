@@ -41,15 +41,15 @@
 {%
   set classes = [
     'paragraph',
-    'paragraph--type--' ~ paragraph.bundle|clean_class,
-    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
 
 {# Use a section element for paragraphs that are sections of a page. #}
 {%
-  set element = paragraph.bundle() ends with '_section' ? 'section' : div
+  set element = paragraph.bundle() ends with '_section' ? 'section' : 'div'
 %}
 
 {# If this is a section, use its title to create a target id for jump links. #}

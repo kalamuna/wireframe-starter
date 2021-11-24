@@ -1,13 +1,14 @@
 
 section.paragraph {
-  .paragraph__content {
-    @include container;
-    margin: $section-spacing auto;
-  }
 
-  .paragraph--hidden-heading {
+  // Visually hide a section heading if that checkbox is selected.
+  &.paragraph--hidden-heading {
     h2 {
       @include visually-hidden;
+    }
+    // Add top spacing now that the h2 and its margins are gone.
+    .paragraph__content {
+      margin-top: $section-spacing;
     }
   }
 }
