@@ -1,5 +1,25 @@
 
-// Allow the table to scroll on mobile.
+
+// Html tables for showing data.
+table {
+  margin-top: $container-padding;
+  thead {
+    background-color: color(grey-80);
+    border-bottom: 2px solid color(grey-20);
+    th {
+      padding: #{$container-padding / 2 };
+    }
+  }
+  tbody {
+    tr:nth-child(even) {background: color(grey-90) }
+    tr:nth-child(odd) {background: color(white) }
+    td {
+      padding: #{$container-padding / 2 };
+    }
+  }
+}
+
+// Allow the table to scroll on mobile, inside of a wrapping div added by js.
 .table-scroll {
   margin: 0 -#{$container-padding};
   padding: 0 #{$container-padding};
