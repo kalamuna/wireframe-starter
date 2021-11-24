@@ -1,0 +1,21 @@
+
+// Image media type.
+.media--image {
+  position: relative;
+
+  // Style the preview of alt text that has been added for editors using js
+  .alt-preview {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    margin: 2rem;
+    background: white;
+    color: black;
+    opacity: .5;
+    padding: .25em .5em;
+    border-radius: .25em;
+    left: 50%;
+    transform: translateX(calc(-50% - 2rem));
+    font-size: .8rem;
+  }
+}
