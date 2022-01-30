@@ -25,17 +25,17 @@
  * @see template_preprocess_block()
  */
 #}
-{%
-  set classes = [
-    'block',
-    'block--' ~ configuration.provider|clean_class,
-    'block--' ~ plugin_id|replace({':': '--'})|clean_class,
-  ]
-%}
 
-{# Include additional classes that are added if this template is extended. #}
+{# Create the classes array, if it has not already been defined in an extending template. #}
+{% set classes = classes ?: [] %}
+
+{# Use the theme hook suggestions to create some good classes to target this block with css/js. #}
+{% for suggestion in theme_hook_suggestions %}
+  {% set classes = classes|merge([suggestion|replace({'_': '-'})]) %}
+{% endfor %}
+
 {# Remove id attribute because there can be more than one copy of a block on a page. #}
-<div{{ attributes.addClass(classes).addClass(additional_classes).removeAttribute('id') }}>
+<div{{ attributes.addClass(classes).removeAttribute('id') }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>

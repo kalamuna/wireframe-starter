@@ -1,7 +1,7 @@
 {% extends "block.html.twig" %}
 
 {# Add a class to the block if the view within is empty. #}
-{% set additional_classes = [
+{% set classes = [
     not content['view_build']['#rows'][0] ? 'block--views--empty',
   ]
 %}
