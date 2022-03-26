@@ -53,34 +53,23 @@
   ]
 %}
 
+{# Always wrap divs around the fields and values, rather than playing games with if statements to reduce markup. #}
+<div{{ attributes.addClass(classes) }}>
 
-{% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes.addClass(classes, 'field__items') }}>
-      {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% for item in items %}
-      <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
-    {% endfor %}
+  {# Show the field label if it is not set to hidden. #}
+  {% if not label_hidden %}
+    <{{ label_element ?: 'div' }} {{ title_attributes.addClass(title_classes) }}>{{ label }}</{{ label_element ?: 'div' }}>
   {% endif %}
-{% else %}
-  <div{{ attributes.addClass(classes) }}>
-    {% if heading_level %}
-    <{{ heading_level }} {{ title_attributes.addClass(title_classes) }}>{{ label }}</{{ heading_level }}>
-    {% else %}
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-    {% endif %}
-    {% if multiple %}
-      <div class="field__items">
-    {% endif %}
-    {% for item in items %}
-      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
-    {% endfor %}
-    {% if multiple %}
-      </div>
-    {% endif %}
-  </div>
-{% endif %}
+
+  {# Show the field values using divs or the elements from extended templates. #}
+  <{{ items_element ?: 'div' }} class="field__items">
+  {% for item in items %}
+    <{{ item_element ?: 'div' }}{{ item.attributes.addClass('field__item') }}>
+      {% block item_content %}
+        {{ item.content }}
+      {% endblock item_content %}
+    </{{ item_element ?: 'div' }}>
+  {% endfor %}
+  </{{ items_element ?: 'div' }}>
+
+</div>
