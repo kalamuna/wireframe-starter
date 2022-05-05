@@ -55,3 +55,34 @@ function themename_preprocess_image(&$variables) {
     $variables['attributes']['title'] = '';
   }
 }
+
+
+/**
+ * Implements template_preprocess_image_formatter().
+ */
+function themename_preprocess_image_formatter(&$variables) {
+
+  // Output focal point values as an object-position style in the img element to allow css to pseudo-crop it with object-fit: cover.
+  if (isset($variables['item']->target_id)) {
+    if ($file = \Drupal::service('entity_type.manager')->getStorage('file')->load($variables['item']->target_id)) {
+      $crop_type = \Drupal::config('focal_point.settings')->get('crop_type');
+      if ($crop = \Drupal\crop\Entity\Crop::findCrop($file->getFileUri(), $crop_type)) {
+        $anchor = \Drupal::service('focal_point.manager')
+          ->absoluteToRelative($crop->x->value, $crop->y->value, $variables['item']->width, $variables['item']->height);
+        $variables['image']['#attributes']['style'] = "object-position: {$anchor['x']}% {$anchor['y']}%;";
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements template_preprocess_responsive_image_formatter().
+ */
+function themename_preprocess_responsive_image_formatter(&$variables) {
+
+  // We need to use the same code as a regular image formatter, so just call that, and then move the result to the right place.
+  themename_preprocess_image_formatter($variables);
+  $variables['responsive_image']['#attributes']['style'] = $variables['image']['#attributes']['style'];
+  unset($variables['image']);
+}
