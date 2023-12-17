@@ -1,18 +1,14 @@
 {
   "name": "themename",
   "version": "1.0.0",
-  "dependencies": {},
   "scripts": {
-    "scss": "node-sass scss/styles.scss -o dist/css --source-map-root '../../' --source-map-embed true",
-    "autoprefixer": "postcss -u autoprefixer --replace dist/css/*",
-    "build": "npm run -s scss && npm run -s autoprefixer",
-    "watch": "npm run -s build && onchange \"scss\" -- npm run -s build",
+    "styles": "sass scss/styles.scss dist/styles.css",
+    "build": "npm run -s styles",
     "test": "npm run -s build"
   },
+  "dependencies": {
+    "sass": "^1.53.0"
+  },
   "devDependencies": {
-    "autoprefixer": "^9.8.8",
-    "node-sass": "^4.14.1",
-    "onchange": "^7.0.2",
-    "postcss-cli": "^7.1.1"
   }
 }
