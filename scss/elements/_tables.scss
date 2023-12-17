@@ -7,14 +7,14 @@ table {
     background-color: color(grey-80);
     border-bottom: 2px solid color(grey-20);
     th {
-      padding: #{$container-padding / 2 };
+      padding: .5em;
     }
   }
   tbody {
     tr:nth-child(even) {background: color(grey-90) }
     tr:nth-child(odd) {background: color(white) }
     td {
-      padding: #{$container-padding / 2 };
+      padding: .5em;
     }
   }
 }

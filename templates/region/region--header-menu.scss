@@ -90,7 +90,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        padding: $container-padding / 2 $container-padding;
+        padding: calc($container-padding / 2) $container-padding;
         border: 0;
         background: transparent;
         svg {
@@ -98,7 +98,7 @@
           border-radius: .5em;
           border: 1.5px solid transparent;
           box-sizing: content-box;
-          padding: $container-padding / 2;
+          padding: calc($container-padding / 2);
         }
         &:hover {
           svg {
