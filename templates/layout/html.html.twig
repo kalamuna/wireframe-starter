@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Theme override for the basic structure of a single Drupal page.
+ * Default theme implementation for the basic structure of a single Drupal page.
  *
  * Variables:
  * - logged_in: A flag indicating if user is logged in.
@@ -21,20 +21,31 @@
  *   placeholders.
  *
  * @see template_preprocess_html()
+ *
+ * @ingroup themeable
  */
 #}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <head-placeholder token="{{ placeholder_token|raw }}">
+    <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
-    <css-placeholder token="{{ placeholder_token|raw }}">
-    <js-placeholder token="{{ placeholder_token|raw }}">
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
   </head>
   <body{{ attributes }}>
-    {{ page_top }}
+
+    {# If there is an admin menu or other content before the page, wrap a skip link around it. #}
+    {% if page_top %}
+      <a href="#skip-page-top" class="visually-hidden focusable">
+        {{ 'Skip to site header'|t }}
+      </a>
+      {{ page_top }}
+      <a id="skip-page-top" />
+    {% endif %}
+
     {{ page }}
     {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+    <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
