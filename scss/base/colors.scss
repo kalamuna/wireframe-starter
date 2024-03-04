@@ -1,42 +1,49 @@
 
-// Override the default values for the color mixin with the values for this design.
-$colors: (
-  white:        #ffffff,
-  grey-90:      #f2f2f2,
-  grey-80:      #d3d3d3,
-  grey-70:      #adadad,
-  grey-50:      #666666,
-  grey-20:      #323232,
-  black:        #000000,
-  blue:         #0066cc,
-  orange:       #e0ac00,
-  red-80:       #ffdddd,
-  red-60:       #cc0000,
-  red-40:       #990000,
-);
 
-// The color mixin also accepts these color usage names that are mapped to color names.
-$color-usage: (
-  text:                   map-get($colors, grey-20),
-  heading:                map-get($colors, grey-20),
-  background-body:        map-get($colors, white),
-  background-light:       map-get($colors, grey-90),
-  main-menu-text:         map-get($colors, grey-20),
-  main-menu-background:   map-get($colors, grey-80),
-  main-menu-hover:        map-get($colors, grey-70),
-  mobile-menu-text:       map-get($colors, grey-20),
-  mobile-menu-background: map-get($colors, grey-90),
-  mobile-menu-hover:      map-get($colors, grey-80),
-  link:                   map-get($colors, blue),
-  link-active:            map-get($colors, red-60),
-  message-status:         map-get($colors, blue),
-  message-warning:        map-get($colors, orange),
-  message-error:          map-get($colors, red-60),
-  alert-text:             map-get($colors, red-40),
-  alert-background:       map-get($colors, red-80),
-  separator:              map-get($colors, red-80),
-  unpublished-background: map-get($colors, red-80),
-);
+// We are going to use css variables to store our color variables, to make it easy to support light mode.
+:root {
+
+  // The palette for this site, matching color names to hexadecimal values.
+  --color-white:        #ffffff;
+  --color-grey-90:      #f2f2f2;
+  --color-grey-80:      #d3d3d3;
+  --color-grey-70:      #adadad;
+  --color-grey-50:      #666666;
+  --color-grey-20:      #323232;
+  --color-black:        #000000;
+  --color-blue:         #0066cc;
+  --color-gold:         #ffd700;
+  --color-red-80:       #ffdddd;
+  --color-red-60:       #cc0000;
+  --color-red-40:       #990000;
+
+  // Assign colors to common usages that should match each other and change together.
+  --color-text:                   var(--color-white);
+  --color-text:                   var(--color-grey-20);
+  --color-heading:                var(--color-grey-20);
+  --color-background-body:        var(--color-white);
+  --color-background-light:       var(--color-grey-90);
+  --color-main-menu-text:         var(--color-grey-20);
+  --color-main-menu-background:   var(--color-grey-80);
+  --color-main-menu-hover:        var(--color-grey-70);
+  --color-mobile-menu-text:       var(--color-grey-20);
+  --color-mobile-menu-background: var(--color-grey-90);
+  --color-mobile-menu-hover:      var(--color-grey-80);
+  --color-link:                   var(--color-blue);
+  --color-link-active:            var(--color-red-60);
+  --color-message-status:         var(--color-blue);
+  --color-message-warning:        var(--color-orange);
+  --color-message-error:          var(--color-red-60);
+  --color-alert-text:             var(--color-red-40);
+  --color-alert-background:       var(--color-red-80);
+  --color-separator:              var(--color-red-80);
+  --color-unpublished-background: var(--color-red-80);
+}
+
+// Helper function to support a simple function name for fetching colors based on name or usage.
+@function color($name) {
+  @return var(--color-#{$name});
+}
 
 // Set the default body text and background colors.
 body {
