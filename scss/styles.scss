@@ -15,32 +15,32 @@
 @import "elements/menus";
 @import "elements/tables";
 
-@import "templates/layout/page";
+@import "layout/page";
 
-@import "templates/region/region";
-@import "templates/region/region--alert";
-@import "templates/region/region--header-utility";
-@import "templates/region/region--header-search";
-@import "templates/region/region--header-menu";
-@import "templates/region/region--mobile-search";
-@import "templates/region/region--mobile-menus";
-@import "templates/region/region--footer";
-@import "templates/region/region--copyright";
+@import "region/region";
+@import "region/region--alert";
+@import "region/region--header-utility";
+@import "region/region--header-search";
+@import "region/region--header-menu";
+@import "region/region--mobile-search";
+@import "region/region--mobile-menus";
+@import "region/region--footer";
+@import "region/region--copyright";
 
-@import "templates/block/block--system-branding-block";
-@import "templates/block/block--system-breadcrumb-block";
-@import "templates/block/block--page-title-block";
-@import "templates/block/block--local-tasks-block";
-@import "templates/block/block--system-main-block";
+@import "block/block--system-branding-block";
+@import "block/block--system-breadcrumb-block";
+@import "block/block--page-title-block";
+@import "block/block--local-tasks-block";
+@import "block/block--system-main-block";
 
-@import "templates/misc/system-messages";
+@import "misc/system-messages";
 
-@import "templates/content/media";
+@import "content/media";
 
-@import "templates/content/node--full";
-@import "templates/content/node--page--full";
-@import "templates/content/node--card";
+@import "content/node--full";
+@import "content/node--page--full";
+@import "content/node--card";
 
-@import "templates/views/views-view";
+@import "views/views-view";
 
-@import "templates/paragraphs/paragraph";
+@import "paragraphs/paragraph";

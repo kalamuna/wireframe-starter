@@ -2,7 +2,7 @@
   "name": "themename",
   "version": "1.0.0",
   "scripts": {
-    "styles": "sass scss/styles.scss dist/styles.css",
+    "styles": "sass --load-path=templates scss/styles.scss dist/styles.css",
     "build": "npm run -s styles",
     "test": "npm run -s build"
   },
