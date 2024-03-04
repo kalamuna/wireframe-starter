@@ -1,0 +1,10 @@
+{% extends "@templates/layout/html.html.twig" %}
+
+{# Set the page title. #}
+{% set title = "Styleguide and Component Library Demo" %}
+
+{# The page content. #}
+{% block page %}
+  {# Include the actual styleguide in the page. #}
+  {% include "@styleguide/styleguide.twig" %}
+{% endblock page %}

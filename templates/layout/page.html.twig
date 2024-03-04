@@ -36,25 +36,25 @@
  */
 #}
 
-<header>
-  <div id="site-header">
-    {# Emergency alerts are above the skip-to-content link so they are not missed. #}
-    {{ page.alert }}
-    <a id="skip-to-content" href="#main-content" class="visually-hidden focusable">{{ 'Skip to main content'|t }}</a>
-    {{ page.header_branding }}
-    {{ page.header_utility }}
-    {{ page.header_search }}
-    {{ page.mobile_search }}
-    {{ page.mobile_menus }}
-    {{ page.header_menu }}
-  </div>
+<header id="site-header">
+  {# Emergency alerts are above the skip-to-content link so they are not missed. #}
+  {{ page.alert }}
+  <a id="skip-to-content" href="#page-content" class="visually-hidden focusable">{{ 'Skip to page content'|t }}</a>
+  {{ page.header_branding }}
+  {{ page.header_utility }}
+  {{ page.header_search }}
+  {{ page.mobile_search }}
+  {{ page.mobile_menus }}
+  {{ page.header_menu }}
+</header>
+
+<main id="page-content">
   <div id="hero">
     {{ page.hero }}
   </div>
-</header>
-
-<main id="main-content">
-  {{ page.content }}
+  {% block content %}
+    {{ page.content }}
+  {% endblock content %}
 </main>
 
 <footer id="site-footer">
@@ -62,5 +62,5 @@
   {{ page.copyright }}
 </footer>
 
-{# Include the svg definitions that will be referenced for interface graphics. #}
-{% include directory ~ '/assets/symbols.svg' %}
+{# Include the svg definitions that will be referenced for interface graphics. (Use relative path for kalastatic.) #}
+{% include (directory is empty ? "../.." : directory) ~ '/assets/symbols.svg' %}

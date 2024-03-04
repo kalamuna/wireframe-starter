@@ -31,6 +31,8 @@
     <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
+    {# Allow kalastatic to add stylesheets. #}
+    {{ stylesheets }}
     <js-placeholder token="{{ placeholder_token }}">
   </head>
   <body{{ attributes }}>
@@ -44,8 +46,14 @@
       <a id="skip-page-top" />
     {% endif %}
 
-    {{ page }}
+    {# Provide a block for the page content so this template can be used by kalastatic. #}
+    {% block page %}
+      {{ page }}
+    {% endblock page %}
+
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token }}">
+    {# Allow kalastatic to add scripts. #}
+    {{ scripts }}
   </body>
 </html>

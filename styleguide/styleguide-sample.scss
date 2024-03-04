@@ -1,0 +1,12 @@
+
+.styleguide-sample {
+
+  // Add padding to the rendered sample if the variable is set.
+  &--add-padding {
+    .details-tabs details:first-child {
+      .details-content {
+        padding: 1rem;
+      }
+    }
+  }
+}

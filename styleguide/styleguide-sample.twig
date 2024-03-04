@@ -1,0 +1,68 @@
+
+{# Set the class for this component. #}
+{% set classes = [
+    'styleguide-sample',
+    add_padding ? 'styleguide-sample--add-padding' : ''
+  ]
+%}
+
+<section id="{{ heading|clean_id }}" class="{{ classes|join(" ") }}">
+  <h2>{{ name }}</h2>
+
+  {% if description %}
+    <p>{{ description }}</p>
+  {% endif %}
+
+  {{ attach_library('details-tabs') }}
+  {{ attach_library('styleguide-sample') }}
+
+  <div class="details-tabs">
+
+    <details open>
+      <summary>Sample</summary>
+      {# Add the attribute to exclude the contents from the page heading structure. #}
+      <div class="details-content" data-page-contents-exclude="true">
+        {% block sample %}
+        {% endblock sample %}
+      </div>
+    </details>
+
+    {% if exclude_twig != true %}
+      <details>
+        <summary>Sample Twig</summary>
+        <div class="details-content">
+          {% set sample_source = source(file_root ~ ".sample.twig") %}
+          {# Display the contents of the sample.twig file, and remove everything outside of the sample block. #}
+          <pre><code class="language-twig">{{ sample_source|split("{% block sample %}")[1]|split("{% endblock sample %}")[0]|escape('html')|trim('\n') }}</code></pre>
+        </div>
+      </details>
+    {% endif %}
+
+    {% if file_root ~ ".html.twig" in get_namespace_files(namespace) %}
+      <details>
+        <summary>Twig Template</summary>
+        <div class="details-content">
+          <pre><code class="language-twig">{{ source(file_root ~ ".html.twig")|escape('html')|trim('\n') }}</code></pre>
+        </div>
+      </details>
+    {% endif %}
+
+    {% if file_root ~ ".scss" in get_namespace_files(namespace) %}
+      <details>
+        <summary>SCSS</summary>
+        <div class="details-content">
+          <pre><code class="language-scss">{{ source( file_root ~ ".scss")|trim('\n') }}</code></pre>
+        </div>
+      </details>
+    {% endif %}
+
+    {% if file_root ~ ".js" in get_namespace_files(namespace) %}
+      <details>
+        <summary>JS</summary>
+        <div class="details-content">
+          <pre><code class="language-js">{{ source( file_root ~ ".js")|trim('\n') }}</code></pre>
+        </div>
+      </details>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,50 @@
+{% extends "@styleguide/styleguide-sample.twig" %}
+
+{% set name = "Colors" %}
+{% set description = "The palette of colors that are used throughout this site." %}
+
+{% set add_padding = true %}
+{% set exclude_twig = true %}
+
+{% block sample %}
+  <div style="column-width: 20rem; column-gap: 1em;">
+
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-grey-20); background: var(--color-white);">
+      --color-white: #ffffff;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-grey-20); background: var(--color-grey-90);">
+      --color-grey-90: #f2f2f2;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-grey-20); background: var(--color-grey-80);">
+      --color-grey-80: #d3d3d3;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-grey-20); background: var(--color-grey-70);">
+      --color-grey-70: #adadad;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-white); background: var(--color-grey-50);">
+      --color-grey-50: #666666;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-white); background: var(--color-grey-20);">
+      --color-grey-20: #323232;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-white); background: var(--color-black);">
+      --color-black: #000000;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-white); background: var(--color-blue);">
+      --color-blue: #0066cc;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-grey-20); background: var(--color-gold);">
+      --color-gold: #e0ac00;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-grey-20); background: var(--color-red-80);">
+      --color-red-80: #ffdddd;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-white); background: var(--color-red-60);">
+      --color-red-60: #cc0000;
+    </div>
+    <div style="padding: 1em; margin-block-end: 1em; color: var(--color-white); background: var(--color-red-40);">
+      --color-red-40: #990000;
+    </div>
+  </div>
+
+{% endblock sample %}

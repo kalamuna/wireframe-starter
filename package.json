@@ -3,12 +3,43 @@
   "version": "1.0.0",
   "scripts": {
     "styles": "sass --load-path=templates scss/styles.scss dist/styles.css",
-    "build": "npm run -s styles",
+    "kalastatic": "kalastatic",
+    "build": "npm run -s styles; npm run -s kalastatic;",
     "test": "npm run -s build"
   },
   "dependencies": {
     "sass": "^1.53.0"
   },
   "devDependencies": {
+    "kalastatic": "^6.0.0-alpha2"
+  },
+  "kalastatic": {
+    "source": "styleguide",
+    "destination": "dist/styleguide",
+    "namespaces": {
+      "styleguide": "styleguide",
+      "scss": "scss",
+      "templates": "templates"
+    },
+    "libraries": {
+      "themename": {
+        "stylesheets": {
+          "dist/styles.css": "styles.css"
+        }
+      },
+      "details-tabs" : {
+        "stylesheets": {
+          "libraries/details-tabs.scss": "libraries/details-tabs.css"
+        },
+        "scripts": {
+          "libraries/details-tabs.js": "libraries/details-tabs.js"
+        }
+      },
+      "styleguide-sample" : {
+        "stylesheets": {
+          "styleguide/styleguide-sample.scss": "styleguide-sample.css"
+        }
+      }
+    }
   }
 }

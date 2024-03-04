@@ -1,0 +1,26 @@
+{% extends "@templates/layout/page.html.twig" %}
+
+{# The menu title that will be imported into the header pattern. #}
+{% macro menu_title() %}Styleguide Demo{% endmacro %}
+
+{# The page content. #}
+{% block content %}
+
+  {{ attach_library('themename') }}
+
+  {# We want to add a page contents tree of links on this page. #}
+  <section id="page-contents" class="section"></section>
+
+  {# Create the styleguide and component library by finding sample files in each of the namespaces. #}
+  <div class="styleguide">
+    {% for namespace in get_namespaces() %}
+      {% for filename in get_namespace_files(namespace) %}
+        {% if '.sample.twig' in filename %}
+          {# Embed the sample, providing the namespace and filename root, so it can look for related files with different extensions. #}
+          {% embed filename with {'namespace': namespace, 'file_root': filename|replace({'.sample.twig': ''}) } %}{% endembed %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+
+{% endblock content %}
