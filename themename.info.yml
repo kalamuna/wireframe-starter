@@ -1,8 +1,8 @@
 name: THEMENAME
 type: theme
 description: 'A wireframe starter theme by Kalamuna. Change THEMENAME in filenames and code to use your own theme name.'
-core_version_requirement: ^8 || ^9
-base theme: stable
+core_version_requirement: ^8 || ^9 || ^10
+base theme: false
 features:
   - none
 libraries:
