@@ -1,52 +1,61 @@
 
-// Fonts will be added here, after being included in a template.
-$sans-serif: sans-serif;
-$serif: serif;
+// Use google fonts for now, but font files should be downloaded locally for production sites.
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');
 
-// Common styles across all the headings.
-$heading-line-height: 1.2;
-$heading-font-weight: 700;
+// Text-related variables.
+:root {
 
-// The font size for the actual page content is usually larger.
-$paragraph-font-size: 1.125rem; // 18px
-$paragraph-line-height: 1.5;
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-serif: serif;
+
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --font-size-100: font-size: 2.625rem; // 42px
+  --font-size-200: font-size: 2rem; // 32px
+  --font-size-300: font-size: 1.625rem; // 26px
+  --font-size-400: font-size: 1.25rem; // 20px
+  --font-size-500: font-size: 1em; // 16px
+  --font-size-600: font-size: .8rem; // 12.8px
+
+  --line-height-heading: 1.2;
+  --line-height-paragraph: 1.5;
+}
+
+// Set the default font family and weight for text across the site.
+body {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+}
 
 // Common spacing and styles for all headings.
 h1, h2, h3, h4, h5 {
   margin: 1em 0 .5em;
-  line-height: $heading-line-height;
-  font-weight: $heading-font-weight;
+  line-height: var(--line-height-heading);
+  font-weight: var(--font-weight-bold);
 }
 
 // Sizes of the different heading levels.
-h1 {
-  font-size: 2.625rem; // 42px
-}
-h2 {
-  font-size: 2rem; // 32px
-}
-h3 {
-  font-size: 1.625rem; // 26px
-}
-h4 {
-  font-size: 1.25rem; // 20px
-}
-h5 {
-  font-size: 1em; // 16px
-}
-h6 {
-  font-size: .8rem; // 12.8px
-}
+h1 { font-size: var(--font-size-100); }
+h2 { font-size: var(--font-size-200); }
+h3 { font-size: var(--font-size-300); }
+h4 { font-size: var(--font-size-400); }
+h5 { font-size: var(--font-size-500); }
+h6 { font-size: var(--font-size-600); }
 
 // Assume all paragraphs are page content by default.
 p {
-  font-size: $paragraph-font-size;
-  line-height: $paragraph-line-height;
-  font-family: $serif;
+  font-size: var(--font-size-400);
+  line-height: var(--line-height-paragraph);
 }
 
 // Figcaptions are slightly smaller than the surrounding paragraphs.
 figcaption {
-  line-height: $paragraph-line-height;
-  font-size: 1rem // 16px
+  font-size: var(--font-size-400);
+  line-height: var(--line-height-paragraph);
+}
+
+// Bold text.
+strong {
+  font-weight: var(--font-weight-bold);
 }
