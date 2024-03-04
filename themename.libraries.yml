@@ -1,7 +1,7 @@
 theme-styles:
   css:
     theme:
-      dist/css/styles.css: {}
+      dist/styles.css: {}
   js:
     js/theme.js: {}
   dependencies:
