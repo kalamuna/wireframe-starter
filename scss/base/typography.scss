@@ -11,12 +11,12 @@
   --font-weight-normal: 400;
   --font-weight-bold: 700;
 
-  --font-size-100: font-size: 2.625rem; // 42px
-  --font-size-200: font-size: 2rem; // 32px
-  --font-size-300: font-size: 1.625rem; // 26px
-  --font-size-400: font-size: 1.25rem; // 20px
-  --font-size-500: font-size: 1em; // 16px
-  --font-size-600: font-size: .8rem; // 12.8px
+  --font-size-100: 2rem; // 32px
+  --font-size-200: 1.75rem; // 28px
+  --font-size-300: 1.5rem; // 24px
+  --font-size-400: 1.25rem; // 20px
+  --font-size-500: 1.125em; // 18px
+  --font-size-600: 1rem; // 16px
 
   --line-height-heading: 1.2;
   --line-height-paragraph: 1.5;
@@ -29,8 +29,8 @@ body {
 }
 
 // Common spacing and styles for all headings.
-h1, h2, h3, h4, h5 {
-  margin: 1em 0 .5em;
+h1, h2, h3, h4, h5, h6 {
+  margin-block: 1em .5em;
   line-height: var(--line-height-heading);
   font-weight: var(--font-weight-bold);
 }
@@ -44,14 +44,9 @@ h5 { font-size: var(--font-size-500); }
 h6 { font-size: var(--font-size-600); }
 
 // Assume all paragraphs are page content by default.
-p {
-  font-size: var(--font-size-400);
-  line-height: var(--line-height-paragraph);
-}
-
-// Figcaptions are slightly smaller than the surrounding paragraphs.
-figcaption {
-  font-size: var(--font-size-400);
+p, figcaption {
+  margin-block: 1em;
+  font-size: var(--font-size-500);
   line-height: var(--line-height-paragraph);
 }
 
