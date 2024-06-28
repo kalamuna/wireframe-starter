@@ -22,9 +22,21 @@ svg {
 }
 
 // Make sure there is space between the text and extlink icons.
-svg.ext, svg.mailto {
+svg.mailto, svg.tel, svg.ext {
   @extend svg;
-  margin-left: .25em;
+  width: 0.9em;
+  height: 0.9em;
+  vertical-align: top;
+  margin-left: 0.1em;
+  margin-right: -0.1em;
+}
+
+svg.mailto, svg.tel, svg.ext {
+    width: 0.9em;
+    height: 0.9em;
+    vertical-align: top;
+    margin-left: 0.1em;
+    margin-right: -0.1em;
 }
 
 // Move button svgs up a bit so they are better vertically aligned.

@@ -1,4 +1,12 @@
 
+// Set the default link colors.
+a, a:visited {
+  color: color(link);
+  &:active, &:hover {
+    color: color(link-active);
+  }
+}
+
 // Remove link underline on click to show activation.
 a:active {
   text-decoration: none;
@@ -11,23 +19,44 @@ a {
 
 // Create a pseudo-class so links can be made into buttons using scss extends.
 %button {
-  background-color: color(grey-20);
-  color: color(grey-90);
+  display: inline-block;
+  background-color: color(link);
+  color: color(background-body);
   text-align: center;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: .5em 1em;
-  border-radius: 1em;
-  &:visited {
-    color: color(grey-20);
-  }
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-600);
+  padding: .6em 1.2em;
+  border-radius: .5em;
+  border: .15em solid color(link);
   &:hover, &:active {
-    color: color(grey-50);
+    color: color(background-body);
+    background-color: color(link-active);
+    border-color: color(link-active);
+  }
+  &:active {
+    position: relative;
+    top: .1em;
   }
 }
 
 // Apply to links with actual classes of button.
 a.button {
   @extend %button;
+}
+
+// Secondary buttons are in outline style.
+%button--secondary {
+  @extend %button;
+  background-color: color(background-body);
+  color: color(link);
+  &:hover, &:active {
+    background-color: color(background-body);
+    color: color(link-active);
+  }
+}
+
+// Apply to links with actual classes of button.
+a.button--secondary {
+  @extend %button--secondary;
 }

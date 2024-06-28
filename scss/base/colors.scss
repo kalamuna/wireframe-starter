@@ -40,14 +40,6 @@ body {
   color: color(text);
 }
 
-// Set the default link colors.
-a, a:visited {
-  color: color(link);
-  &:active, &:hover {
-    color: color(link-active);
-  }
-}
-
 // Make sure it is clear when nodes are unpublished.
 .node--unpublished {
   background: color(unpublished-background);

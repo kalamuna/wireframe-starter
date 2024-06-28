@@ -1,0 +1,15 @@
+{% extends "@styleguide/styleguide-sample.twig" %}
+
+{% set name = "Links" %}
+{% set description = "Links that are both in text and styled as buttons. (Actual button elements don't usually have the visual button style.)" %}
+
+{% set add_padding = true %}
+{% set exclude_twig = false %}
+
+{% block sample %}
+
+  <p>Contrary to popular belief, <a href="#">Lorem Ipsum</a> is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at <a href="https://www.hsc.edu/">Hampden-Sydney College<svg class="ext"><use xlink:href="#symbol-extlink" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></a> in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+
+  <p><a href="#" class="button">Learn more</a> <a href="#" class="button--secondary">Something else<svg class="ext"><use xlink:href="#symbol-extlink" xmlns:xlink="http://www.w3.org/1999/xlink"></use></svg></a></p>
+
+{% endblock sample %}
