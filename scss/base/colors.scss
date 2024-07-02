@@ -25,8 +25,8 @@
   --color-background-body:        var(--color-white);
   --color-background-light:       var(--color-grey-90);
   --color-unpublished-background: var(--color-red-80);
-  --color-link:                   var(--color-blue-50);
-  --color-link-active:            var(--color-blue-40);
+  --color-action:                 var(--color-blue-50);
+  --color-action-active:          var(--color-blue-40);
 }
 
 // Helper function to support a simple function name for fetching colors based on name or usage.
