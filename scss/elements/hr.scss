@@ -1,0 +1,14 @@
+
+:root {
+  // Width of the lines used to separate content.
+  --separator-line-width: 0.1rem;
+}
+
+// Style the horizontal rule.
+hr {
+  border: 0;
+  border-top: var(--separator-line-width) solid var(--color-separator);
+  margin: $section-spacing auto;
+  clear: both;
+  max-width: 80%;
+}

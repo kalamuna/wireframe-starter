@@ -18,9 +18,6 @@ $text-column-width: 48rem; // 768px
 // The size of the margins above and below non-full-bleed sections. Usually matches the top margin of an h2.
 $section-spacing: 3rem;
 
-// Width of the lines used to separate content.
-$separator-width: 0.0625rem; // 1px
-
 // Use border box sizing by default.
 *, *::before, *::after {
   box-sizing: border-box;
@@ -29,12 +26,4 @@ $separator-width: 0.0625rem; // 1px
 // For some reason normalize.css sets search inputs back to content box.
 input[type="search"] {
   box-sizing: border-box;
-}
-
-// Style the horizontal rule.
-hr {
-  border: 0;
-  border-top: $separator-width solid color(separator);
-  margin: $section-spacing 0;
-  clear: both;
 }
