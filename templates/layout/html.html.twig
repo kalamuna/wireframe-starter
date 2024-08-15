@@ -39,11 +39,10 @@
 
     {# If there is an admin menu or other content before the page, wrap a skip link around it. #}
     {% if page_top %}
-      <a href="#skip-page-top" class="visually-hidden focusable">
+      <a href="#site-header" class="visually-hidden focusable">
         {{ 'Skip to site header'|t }}
       </a>
       {{ page_top }}
-      <a id="skip-page-top" />
     {% endif %}
 
     {# Provide a block for the page content so this template can be used by kalastatic. #}
