@@ -1,9 +1,9 @@
 
 // Set the default link colors.
 a, a:visited {
-  color: color(action);
+  color: var(--color-action);
   &:active, &:hover {
-    color: color(action-active);
+    color: var(--color-action-active);
   }
 }
 
@@ -20,19 +20,19 @@ a {
 // Create a pseudo-class so links can be made into buttons using scss extends.
 %button {
   display: inline-block;
-  background-color: color(action);
-  color: color(background-body);
+  background-color: var(--color-action);
+  color: var(--color-background-body);
   text-align: center;
   text-decoration: none;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-600);
   padding: .6em 1.2em;
   border-radius: .5em;
-  border: .15em solid color(action);
+  border: .15em solid var(--color-action);
   &:hover, &:active {
-    color: color(background-body);
-    background-color: color(action-active);
-    border-color: color(action-active);
+    color: var(--color-background-body);
+    background-color: var(--color-action-active);
+    border-color: var(--color-action-active);
   }
   &:active {
     position: relative;
@@ -48,11 +48,11 @@ a.button {
 // Secondary buttons are in outline style.
 %button--secondary {
   @extend %button;
-  background-color: color(background-body);
-  color: color(action);
+  background-color: var(--color-background-body);
+  color: var(--color-action);
   &:hover, &:active {
-    background-color: color(background-body);
-    color: color(action-active);
+    background-color: var(--color-background-body);
+    color: var(--color-action-active);
   }
 }
 

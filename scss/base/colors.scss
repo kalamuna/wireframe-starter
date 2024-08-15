@@ -24,23 +24,24 @@
   --color-heading:                var(--color-grey-20);
   --color-background-body:        var(--color-white);
   --color-background-light:       var(--color-grey-90);
+  --color-background-heading:     var(--color-grey-80);
   --color-unpublished-background: var(--color-red-80);
   --color-action:                 var(--color-blue-50);
   --color-action-active:          var(--color-blue-40);
-}
+  --color-separator:              var(--color-grey-20);
 
-// Helper function to support a simple function name for fetching colors based on name or usage.
-@function color($name) {
-  @return var(--color-#{$name});
+  --color-table-zebra:            var(--color-grey-90);
+  --color-table-head:             var(--color-grey-80);
+  --color-table-border:           var(--color-grey-20);
 }
 
 // Set the default body text and background colors.
 body {
-  background: color(background-body);
-  color: color(text);
+  background: var(--color-background-body);
+  color: var(--color-text);
 }
 
 // Make sure it is clear when nodes are unpublished.
 .node--unpublished {
-  background: color(unpublished-background);
+  background: var(--color-unpublished-background);
 }

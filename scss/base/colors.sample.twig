@@ -30,7 +30,7 @@
   <h3>Color values</h3>
 
   {# Create a grid of color swatches with the color name and value on top of that color. #}
-  <div style="column-width: 20rem; column-gap: 1em;">
+  <div>
     {% for key, value in colorsValueMap %}
       {% set keyparts = key|split('-') %}
       {# If it is a light color or completely white, use dark text. Otherwise use white text. #}
@@ -44,7 +44,7 @@
   <h3>Color usage</h3>
 
   {# Create a second grid of colors for the usages. #}
-  <div style="column-width: 20rem; column-gap: 1em;">
+  <div>
     {% for key, value in colorsUsageMap %}
       {% set variableParts = value|replace({')' : '', ';' : ''})|split('-') %}
       {# This time we look at the value being referenced to see if it is a light color that needs dark text. #}
