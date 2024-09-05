@@ -29,11 +29,12 @@
       color: color(main-menu-text);
       font-weight: bold;
       text-decoration: none;
+      padding: 1em #{$container-padding};
       &:hover, &:focus {
         outline-offset: -1px;
         background: color(main-menu-hover);
       }
-      padding: 1em #{$container-padding};
+
     }
 
     // Keep the parent item hover color when over dropdowns.
@@ -64,10 +65,10 @@
           left: 0;
           left: var(--shift-left);
           width: 20em;
-           ul {
+          display: none;
+          ul {
             display: none;
           }
-          display: none;
         }
         // Show dropdowns on hover, over-riding the aria-controls button state.
         &:hover > ul {
@@ -93,6 +94,8 @@
         padding: calc($container-padding / 2) $container-padding;
         border: 0;
         background: transparent;
+        // Don't display toggle to start.
+        display: none;
         svg {
           background: rgba(255, 255, 255, .5);
           border-radius: .5em;
@@ -119,8 +122,7 @@
             display: block;
           }
         }
-        // Don't display toggle to start.
-        display: none;
+
       }
     }
 

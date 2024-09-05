@@ -19,13 +19,13 @@
       color: color(main-menu-text);
       font-weight: bold;
       text-decoration: none;
+      padding: $container-padding;
+      // Leave room for the submenu toggle on mobile.
+      padding-right: calc(#{$container-padding} * 2 + 2em);
       &:hover, &:focus {
         outline-offset: -1px;
         background: color(main-menu-hover);
       }
-      padding: $container-padding;
-      // Leave room for the submenu toggle on mobile.
-      padding-right: calc(#{$container-padding} * 2 + 2em);
     }
 
     // Have a background color for the main menu, and make the children slightly lighter.

@@ -9,6 +9,14 @@
   align-items: center;
 
   &__logo {
+    position: relative;
+
+    // Add space between the logo and the site name and slogan.
+    margin-right: 1em;
+    @include breakpoint(large) {
+      margin-right: $container-padding;
+    }
+
     // Make the logo smaller on mobile and bigger on desktop.
     svg {
       width: 3rem;
@@ -20,7 +28,6 @@
     }
 
     // Use a line below the logo as a hover state.
-    position: relative;
     &:hover {
       &::after {
         content: "";
@@ -30,12 +37,6 @@
         right: 0;
         border-bottom: .2rem solid color(link-active);
       }
-    }
-
-    // Add space between the logo and the site name and slogan.
-    margin-right: 1em;
-    @include breakpoint(large) {
-      margin-right: $container-padding;
     }
   }
 

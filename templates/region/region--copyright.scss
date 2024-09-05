@@ -4,10 +4,10 @@
 //
 #region--copyright {
   background: color(grey-80);
+  padding: .5em 0;
   a, a:visited {
     color: color(text);
   }
-  padding: .5em 0;
   .region__content {
     @include container;
     display: flex;

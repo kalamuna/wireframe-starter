@@ -74,12 +74,12 @@
     .block {
       display: flex;
       align-items: flex-start;
+      width: 100%;
+      column-gap: $container-padding;
       // Don't wrap within headings or link buttons.
       h2, a {
         white-space: nowrap;
       }
-      width: 100%;
-      column-gap: $container-padding;
       .field--name-body {
         display: flex;
         align-items: flex-start;
