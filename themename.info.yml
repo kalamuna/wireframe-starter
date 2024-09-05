@@ -4,7 +4,7 @@ description: 'A wireframe starter theme by Kalamuna. Change THEMENAME in filenam
 core_version_requirement: ^8 || ^9 || ^10
 base theme: false
 features:
-  - none
+  - favicon
 libraries:
   - core/normalize
   - themename/theme-styles
