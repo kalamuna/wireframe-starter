@@ -1,0 +1,68 @@
+
+
+// Add space between the form elements.
+.form-item {
+  margin-block: 1em;
+}
+
+// Display (non-checkbox) field labels on their own line.
+.form-item label:not(.option) {
+  display: block;
+  margin-block: .2em;
+}
+
+// Add text to indicate required fields.
+.form-item label.form-required {
+  &::after {
+    content: "(required)";
+    font-size: .8em;
+    vertical-align: middle;
+    margin-inline-start: .2em;
+  }
+}
+
+// Make the field help text smaller and give it some space.
+.form-item .description {
+  font-size: .8em;
+  margin-block-start: .2em;
+}
+
+// Increase the font size of text fields and make their border lighter when not focused.
+input[type="text"],
+textarea {
+  font-size: 1.2em;
+  padding: .35em .5em;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: .08rem;
+}
+
+// Style the fieldsets as a dashed line. Provide horizontal padding only.
+fieldset {
+  border-style: dashed;
+  padding-inline: 1em;
+  padding-block: 0;
+  // Add whitespace around the legend text, but keep it aligned with the elements below.
+  legend {
+    padding-inline: .25em;
+    margin-inline: -.25em;
+  }
+}
+
+// Add space around the media library widget (if not using inline entity form).
+fieldset[id$="media-library-wrapper"] {
+  .field-prefix,
+  .js-media-library-selection,
+  .description,
+  article {
+    display: block;
+    margin-block: 1em;
+  }
+}
+
+// Add padding to the vertial tab panes.
+.vertical-tabs {
+  &__panes {
+    padding-inline: 1em;
+  }
+}
