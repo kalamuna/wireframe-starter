@@ -9,14 +9,14 @@
 
     // Add lines between all menu items on mobile.
     li {
-      border-top: 1px solid color(background-body);
+      border-top: 1px solid var(--color-background-body);
     }
 
     // Common menu link styles.
     a {
       display: block;
       height: 100%;
-      color: color(main-menu-text);
+      color: var(--color-main-menu-text);
       font-weight: bold;
       text-decoration: none;
       padding: $container-padding;
@@ -24,13 +24,13 @@
       padding-right: calc(#{$container-padding} * 2 + 2em);
       &:hover, &:focus {
         outline-offset: -1px;
-        background: color(main-menu-hover);
+        background: var(--color-main-menu-hover);
       }
     }
 
     // Have a background color for the main menu, and make the children slightly lighter.
     ul {
-      background: color(main-menu-background);
+      background: var(--color-main-menu-background);
       ul {
         background: rgba(255,255,255,.5);
       }
@@ -63,13 +63,13 @@
         }
         &:hover {
           svg {
-            background: color(main-menu-hover);
+            background: var(--color-main-menu-hover);
           }
         }
         &:focus {
           outline: 0;
           svg {
-            border-color: color(main-menu-text);
+            border-color: var(--color-main-menu-text);
           }
         }
         &[aria-expanded="true"] {
@@ -86,13 +86,13 @@
     // Style the any additional menus that are added to the mobile drawer.
     &:not(:first-child) {
       ul {
-        background: color(mobile-menu-background);
+        background: var(--color-mobile-menu-background);
       }
       li:hover > a {
-        background: color(mobile-menu-hover);
+        background: var(--color-mobile-menu-hover);
       }
       a {
-        color: color(mobile-menu-text);
+        color: var(--color-mobile-menu-text);
       }
     }
   }

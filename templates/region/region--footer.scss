@@ -3,7 +3,7 @@
 // The site footer.
 //
 #region--footer {
-  background: color(background-light);
+  background: var(--color-background-light);
   padding: #{$container-padding * 2} 0;
   // Footer is one column on mobile, two on tablet, and four on desktop.
   .region__content {

@@ -3,10 +3,10 @@
 // The copyright bar at the bottom of the footer.
 //
 #region--copyright {
-  background: color(grey-80);
+  background: var(--color-grey-80);
   padding: .5em 0;
   a, a:visited {
-    color: color(text);
+    color: var(--color-text);
   }
   .region__content {
     @include container;
