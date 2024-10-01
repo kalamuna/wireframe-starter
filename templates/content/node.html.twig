@@ -70,6 +70,7 @@
 {%
   set classes = [
     'node',
+    'node--' ~ node.id,
     'node--' ~ node.bundle|clean_class,
     'node--' ~ view_mode|clean_class,
     'node--' ~ node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
@@ -82,15 +83,19 @@
 {# Remove role so it is not flagged as duplicate by accessibility tools. #}
 <article{{ attributes.addClass(classes).removeAttribute('role') }}>
 {% block article %}
-  {{ title_prefix }}
-  {% if label and not page %}
-    <h3{{ title_attributes }}>
-      <a href="{{ url }}">{{ label }}</a>
-    </h3>
-  {% endif %}
-  {{ title_suffix }}
-
   <div{{ content_attributes.addClass('node__content') }}>
+
+    {# The title needs to be at the same level as the fields, so the order can be changed. #}
+    {% block header %}
+      {{ title_prefix }}
+      {% if label and not page %}
+        <h3{{ title_attributes }}>
+          <a href="{{ url }}">{{ label }}</a>
+        </h3>
+      {% endif %}
+      {{ title_suffix }}
+    {% endblock %}
+
     {% block content %}
       {{ content }}
     {% endblock %}
