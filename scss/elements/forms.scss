@@ -37,6 +37,16 @@ textarea {
   border-width: .08rem;
 }
 
+// Make actual buttons that look like buttons look like the button links.
+input.button {
+  &.button--primary {
+    @extend %button;
+  }
+  &:not(.button--primary) {
+    @extend %button--secondary;
+  }
+}
+
 // Style the fieldsets as a dashed line. Provide horizontal padding only.
 fieldset {
   border-style: dashed;
@@ -67,10 +77,19 @@ fieldset[id$="media-library-wrapper"] {
   }
 }
 
+// Style the multiple field item table.
 .field-multiple-table {
   width: 100%;
   h4 {
     margin: 0;
     display: inline;
+  }
+}
+
+// Add appropriate spacing around paragraphs fields on the edit form.
+.field--type-entity-reference-revisions {
+  margin-block: $section-spacing;
+  table {
+    margin-block-start: 0;
   }
 }
