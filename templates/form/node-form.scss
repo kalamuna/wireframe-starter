@@ -1,0 +1,40 @@
+.node-form {
+
+  // Make the text fields the same size as the text.
+  .field--type-string, .field--type-string-long {
+    input[type="text"], textarea {
+      font-size: var(--font-size-500);
+    }
+  }
+
+  // Make the title and headings fields larger.
+  .field--name-title, .field--name-field-heading {
+    input[type=text] {
+     font-size: var(--font-size-200);
+    }
+  }
+
+  // Add padding to the vertial tab panes.
+  .vertical-tabs {
+    &__panes {
+      padding-inline: 1em;
+    }
+  }
+
+  // Style the multiple field item table.
+  .field-multiple-table {
+    width: 100%;
+    h4 {
+      margin: 0;
+      display: inline;
+    }
+  }
+
+  // Add appropriate spacing around paragraphs fields on the edit form.
+  .field--type-entity-reference-revisions {
+    margin-block: $section-spacing;
+    table {
+      margin-block-start: 0;
+    }
+  }
+}

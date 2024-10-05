@@ -38,6 +38,24 @@
   --color-table-zebra:            var(--color-grey-90);
   --color-table-head:             var(--color-grey-80);
   --color-table-border:           var(--color-grey-20);
+
+  --color-error-background:       var(--color-red-80);
+
+  --color-form-border:            var(--color-grey-80);
+
+  // Button colors used by the button mixin.
+  --color-button-primary-text:               var(--color-white);
+  --color-button-primary-background:         var(--color-blue-50);
+  --color-button-primary-border:             var(--color-blue-50);
+  --color-button-primary-text-hover:         var(--color-white);
+  --color-button-primary-background-hover:   var(--color-blue-40);
+  --color-button-primary-border-hover:       var(--color-blue-40);
+  --color-button-secondary-text:             var(--color-blue-50);
+  --color-button-secondary-background:       var(--color-white);
+  --color-button-secondary-border:           var(--color-blue-50);
+  --color-button-secondary-text-hover:       var(--color-blue-50);
+  --color-button-secondary-background-hover: var(--color-blue-90);
+  --color-button-secondary-border-hover:     var(--color-blue-50);
 }
 
 // Set the default body text and background colors.

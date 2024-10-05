@@ -1,0 +1,66 @@
+/**
+ * Styles for elements within forms.
+ */
+form {
+
+  // Add space between the form elements.
+  .form-item {
+    margin-block: 1em;
+  }
+
+  // Display (non-checkbox) field labels on their own line.
+  .form-item label:not(.option) {
+    display: block;
+    margin-block: .2em;
+  }
+
+  // Add text to indicate required fields.
+  .form-item label.form-required {
+    &::after {
+      content: "(required)";
+      font-size: .8em;
+      vertical-align: middle;
+      margin-inline-start: .2em;
+    }
+  }
+
+  // Hide the completely unneeded ckeditor label.
+  .form-item label.ck-label {
+    display: none;
+  }
+
+  // Make the field help text smaller and give it some space.
+  .form-item .description {
+    font-size: .8em;
+    margin-block-start: .2em;
+  }
+
+  // Increase the font size of text fields and make their border lighter when not focused.
+  input[type="text"],
+  textarea {
+    padding: .35em .5em;
+    border-color:var(--color-form-border);;
+    border-style: solid;
+    border-width: .1rem;
+  }
+
+  // Make the checkbox as big as the text.
+  input[type="checkbox"] {
+    width: 1em;
+    height: 1em;
+  }
+
+  // Style the fieldsets as a dashed line. Provide horizontal padding only.
+  fieldset {
+    border-style: dashed;
+    border-color: var(--color-form-border);
+    padding-inline: 1em;
+    padding-block: 0;
+    margin-block: 1em;
+    // Add whitespace around the legend text, but keep it aligned with the elements below.
+    legend {
+      padding-inline: .25em;
+      margin-inline: -.25em;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+
+// Default styles that can be overridden by site-specific values.
+:root {
+  --button-border-width: .1em;
+  --button-border-radius: .25em;
+  --button-padding: .5em 1em;
+  --button-font-weight: 700;
+}
+
+// Adds button styles for either primary, secondary, or callout buttons.
+@mixin button($type) {
+
+  // Common styles across all button types.
+  display: inline-block;
+  border-style: solid;
+  border-width: var(--button-border-width);
+  border-radius: var(--button-border-radius);;
+  padding: var(--button-padding);
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  white-space: nowrap;
+
+  // The color settings for each button type, including on hover.
+  color: var(--color-button-#{$type}-text);
+  background: var(--color-button-#{$type}-background);
+  border-color: var(--color-button-#{$type}-border);
+  &:not([disabled]):hover {
+    color: var(--color-button-#{$type}-text-hover);
+    background: var(--color-button-#{$type}-background-hover);
+    border-color: var(--color-button-#{$type}-border-hover);
+  }
+
+  // Move the button downwards when clicked on.
+  &:not([disabled]):active {
+    position: relative;
+    top: .1em;
+  }
+
+  // Better indicate that disabled buttons cannot be clicked.
+  &[disabled] {
+    opacity: .5;
+  }
+
+  // Alignment for svgs placed inside of the buttons on the left.
+  svg {
+    vertical-align: middle;
+    position: relative;
+    top: -0.1em;
+    margin-right: 0.2em;
+  }
+}

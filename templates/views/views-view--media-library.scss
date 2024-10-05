@@ -1,0 +1,60 @@
+
+.view--media-library {
+
+  // Reorder the view to put the display selector below the filters.
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  .view__filters { order: 1; }
+  .view__header  { order: 2; }
+  .view__content { order: 3; }
+
+  // Style the error message if you select too many items.
+  .messages--error {
+    background: var(--color-error-background);
+    padding: 1em;
+    margin-block: 1em;
+  }
+
+  // Show the grid view display in a grid.
+  .view-rows {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1rem;
+  }
+
+  // Align the select checkboxes over the image.
+  .js-media-library-item, tr {
+    position: relative;
+    .views-field-media-library-select-form  {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: .5rem;
+      left: .5rem;
+      font-size: 1.25rem;
+      .form-item {
+        margin: 0;
+      }
+    }
+  }
+
+  // Modal window doesn't use the same container padding, so ajust so no overflow.
+  .table-scroll {
+    margin: 0 -1em;
+    padding: 0 1em;
+  }
+
+  // Add a little space between the image and the preview text.
+  .alt-preview {
+    margin-block: .5em;
+  }
+
+  // Make the filename small, and hide overflow if it is really long.
+  article > div:last-child {
+    font-size: .8em;
+    word-wrap: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+  }
+}

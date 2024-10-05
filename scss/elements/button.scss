@@ -1,0 +1,11 @@
+
+// Make actual buttons that look like buttons look like the button links.
+button.button,
+input.button:not(.js-hide) {
+  &.button--primary {
+    @include button(primary);
+  }
+  &:not(.button--primary) {
+    @include button(secondary);
+  }
+}

@@ -1,0 +1,30 @@
+
+// Link styles.
+a {
+
+  // Add a little extra space around links when a focus outline is visible.
+  outline-offset: .2em;
+
+  // Set the default link colors.
+  &, &:visited {
+    color: var(--color-action);
+    &:active, &:hover {
+      color: var(--color-action-active);
+    }
+  }
+
+  // Remove link underline on click to show activation.
+  &:active {
+    text-decoration: none;
+  }
+
+  // Assuming that links with button classes should look like primary buttons.
+  &.button, &.button--primary {
+    @include button(primary);
+  }
+
+  // Secondary buttons.
+  &.button--secondary {
+    @include button(secondary);
+  }
+}
