@@ -1,0 +1,13 @@
+
+// A details element, commonly used as an accordion.
+details {
+  border: .1rem solid var(--color-details-border);
+  summary {
+    background: var(--color-summary-background);
+    padding: .8em;
+  }
+  // Add padding around the contents of the details box.
+  > *:not(summary) {
+    padding-inline: $container-padding;
+  }
+}
