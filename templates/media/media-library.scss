@@ -1,5 +1,6 @@
 
-fieldset[id$="media-library-wrapper"] {
+// The media library field edit form.
+fieldset[id*="media-library-wrapper"] {
 
   // Add space around the parts of the media item.
   .field-prefix,
