@@ -24,9 +24,46 @@
   // Style the multiple field item table.
   .field-multiple-table {
     width: 100%;
+    border-spacing: 0;
     h4 {
       margin: 0;
-      display: inline;
+      text-align: left;
+      font-size: var(--font-size-500);
+      font-weight: normal;
+      position: relative;
+      bottom: 100%;
+    }
+    thead, th.field-label {
+      background: transparent;
+    }
+    td.field-multiple-drag {
+      .handle {
+        width: 22px;
+        height: 22px;
+        margin-right: 4px;
+      }
+    }
+    &:not(.paragraphs-edit-table) {
+      th, td {
+        padding: 0 .5rem;
+      }
+    }
+  }
+
+  // Adjust details elements when used on edit forms.
+  details {
+    // Add vertical space around the element.
+    margin-block: 1em;
+    // Do not need padding for mulitple value field tables.
+    .field-multiple-table {
+      margin-inline: -$container-padding;
+    }
+  }
+
+  // Add space around multiple value field add buttons.
+  .multiple-value-form {
+    .actions {
+      margin-block: 1em;
     }
   }
 
@@ -35,6 +72,13 @@
     margin-block: $section-spacing;
     table {
       margin-block-start: 0;
+    }
+  }
+
+  // Do not show link url help text until you actually click within it.
+  .field--type-link {
+    input.form-autocomplete:not(:focus-within) + .description {
+      display: none;
     }
   }
 }

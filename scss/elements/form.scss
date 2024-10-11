@@ -42,6 +42,8 @@ form {
     border-color:var(--color-form-border);;
     border-style: solid;
     border-width: .1rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   // Make the checkbox as big as the text.
