@@ -4,13 +4,16 @@
 $responsive-breakpoints: (
   medium:   40rem, //  640px
   large:    60rem, //  960px
-  xlarge:   80rem, // 1280px
+  xlarge:   70rem, // 1120px
   xxlarge: 100rem, // 1600px
 );
 
 // Set the width and padding of centered containers using the container mixin.
 $container-width: 70rem; // 1120px
 $container-padding: 1.5rem;
+
+// The gap between grid columns.
+$column-gap: 1.5rem;
 
 // A smaller width for text blocks to make them legible.
 $text-column-width: 48rem; // 768px
