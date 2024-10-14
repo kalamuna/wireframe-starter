@@ -53,3 +53,9 @@ Placing icons as SVG elements is preferable for accessibility, since they load r
 ### SVG default sizes and styles
 
 By default, SVGs are set to 1em wide and 1em tall, and inherit their color from the parent element. This allows svgs to quickly be sized along with surrounding text, and inherits colors from thing such as links that might contain them.
+
+### TO-DO items
+
+- Region header menu does not match main menu id
+- Remove header search region. Should just be a link to the search page for most sites.
+- Do we need separate region for mobile menu? Why not print another copy of the main and utility menus?

@@ -11,13 +11,16 @@
 @import "base/typography";
 
 @import "elements/a";
+@import "elements/body";
 @import "elements/button";
 @import "elements/details";
+@import "elements/figure";
 @import "elements/form";
 @import "elements/graphics";
 @import "elements/hr";
-@import "elements/menus";
-@import "elements/tables";
+@import "elements/nav";
+@import "elements/p";
+@import "elements/table";
 
 @import "layout/page";
 
@@ -37,11 +40,12 @@
 @import "block/block--local-tasks-block";
 @import "block/block--system-main-block";
 
-@import "misc/system-messages";
+@import "misc/status-message";
 
 @import "media/media";
 @import "media/media-library";
 
+@import "content/node";
 @import "content/node--full";
 @import "content/node--card";
 

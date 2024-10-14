@@ -43,13 +43,6 @@ h4 { font-size: var(--font-size-400); }
 h5 { font-size: var(--font-size-500); }
 h6 { font-size: var(--font-size-600); }
 
-// Assume all paragraphs are page content by default.
-p, figcaption {
-  margin-block: 1em;
-  font-size: var(--font-size-500);
-  line-height: var(--line-height-paragraph);
-}
-
 // Bold text.
 strong {
   font-weight: var(--font-weight-bold);

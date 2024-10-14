@@ -7,13 +7,13 @@
   @include container;
   margin: $section-spacing auto;
   padding: $container-padding;
-  background-color: var(--color-background-light);
+  background-color: var(--color-status-message-background);
   // We are going to use a border with colors to indicate severity.
-  border-left: .5rem solid var(--color-message-status);
+  border-left: .5rem solid var(--color-status-message-status);
   &--warning {
-    border-color: var(--color-message-warning);
+    border-color: var(--color-status-message-warning);
   }
   &--error {
-    border-color: var(--color-message-error);
+    border-color: var(--color-status-message-error);
   }
 }

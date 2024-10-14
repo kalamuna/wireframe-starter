@@ -5,17 +5,17 @@
 .node--card {
   // If the cards have a background, we want them full height so the bottoms line up when in a row.
   height: 100%;
-  background: var(--color-grey-90);
+  background: var(--color-node-card-background);
   // The link wraps around all the contents.
   a, a:visited {
     display: block;
     height: 100%;
-    color: var(--color-text);
+    color: var(--color-node-card-text);
     text-decoration: none;
   }
   a:hover, a:focus {
-    color: var(--color-link);
-    outline: 2px solid var(--color-link);
+    color: var(--color-node-card-text-hover);
+    outline: 2px solid var(--color-node-card-text-hover);
   }
   // The title and non-image fields.
   .node__content {
@@ -24,5 +24,4 @@
       margin-top: 0;
     }
   }
-
 }

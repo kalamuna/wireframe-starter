@@ -7,9 +7,9 @@ a {
 
   // Set the default link colors.
   &, &:visited {
-    color: var(--color-action);
+    color: var(--color-a);
     &:active, &:hover {
-      color: var(--color-action-active);
+      color: var(--color-a-active);
     }
   }
 

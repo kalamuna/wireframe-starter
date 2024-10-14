@@ -17,7 +17,6 @@
       }
     }
     input[type="search"] {
-      background-color: var(--color-background-light);
       border: 0;
       width: 100%;
       padding: .5em 1em;
@@ -29,7 +28,6 @@
     }
     // Style the submit button (and the original input that is swapped out by js).
     button, input[type="submit"] {
-      background-color: var(--color-background-light);
       border: 0;
       border-radius: 0 .25em .25em 0;
       padding: .5em .75em;

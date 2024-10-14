@@ -1,6 +1,6 @@
 
 
-// We are going to use css variables to store our color variables, to make it easy to support light mode.
+// We are going to use css variables to store our color variables.
 :root {
 
   // The palette for this site, matching color names to hexadecimal values.
@@ -20,54 +20,94 @@
   --color-red-40:       #990000;
 
   // Assign colors to common usages that should match each other and change together.
-  --color-text:                   var(--color-grey-20);
-  --color-heading:                var(--color-grey-20);
-  --color-background-body:        var(--color-white);
-  --color-background-light:       var(--color-grey-90);
-  --color-background-heading:     var(--color-grey-80);
-  --color-unpublished-background: var(--color-red-80);
-  --color-action:                 var(--color-blue-50);
-  --color-action-active:          var(--color-blue-40);
-  --color-separator:              var(--color-grey-20);
+  --color-text:                               var(--color-grey-20);
+  --color-heading:                            var(--color-grey-20);
+  --color-background-light:                   var(--color-grey-90);
+  --color-background-heading:                 var(--color-grey-80);
+  --color-unpublished-background:             var(--color-red-80);
 
-  --color-main-menu-background:   var(--color-grey-90);
-  --color-main-menu-hover:        var(--color-grey-80);
-  --color-main-menu-text:         var(--color-grey-20);
-  --color-main-menu-separator:    var(--color-white);
-
-  --color-details-border:         var(--color-grey-80);
-  --color-summary-background:     var(--color-grey-90);
-
-  --color-table-zebra:            var(--color-grey-90);
-  --color-table-head:             var(--color-grey-80);
-  --color-table-border:           var(--color-grey-20);
-
-  --color-error-background:       var(--color-red-80);
-
-  --color-form-border:            var(--color-grey-80);
+  // Link colors.
+  --color-a:                                  var(--color-blue-50);
+  --color-a-active:                           var(--color-blue-40);
 
   // Button colors used by the button mixin.
-  --color-button-primary-text:               var(--color-white);
-  --color-button-primary-background:         var(--color-blue-50);
-  --color-button-primary-border:             var(--color-blue-50);
-  --color-button-primary-text-hover:         var(--color-white);
-  --color-button-primary-background-hover:   var(--color-blue-40);
-  --color-button-primary-border-hover:       var(--color-blue-40);
-  --color-button-secondary-text:             var(--color-blue-50);
-  --color-button-secondary-background:       var(--color-white);
-  --color-button-secondary-border:           var(--color-blue-50);
-  --color-button-secondary-text-hover:       var(--color-blue-50);
-  --color-button-secondary-background-hover: var(--color-blue-90);
-  --color-button-secondary-border-hover:     var(--color-blue-50);
-}
+  --color-button-primary-text:                var(--color-white);
+  --color-button-primary-background:          var(--color-blue-50);
+  --color-button-primary-border:              var(--color-blue-50);
+  --color-button-primary-text-hover:          var(--color-white);
+  --color-button-primary-background-hover:    var(--color-blue-40);
+  --color-button-primary-border-hover:        var(--color-blue-40);
+  --color-button-secondary-text:              var(--color-blue-50);
+  --color-button-secondary-background:        var(--color-white);
+  --color-button-secondary-border:            var(--color-blue-50);
+  --color-button-secondary-text-hover:        var(--color-blue-50);
+  --color-button-secondary-background-hover:  var(--color-blue-90);
+  --color-button-secondary-border-hover:      var(--color-blue-50);
 
-// Set the default body text and background colors.
-body {
-  background: var(--color-background-body);
-  color: var(--color-text);
-}
+  // Body colors.
+  --color-body-background:                    var(--color-white);
+  --color-body-text:                          var(--color-grey-20);
 
-// Make sure it is clear when nodes are unpublished.
-.node--unpublished {
-  background: var(--color-unpublished-background);
+  // Details and summary colors.
+  --color-details-border:                     var(--color-grey-80);
+  --color-summary-background:                 var(--color-grey-90);
+
+  // Form elements.
+  --color-form-border:                        var(--color-grey-80);
+
+  // Horizontal rules and other seperators.
+  --color-separator:                          var(--color-grey-20);
+
+  // Paragraph elements.
+  --color-p-text:                             var(--color-grey-20);
+
+  // Table colors.
+  --color-table-head:                         var(--color-grey-80);
+  --color-table-border:                       var(--color-grey-20);
+  --color-table-zebra:                        var(--color-grey-90);
+
+  // Node card colors.
+  --color-node-unpublished-background:        var(--color-red-90);
+  --color-node-card-background:               var(--color-grey-90);
+  --color-node-card-text:                     var(--color-grey-20);
+  --color-node-card-text-hover:               var(--color-a-active);
+
+  // Layout colors.
+  --color-page-drawer-background:             var(--color-white);
+
+  // Misc template colors.
+  --color-status-message-background:          var(--color-body-background);
+  --color-status-message-status:              var(--color-blue-50);
+  --color-status-message-warning:             var(--color-red-40);
+  --color-status-message-error:               var(--color-red-40);
+
+  // Region alert colors.
+  --color-region-alert-text:                  var(--color-red-40);
+  --color-region-alert-background:            var(--color-red-80);
+
+  // Copyright region colors.
+  --color-region-copyright-background:        var(--color-grey-20);
+  --color-region-copyright-text:              var(--color-white);
+
+  // Footer region colors.
+  --color-region-footer-background:           var(--color-grey-90);
+
+  // Region header menu colors.
+  --color-main-menu-background:               var(--color-grey-90);
+  --color-main-menu-hover:                    var(--color-grey-80);
+  --color-main-menu-text:                     var(--color-grey-20);
+  --color-main-menu-separator:                var(--color-white);
+
+  // Region header utility menu colors.
+  --color-utility-menu-a-hover:               var(--color-a);
+  --color-utility-menu-a-hover:               var(--color-a-hover)
+
+  // Mobile menu colors.
+  --color-mobile-menu-background:             var(--color-grey-90);
+  --color-mobile-menu-separator:              var(--color-page-drawer-background);
+  --color-mobile-menu-item-a:                 var(--color-a);
+  --color-mobile-menu-item-a-hover:           var(--color-a-hover);
+
+  // Used in the media library, but needs to be generalized.
+  --color-error-background:                   var(--color-red-80);
 }

@@ -16,7 +16,7 @@
     a {
       display: block;
       height: 100%;
-      color: var(--color-main-menu-text);
+      color: var(--color-mobile-menu-item-a);
       font-weight: bold;
       text-decoration: none;
       padding: $container-padding;
@@ -24,13 +24,13 @@
       padding-right: calc(#{$container-padding} * 2 + 2em);
       &:hover, &:focus {
         outline-offset: -1px;
-        background: var(--color-main-menu-hover);
+        background: var(--color-mobile-menu-item-a-hover);
       }
     }
 
     // Have a background color for the main menu, and make the children slightly lighter.
     ul {
-      background: var(--color-main-menu-background);
+      background: var(--color-mobile-menu-background);
       ul {
         background: rgba(255,255,255,.5);
       }
@@ -63,13 +63,13 @@
         }
         &:hover {
           svg {
-            background: var(--color-main-menu-hover);
+            background: var(--color-mobile-menu-item-a-hover);
           }
         }
         &:focus {
           outline: 0;
           svg {
-            border-color: var(--color-main-menu-text);
+            border-color: var(--color-mobile-menu-item-a);
           }
         }
         &[aria-expanded="true"] {
@@ -89,10 +89,10 @@
         background: var(--color-mobile-menu-background);
       }
       li:hover > a {
-        background: var(--color-mobile-menu-hover);
+        background: var(--color-mobile-menu-item-a-hover);
       }
       a {
-        color: var(--color-mobile-menu-text);
+        color: var(--color-mobile-menu-item-a);
       }
     }
   }

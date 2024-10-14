@@ -1,0 +1,8 @@
+
+// Assume all paragraphs are page content by default.
+p {
+  margin-block: 1em;
+  font-size: var(--font-size-500);
+  line-height: var(--line-height-paragraph);
+  color: var(--color-p-text);
+}

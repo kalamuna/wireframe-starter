@@ -12,11 +12,11 @@
   }
   // Menu link colors and hover.
   a {
-    color: var(--color-text);
+    color: var(--color-utility-menu-a);
     text-decoration: none;
     font-weight: bold;
     &:hover {
-      color: var(--color-link-active);
+      color: var(--color-utility-menu-a-hover);
     }
   }
   // Add space if there are two menus in this region.
