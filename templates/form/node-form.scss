@@ -56,7 +56,7 @@
     margin-block: 1em;
     // Do not need padding for mulitple value field tables.
     .field-multiple-table {
-      margin-inline: -$container-padding;
+      margin-inline: calc(0 - var(--container-padding));
     }
   }
 
@@ -69,7 +69,7 @@
 
   // Add appropriate spacing around paragraphs fields on the edit form.
   .field--type-entity-reference-revisions {
-    margin-block: $section-spacing;
+    margin-block: var(--section-spacing);
     table {
       margin-block-start: 0;
     }

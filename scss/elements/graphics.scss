@@ -52,7 +52,7 @@ picture {
 
 // For some reason normalize indents figures, including images with captions.
 figure {
-  margin: $container-padding 0;
+  margin: var(--container-padding) 0;
 }
 
 // Add a little space around figcaptions.

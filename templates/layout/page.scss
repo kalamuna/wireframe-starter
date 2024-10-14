@@ -39,8 +39,8 @@
     &::before, &::after {
       content: "";
       grid-area: lpad;
-      width: calc((100vw - #{$container-width} - #{$container-padding} * 2) / 2);
-      margin-right: $container-padding;
+      width: calc((100vw - var(--container-width) - var(--container-padding) * 2) / 2);
+      margin-right: var(--container-padding);
     }
     &::after {
       grid-area: rpad;
@@ -63,7 +63,7 @@
   #region--alert {
     grid-area: alert;
     // Show a bit of the alert banner at the top of the screen, even if the content is hidden.
-    padding-bottom: calc($container-padding / 2);
+    padding-bottom: calc(var(--container-padding) / 2);
     @include breakpoint(large) {
       padding: .25rem 0;
     }
@@ -73,7 +73,7 @@
   #skip-to-content {
     grid-area: skip;
     display: inline-block;
-    margin: $container-padding  $container-padding 0 $container-padding;
+    margin: var(--container-padding)  var(--container-padding) 0 var(--container-padding);
     @include breakpoint(large) {
       margin-left: 0;
     }
@@ -82,9 +82,9 @@
   // Position of the header branding on mobile and desktop.
   #region--header-branding {
     grid-area: brand;
-    padding: $container-padding;
+    padding: var(--container-padding);
     @include breakpoint(large) {
-      padding: $container-padding $container-padding $container-padding 0;
+      padding: var(--container-padding) var(--container-padding) var(--container-padding) 0;
     }
   }
 
@@ -95,7 +95,7 @@
       display: block;
       grid-area: util;
       text-align: right;
-      padding: $container-padding 0;
+      padding: var(--container-padding) 0;
     }
   }
 
@@ -106,7 +106,7 @@
       display: block;
       grid-area: srch;
       text-align: right;
-      padding: 0 0 $container-padding 0 ;
+      padding: 0 0 var(--container-padding) 0 ;
     }
   }
 
@@ -121,7 +121,7 @@
   // Visibility and position of the search form on mobile.
   #region--mobile-search {
     grid-area: srch;
-    padding: 0 $container-padding #{$container-padding * 2} $container-padding;
+    padding: 0 var(--container-padding) calc(var(--container-padding) * 2) var(--container-padding);
     @include breakpoint(large) {
       display: none;
     }

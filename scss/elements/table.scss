@@ -2,7 +2,7 @@
 
 // Html tables for showing data.
 table {
-  margin-top: $container-padding;
+  margin-top: var(--container-padding);
   thead {
     background-color: var(--color-table-head);
     border-bottom: .1em solid var(--color-table-border);
@@ -20,7 +20,7 @@ table {
 
 // Allow the table to scroll on mobile, inside of a wrapping div added by js.
 .table-scroll {
-  margin: 0 -#{$container-padding};
-  padding: 0 #{$container-padding};
+  margin: 0 calc(0 - var(--container-padding));
+  padding: 0 var(--container-padding);
   overflow-x: auto;
 }

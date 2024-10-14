@@ -8,6 +8,6 @@ details {
   }
   // Add padding around the contents of the details box.
   > *:not(summary) {
-    padding-inline: $container-padding;
+    padding-inline: var(--container-padding);
   }
 }

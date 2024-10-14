@@ -8,7 +8,7 @@ section.paragraph {
     }
     // Add top spacing now that the h2 and its margins are gone.
     .paragraph__content {
-      margin-top: $section-spacing;
+      margin-top: var(--section-spacing);
     }
   }
 }

@@ -5,7 +5,7 @@
 #region--mobile-menus {
   nav {
     // Add extra space below the menus so they don't get cut off on ios.
-    margin-bottom: #{$container-padding * 2};
+    margin-bottom: calc(var(--container-padding) * 2);
 
     // Add lines between all menu items on mobile.
     li {
@@ -19,9 +19,9 @@
       color: var(--color-mobile-menu-item-a);
       font-weight: bold;
       text-decoration: none;
-      padding: $container-padding;
+      padding: var(--container-padding);
       // Leave room for the submenu toggle on mobile.
-      padding-right: calc(#{$container-padding} * 2 + 2em);
+      padding-right: calc(var(--container-padding) * 2 + 2em);
       &:hover, &:focus {
         outline-offset: -1px;
         background: var(--color-mobile-menu-item-a-hover);
@@ -51,7 +51,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        padding: calc($container-padding / 2) $container-padding;
+        padding: calc(var(--container-padding) / 2) var(--container-padding);
         border: 0;
         background: transparent;
         svg {
@@ -59,7 +59,7 @@
           border-radius: .5em;
           border: 1.5px solid transparent;
           box-sizing: content-box;
-          padding: calc($container-padding / 2);
+          padding: calc(var(--container-padding) / 2);
         }
         &:hover {
           svg {

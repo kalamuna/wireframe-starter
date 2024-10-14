@@ -10,7 +10,7 @@
   margin-top: 0;
   // The emergency alert toggle is visible on desktop.
   @include breakpoint(large) {
-    margin: 0 $container-padding;
+    margin: 0 var(--container-padding);
     padding: .5rem .25rem;
     height: 4rem;
     width: 3.5rem;
@@ -41,7 +41,7 @@
     }
     // Don't need to leave space when the screen is wider than the container.
     @include breakpoint (xxlarge) {
-      padding-right: $container-padding;
+      padding-right: var(--container-padding);
     }
   }
 
@@ -61,7 +61,7 @@
     border-radius: 1em;
     padding: .25em 1em;
     text-decoration: none;
-    margin: 0 $container-padding 0 0;
+    margin: 0 var(--container-padding) 0 0;
     &:hover, &:focus {
       color: var(--color-region-alert-background);
       background-color: var(--color-region-alert-text);
@@ -75,7 +75,7 @@
       display: flex;
       align-items: flex-start;
       width: 100%;
-      column-gap: $container-padding;
+      column-gap: var(--container-padding);
       // Don't wrap within headings or link buttons.
       h2, a {
         white-space: nowrap;
@@ -84,7 +84,7 @@
         display: flex;
         align-items: flex-start;
         a {
-          margin: 0 0 0 $container-padding;
+          margin: 0 0 0 var(--container-padding);
         }
       }
     }

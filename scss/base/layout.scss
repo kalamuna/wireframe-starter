@@ -8,18 +8,21 @@ $responsive-breakpoints: (
   xxlarge: 100rem, // 1600px
 );
 
-// Set the width and padding of centered containers using the container mixin.
-$container-width: 70rem; // 1120px
-$container-padding: 1.5rem;
+:root {
 
-// The gap between grid columns.
-$column-gap: 1.5rem;
+  // Set the width and padding of centered containers using the container mixin.
+  --container-width: 70rem; // 1120px
+  --container-padding: 1.5rem;
 
-// A smaller width for text blocks to make them legible.
-$text-column-width: 48rem; // 768px
+  // The gap between grid columns.
+  --column-gap: 1.5rem;
 
-// The size of the margins above and below non-full-bleed sections. Usually matches the top margin of an h2.
-$section-spacing: 3rem;
+  // A smaller width for text blocks to make them legible.
+  --text-column-width: 48rem; // 768px
+
+  // The size of the margins above and below non-full-bleed sections. Usually matches the top margin of an h2.
+  --section-spacing: 3rem;
+}
 
 // Use border box sizing by default.
 *, *::before, *::after {

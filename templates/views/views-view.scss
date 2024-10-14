@@ -17,7 +17,7 @@
 .view--view-mode-card {
   .view__content {
     display: grid;
-    grid-gap: $container-padding;
+    grid-gap: var(--container-padding);
     grid-template-columns: 1fr;
     @include breakpoint(medium) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -31,7 +31,7 @@
 // The pager.
 .view .pager {
   .pager__items {
-    margin: #{$container-padding * 2} 0;
+    margin: calc(var(--container-padding) * 2) 0;
     display: flex;
     column-gap: .5em;
     justify-content: center;

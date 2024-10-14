@@ -9,7 +9,7 @@
   > .field--type-text-with-summary {
     @include container;
     > * {
-      max-width: $text-column-width;
+      max-width: var(--text-column-width);
     }
   }
 
@@ -21,16 +21,16 @@
 
   // If the body is the last field, add some extra room before the footer.
   > .field--name-body:last-child {
-    margin-bottom: $section-spacing * 2;
+    margin-bottom: calc(var(--section-spacing) * 2);
   }
 
   // Assume that reference fields are for cards, at least for the moment.
   > .field--type-entity-reference {
     @include container;
-    margin: $section-spacing auto;
+    margin: var(--section-spacing) auto;
     .field__items {
       display: grid;
-      grid-gap: $container-padding;
+      grid-gap: var(--column-gap);
       grid-template-columns: 1fr;
       @include breakpoint(medium) {
         grid-template-columns: repeat(2, minmax(0, 1fr));

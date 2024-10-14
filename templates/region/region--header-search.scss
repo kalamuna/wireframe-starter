@@ -6,7 +6,7 @@
   form {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: #{$container-padding};
+    margin-bottom: var(--container-padding);
     @include breakpoint(large) {
       margin-bottom: 0;
     }

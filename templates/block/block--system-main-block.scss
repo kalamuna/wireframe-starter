@@ -10,6 +10,6 @@
   //Add a container around the content on non-node system pages.
   body:not(.route--entity-node-canonical) & {
     @include container;
-    margin-bottom: #{$container-padding * 2};
+    margin-bottom: calc(var(--container-padding) * 2);
   }
 }

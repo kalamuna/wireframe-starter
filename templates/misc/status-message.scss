@@ -5,8 +5,8 @@
 
 .status-message {
   @include container;
-  margin: $section-spacing auto;
-  padding: $container-padding;
+  margin: var(--section-spacing) auto;
+  padding: var(--container-padding);
   background-color: var(--color-status-message-background);
   // We are going to use a border with colors to indicate severity.
   border-left: .5rem solid var(--color-status-message-status);

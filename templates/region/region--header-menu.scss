@@ -9,7 +9,7 @@
 
   nav {
     // Line up the menu text with other text elements.
-    margin: 0 -#{$container-padding};
+    margin: 0 calc( 0 - var(--container-padding));
 
     // Add lines between items in the dropdowns;
     li {
@@ -29,7 +29,7 @@
       color: var(--color-main-menu-text);
       font-weight: bold;
       text-decoration: none;
-      padding: 1em #{$container-padding};
+      padding: 1em var(--container-padding);
       &:hover, &:focus {
         outline-offset: -1px;
         background: var(--color-main-menu-hover);
@@ -91,7 +91,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        padding: calc($container-padding / 2) $container-padding;
+        padding: calc(var(--container-padding) / 2) var(--container-padding);
         border: 0;
         background: transparent;
         // Don't display toggle to start.
@@ -101,7 +101,7 @@
           border-radius: .5em;
           border: 1.5px solid transparent;
           box-sizing: content-box;
-          padding: calc($container-padding / 2);
+          padding: calc(var(--container-padding) / 2);
         }
         &:hover {
           svg {
