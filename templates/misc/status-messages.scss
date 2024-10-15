@@ -1,0 +1,21 @@
+
+//
+// Style the system messages.
+//
+
+.status-messages {
+  @include container;
+  .status-message {
+    margin: var(--section-spacing) auto;
+    padding: var(--container-padding);
+    background-color: var(--color-status-message-background);
+    // We are going to use a border with colors to indicate severity.
+    border-left: .5rem solid var(--color-status-message-status);
+    &--warning {
+      border-color: var(--color-status-message-warning);
+    }
+    &--error {
+      border-color: var(--color-status-message-error);
+    }
+  }
+}
