@@ -9,7 +9,7 @@
 
   nav {
     // Line up the menu text with other text elements.
-    margin: 0 calc( 0 - var(--container-padding));
+    margin: 0 calc(-1 * var(--container-padding));
 
     // Add lines between items in the dropdowns;
     li {

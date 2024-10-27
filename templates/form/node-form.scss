@@ -56,7 +56,7 @@
     margin-block: 1em;
     // Do not need padding for mulitple value field tables.
     .field-multiple-table {
-      margin-inline: calc(0 - var(--container-padding));
+      margin-inline: calc(-1 * var(--container-padding));
     }
   }
 
