@@ -43,33 +43,38 @@
     'field--' ~ field_name|clean_class,
     'field--' ~ field_type|clean_class,
     'field--label-' ~ label_display,
-    label_display == 'inline' ? 'clearfix',
   ]
 %}
 {%
-  set title_classes = [
+  set label_classes = [
     'field__label',
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
 
-{# Always wrap divs around the fields and values, rather than playing games with if statements to reduce markup. #}
-<div{{ attributes.addClass(classes) }}>
+{# Can't use a set statement at the top for a default section_element and such since twig.js doesn't handle it properly. #}
+
+{# Allow extending templates to change the field element to a <section>. #}
+<{{ section_element ?: 'div' }}{{ attributes.addClass(classes) }}>
 
   {# Show the field label if it is not set to hidden. #}
   {% if not label_hidden %}
-    <{{ label_element ?: 'div' }} {{ title_attributes.addClass(title_classes) }}>{{ label }}</{{ label_element ?: 'div' }}>
+    {# Allow extending templates to change the label element to a <h2>. #}
+    <{{ label_element ?: 'div' }}{{ title_attributes.addClass(label_classes) }}>{{ label }}</{{ label_element ?: 'div' }}>
   {% endif %}
 
-  {# Show the field values using divs or the elements from extended templates. #}
+  {# Allow extending templates to change the item elements with a <ul> and <li>. #}
   <{{ items_element ?: 'div' }} class="field__items">
-  {% for item in items %}
-    <{{ item_element ?: 'div' }}{{ item.attributes.addClass('field__item') }}>
-      {% block item_content %}
-        {{ item.content }}
-      {% endblock item_content %}
-    </{{ item_element ?: 'div' }}>
-  {% endfor %}
+    {% for item in items %}
+      <{{ item_element ?: 'div' }}{{ item.attributes.addClass('field__item') }}>
+
+        {# Allow extending templates to change how the individual items are rendered. #}
+        {% block item_content %}
+          {{ item.content }}
+        {% endblock item_content %}
+
+      </{{ item_element ?: 'div' }}>
+    {% endfor %}
   </{{ items_element ?: 'div' }}>
 
-</div>
+</{{ section_element ?: 'div'}}>
